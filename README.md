@@ -17,7 +17,7 @@ The Election Voting System is a web application developed in React using Redux T
 
 #### Installation
 
-1. Clone the repository: `git clone https://github.com/your-repository.git`
+1. Clone the repository: `git clone https://github.com/AliAsgharGill/EVS.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
