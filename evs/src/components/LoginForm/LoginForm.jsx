@@ -44,7 +44,7 @@ const LoginForm = () => {
         <p className='hover:text-black'>
           Dont have an account
           <Link className='text-blue-500 hover:text-[#F09A3E]' to='/signup' >
-            --Regiter Now
+            --Register Now
           </Link>
         </p>
       </Form.Item>

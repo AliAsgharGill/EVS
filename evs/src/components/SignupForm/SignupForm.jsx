@@ -4,7 +4,7 @@ import { signUpUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
 
 
-const SignupForm = ({ onClose }) => {
+const SignupForm = () => {
     const dispatch = useDispatch()
 
     const onFinish = (values) => {

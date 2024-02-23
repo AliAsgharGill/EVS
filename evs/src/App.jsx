@@ -15,8 +15,8 @@ import Layout from "./layout/Layout";
 import CandidateList from "./pages/CandidatesList/CandidatesList";
 import Home from "./pages/Home/Home";
 import Vote from "./pages/Vote/Vote";
-import Login from "./pages/LoginPage/Login";
-import Signup from "./pages/Signup/Signup";
+import Login from "./pages/SignInPage/SignIn";
+import Signup from "./pages/SignupPage/Signup";
 
 
 

@@ -16,16 +16,10 @@ const Home = () => {
                 {/* <Link to="/candidates">Candidates</Link> */}
                 <Row justify="center" style={{ marginTop: 100 }}>
                     <Col span={8}>
-                        <Button onClick={showModal} >Open</Button>
-                        <Modal show={show}  >
-                            <div>
-                                <SignupForm onClose={closeModal} />
-                            </div>
-                        </Modal>
+                    
                     </Col>
                     <Col span={8}>
-                        <h1>Login</h1>
-                        <LoginForm />
+                    
                     </Col>
                 </Row>
             </div >
