@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { Row, Col, Button } from 'antd'
-import SignupForm from "../components/SignupForm"
-import LoginForm from "../components/LoginForm"
+import SignupForm from "../components/SignupForm/SignupForm"
+import LoginForm from "../components/LoginForm/LoginForm"
 import { useState } from "react"
 
 

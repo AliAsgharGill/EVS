@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCandidates } from '../slices/canidateSlice'
+import { fetchCandidates } from '../../slices/canidateSlice'
 import { Card, Modal } from "antd"
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 
