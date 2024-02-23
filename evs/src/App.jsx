@@ -4,18 +4,21 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-  Routes,
-  Link,
 } from "react-router-dom";
 
 import "./App.css";
+
+//Layout
+import Layout from "./layout/Layout";
+
 //Pages
 import CandidateList from "./pages/CandidatesList/CandidatesList";
 import Home from "./pages/Home/Home";
 import Vote from "./pages/Vote/Vote";
+import Login from "./pages/LoginPage/Login";
+import Signup from "./pages/Signup/Signup";
 
-//Layout
-import Layout from "./layout/Layout";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,22 +26,10 @@ const router = createBrowserRouter(
       <Route index path="/" element={<Home />} />
       <Route path="/candidates" element={<CandidateList />} />
       <Route path="/vote" element={<Vote />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
     </Route>
   )
-  // [
-  // {
-  //   path: "/",
-  //   element: <Home />
-  // },
-  // {
-  //   path: "candidates",
-  //   element: <CandidateList />
-  // },
-  // {
-  //   path: "about",
-  //   element: <div>About</div>,
-  // },
-  // ]
 );
 function App() {
   return (

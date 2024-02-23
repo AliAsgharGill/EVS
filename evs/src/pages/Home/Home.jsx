@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { Row, Col, Button } from 'antd'
 import SignupForm from "../../components/SignupForm/SignupForm"
 import LoginForm from '../../components/LoginForm/LoginForm'
@@ -13,9 +12,8 @@ const Home = () => {
 
     return (
         <>
-            <div className="min-h-screen mt-10 "  >
-                <h1>hello</h1>
-                <Link to="/candidates">Candidates</Link>
+            <div className="min-h-screen mt-12 ">
+                {/* <Link to="/candidates">Candidates</Link> */}
                 <Row justify="center" style={{ marginTop: 100 }}>
                     <Col span={8}>
                         <Button onClick={showModal} >Open</Button>

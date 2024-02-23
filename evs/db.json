@@ -4,8 +4,8 @@
       "id": 1,
       "name": "Abdul Latif - عبد اللطیف",
       "username": "Bret",
-      "image":"public/Images/symbols/na1.jpg",
-      "na":"NA-1",
+      "image": "public/Images/symbols/na1.jpg",
+      "na": "NA-1",
       "email": "Sincere@april.biz",
       "address": {
         "street": "Kulas Light",
@@ -29,8 +29,8 @@
       "id": 2,
       "name": "Amjad Ali Khan - امجد علی خان",
       "username": "Antonette",
-      "image":"public/Images/symbols/na2.jpg",
-      "na":"NA-2",
+      "image": "public/Images/symbols/na2.jpg",
+      "na": "NA-2",
       "email": "Shanna@melissa.tv",
       "address": {
         "street": "Victor Plains",
@@ -54,8 +54,8 @@
       "id": 3,
       "name": "Sohail Sultan - سہیل سلطان",
       "username": "Samantha",
-      "image":"public/Images/symbols/na3.jpg",
-      "na":"NA-3",
+      "image": "public/Images/symbols/na3.jpg",
+      "na": "NA-3",
       "email": "Nathan@yesenia.net",
       "address": {
         "street": "Douglas Extension",
@@ -79,8 +79,8 @@
       "id": 4,
       "name": "Sahibzada Sibghatullah - صاحبزادہ صبغت اللہ",
       "username": "Karianne",
-      "image":"public/Images/symbols/na4.jpg",
-      "na":"NA-4",
+      "image": "public/Images/symbols/na4.jpg",
+      "na": "NA-4",
       "email": "Julianne.OConner@kory.org",
       "address": {
         "street": "Hoeger Mall",
@@ -104,8 +104,8 @@
       "id": 5,
       "name": "Chelsey Dietrich",
       "username": "Kamren",
-      "image":"public/Images/symbols/na5.jpg",
-      "na":"NA-5",
+      "image": "public/Images/symbols/na5.jpg",
+      "na": "NA-5",
       "email": "Lucio_Hettinger@annie.ca",
       "address": {
         "street": "Skiles Walks",
@@ -127,9 +127,9 @@
     },
     {
       "id": 6,
-      "name": "Muhammad Bashir Khan - محمد بشیر خان",      
-      "image":"public/Images/symbols/na6.jpg",
-      "na":"NA-6",
+      "name": "Muhammad Bashir Khan - محمد بشیر خان",
+      "image": "public/Images/symbols/na6.jpg",
+      "na": "NA-6",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
       "address": {
@@ -154,8 +154,8 @@
       "id": 7,
       "name": "Mehboob Shah - محبوب شاہ",
       "username": "Elwyn.Skiles",
-      "image":"public/Images/symbols/na7.jpg",
-      "na":"NA-7",
+      "image": "public/Images/symbols/na7.jpg",
+      "na": "NA-7",
       "email": "Telly.Hoeger@billy.biz",
       "address": {
         "street": "Rex Trail",
@@ -179,8 +179,8 @@
       "id": 8,
       "name": "Gul Zafar Khan - گل ظفر خان",
       "username": "Maxime_Nienow",
-      "image":"public/Images/symbols/na8.jpg",
-      "na":"NA-8",
+      "image": "public/Images/symbols/na8.jpg",
+      "na": "NA-8",
       "email": "Sherwood@rosamond.me",
       "address": {
         "street": "Ellsworth Summit",
@@ -204,8 +204,8 @@
       "id": 9,
       "name": "Junaid Akbar - جنید اکبر",
       "username": "Delphine",
-      "image":"public/Images/symbols/na9.jpg",
-      "na":"NA-9",
+      "image": "public/Images/symbols/na9.jpg",
+      "na": "NA-9",
       "email": "Chaim_McDermott@dana.io",
       "address": {
         "street": "Dayna Park",
@@ -219,7 +219,7 @@
       },
       "phone": "(775)976-6794 x41206",
       "website": "conrad.com",
-      "company": {  
+      "company": {
         "name": "Yost and Sons",
         "catchPhrase": "Switchable contextually-based project",
         "bs": "aggregate real-time technologies"
@@ -229,8 +229,8 @@
       "id": 10,
       "name": "Gohar Ali Khan - گوہر علی خان",
       "username": "Moriah.Stanton",
-      "image":"public/Images/symbols/na10.jpg",
-      "na":"NA-10",
+      "image": "public/Images/symbols/na10.jpg",
+      "na": "NA-10",
       "email": "Rey.Padberg@karina.biz",
       "address": {
         "street": "Kattie Turnpike",
@@ -252,7 +252,72 @@
     }
   ],
   "result": [
-    { "id": 1, "candidateId": 1, "votes": 100 },
-    { "id": 2, "candidateId": 2, "votes": 150 }
+    {
+      "id": 1,
+      "votes": 100
+    },
+    {
+      "id": 2,
+      "votes": 150
+    }
+  ],
+  "signin": [
+    {
+      "email": "Sincere@april.biz",
+      "password": "Sincere123"
+    },
+    {
+      "email": "Julianne.OConner@kory.org",
+      "password": "Julianne123"
+    },
+    {
+      "id": "6bda",
+      "email": "Ali",
+      "password": "123"
+    },
+    {
+      "id": "286b",
+      "email": "Ali",
+      "password": "jkh"
+    },
+    {
+      "id": "f443",
+      "email": "Ali",
+      "password": "jkh"
+    },
+    {
+      "id": "b703",
+      "email": "Ali",
+      "password": "jkh"
+    }
+  ],
+  "signup": [
+    {
+      "name": "Abdul Latif - عبد اللطیف",
+      "email": "Chaim_McDermott@dana.io",
+      "password": "Chaim123"
+    },
+    {
+      "name": "Amjad Ali Khan - امجد علی خان",
+      "email": "Shanna@melissa.tv",
+      "password": "Shanna123"
+    },
+    {
+      "id": "9cc6",
+      "email": "saim",
+      "password": "123saim"
+    },
+    {
+      "id": "7c1a",
+      "name": "Ali",
+      "email": "Ali@gmail.com",
+      "password": "ali123"
+    },
+    {
+      "id": "d8a3",
+      "name": "Ali",
+      "email": "Ali@gmail.com",
+      "password": "ali123"
+    }
   ]
 }
