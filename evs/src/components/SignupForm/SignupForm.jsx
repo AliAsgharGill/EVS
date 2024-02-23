@@ -1,6 +1,6 @@
 import { Form, Input, Button } from 'antd';
 import { useDispatch } from 'react-redux'
-import { signUpUser } from '../../slices/authSlice';
+import { signUpUser } from '../../slices/authSlice/authSlice';
 
 
 const SignupForm = ({ onClose }) => {

@@ -2,28 +2,44 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  // Route,
+  createRoutesFromElements,
+  Route,
+  Routes,
   Link,
 } from "react-router-dom";
 
 import "./App.css";
-import CandidateList from "./components/CandidatesList";
-import Home from "./pages/Home";
+//Pages
+import CandidateList from "./pages/CandidatesList/CandidatesList";
+import Home from "./pages/Home/Home";
+import Vote from "./pages/Vote/Vote";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />    
-  },
-  {
-    path: "candidates",
-    element: <CandidateList  />
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
-  },
-]);
+//Layout
+import Layout from "./layout/Layout";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index path="/" element={<Home />} />
+      <Route path="/candidates" element={<CandidateList />} />
+      <Route path="/vote" element={<Vote />} />
+    </Route>
+  )
+  // [
+  // {
+  //   path: "/",
+  //   element: <Home />
+  // },
+  // {
+  //   path: "candidates",
+  //   element: <CandidateList />
+  // },
+  // {
+  //   path: "about",
+  //   element: <div>About</div>,
+  // },
+  // ]
+);
 function App() {
   return (
     <>

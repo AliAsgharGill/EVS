@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCandidates } from '../../slices/canidateSlice'
+import { fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
 import { Card, Modal } from "antd"
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 
@@ -15,10 +15,10 @@ const CandidateList = () => {
 
     const handleEdit = (id) => {
         const findCandidate = candidates.find(candidate => candidate.id === id)
-    // setCandidate(findCandidate)
-    console.log('Can:', findCandidate);
+        // setCandidate(findCandidate)
+        console.log('Can:', findCandidate);
     }
-    
+
     const handleIdCardClick = (id) => {
         const findCandidate = candidates.find(candidate => candidate.id === id)
         setSelectedCandidate(findCandidate)
@@ -44,6 +44,7 @@ const CandidateList = () => {
 
     return (
         <>
+
             <h1 className='font-bold text-3xl mb-10 text-gray-500 '>List of Candidates</h1>
 
             {/* List of Candidates */}
