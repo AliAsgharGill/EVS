@@ -45,18 +45,18 @@ const SignupForm = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button style={{ backgroundColor: 'red' }} type="primary" htmlType="submit">
+                <Button className='bg-gray-900' type="primary" htmlType="submit">
                     Sign Up
                 </Button>
             </Form.Item>
             <Form.Item>
-        <p className='hover:text-black'>
-           Already have an account? 
-          <Link className='text-blue-500 hover:text-[#F09A3E]' to='/login' >
-             --Login Now
-          </Link>
-        </p>
-      </Form.Item>            
+                <p className='hover:text-black'>
+                    Already have an account?
+                    <Link className='text-blue-500 hover:text-[#F09A3E]' to='/login' >
+                        --Login Now
+                    </Link>
+                </p>
+            </Form.Item>
         </Form>
     );
 };

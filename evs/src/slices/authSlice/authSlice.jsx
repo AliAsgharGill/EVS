@@ -19,6 +19,16 @@ export const signInUser = createAsyncThunk('signInUser', async (body) => {
     return await response.json();
 })
 
+export const addNewCandidate = createAsyncThunk('addNewCandidate', async (body) => {
+    const response = await axios.post('http://localhost:3000/candidates', body, {
+        headers: {
+            'Content-Type': "application/json",
+        },
+    });
+    return await response.json();
+})
+
+
 
 const initialState = {
     msg: '',
@@ -57,6 +67,8 @@ const authSlice = createSlice({
 
                 }
             )
+
+
         // for signIn
         builder.addCase(signInUser.pending, (state) => {
             state.loading = true
@@ -83,6 +95,33 @@ const authSlice = createSlice({
 
                 }
             )
+        // for adding new candidate
+        builder.addCase(addNewCandidate.pending, (state) => {
+            state.loading = true
+        })
+
+            .addCase(addNewCandidate.fulfilled, (state, { payload: { error, msg, token, user } }) => {
+                state.loading = false
+                if (error) {
+                    state.error = error
+                } else {
+                    state.msg = msg,
+                        state.token = token,
+                        state.user = user
+
+                    localStorage.setItem('msg', msg)
+                    localStorage.setItem('token', JSON.stringify(user))
+                    localStorage.setItem('user', user)
+
+                }
+            }
+            ).addCase(
+                addNewCandidate.rejected, (state) => {
+                    state.loading = true
+
+                }
+            )
+
 
     }
 })

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
-import { Card, Modal } from "antd"
+import { Card, Modal, Button } from "antd"
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
+import SignupForm from '../../components/SignupForm/SignupForm';
+import AddNewCandidateForm from '../../components/NewCandidateForm/AddNewCandidateForm';
 
 
 const CandidateList = () => {
@@ -26,6 +28,7 @@ const CandidateList = () => {
     }
     const [selectedCandidate, setSelectedCandidate] = useState(false)
     const [isModalVisible, setIsModalVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
 
 
     useEffect(() => {
@@ -42,11 +45,17 @@ const CandidateList = () => {
         return <div>Error:{error}</div>
     }
 
+    const handleAddNewCandidate = () => {
+        setIsVisible(true)
+    }
+
     return (
         <>
 
-            <h1 className='font-bold text-3xl mb-10 text-gray-500 '>List of Candidates</h1>
-
+            <h1 className='font-bold text-3xl  my-14 text-gray-500 '>List of Candidates</h1>
+            <div className='flex my-5' >
+                <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={handleAddNewCandidate} > Add New Candidate</Button>
+            </div>
             {/* List of Candidates */}
             <div className=' grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {candidates.map((candidate) => (
@@ -98,6 +107,9 @@ const CandidateList = () => {
                         </div>
                     </Card>
                 )}
+            </Modal>
+            <Modal open={isVisible} title="Add Canditate For National Assembly" onCancel={() => setIsVisible(false)} onOk={() => setIsVisible(false)}  >
+                {<AddNewCandidateForm />}
             </Modal>
 
         </>

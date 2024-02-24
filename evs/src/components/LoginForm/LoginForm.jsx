@@ -22,10 +22,10 @@ const LoginForm = () => {
         label="Email"
         name="email"
         rules={[{ required: true, message: 'Please enter your email!' }]}
+
       >
         <Input />
       </Form.Item>
-
       <Form.Item
         label="Password"
         name="password"

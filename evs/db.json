@@ -1,7 +1,7 @@
 {
   "candidates": [
     {
-      "id": 1,
+      "candidateID": 1,
       "name": "Abdul Latif - عبد اللطیف",
       "username": "Bret",
       "image": "public/Images/symbols/na1.jpg",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "id": 2,
+      "candidateID": 2,
       "name": "Amjad Ali Khan - امجد علی خان",
       "username": "Antonette",
       "image": "public/Images/symbols/na2.jpg",
@@ -51,7 +51,7 @@
       }
     },
     {
-      "id": 3,
+      "candidateID": 3,
       "name": "Sohail Sultan - سہیل سلطان",
       "username": "Samantha",
       "image": "public/Images/symbols/na3.jpg",
@@ -76,7 +76,7 @@
       }
     },
     {
-      "id": 4,
+      "candidateID": 4,
       "name": "Sahibzada Sibghatullah - صاحبزادہ صبغت اللہ",
       "username": "Karianne",
       "image": "public/Images/symbols/na4.jpg",
@@ -101,7 +101,7 @@
       }
     },
     {
-      "id": 5,
+      "candidateID": 5,
       "name": "Chelsey Dietrich",
       "username": "Kamren",
       "image": "public/Images/symbols/na5.jpg",
@@ -126,7 +126,7 @@
       }
     },
     {
-      "id": 6,
+      "candidateID": 6,
       "name": "Muhammad Bashir Khan - محمد بشیر خان",
       "image": "public/Images/symbols/na6.jpg",
       "na": "NA-6",
@@ -151,7 +151,7 @@
       }
     },
     {
-      "id": 7,
+      "candidateID": 7,
       "name": "Mehboob Shah - محبوب شاہ",
       "username": "Elwyn.Skiles",
       "image": "public/Images/symbols/na7.jpg",
@@ -176,7 +176,7 @@
       }
     },
     {
-      "id": 8,
+      "candidateID": 8,
       "name": "Gul Zafar Khan - گل ظفر خان",
       "username": "Maxime_Nienow",
       "image": "public/Images/symbols/na8.jpg",
@@ -201,7 +201,7 @@
       }
     },
     {
-      "id": 9,
+      "candidateID": 9,
       "name": "Junaid Akbar - جنید اکبر",
       "username": "Delphine",
       "image": "public/Images/symbols/na9.jpg",
@@ -226,7 +226,7 @@
       }
     },
     {
-      "id": 10,
+      "candidateID": 10,
       "name": "Gohar Ali Khan - گوہر علی خان",
       "username": "Moriah.Stanton",
       "image": "public/Images/symbols/na10.jpg",
@@ -249,40 +249,57 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       }
+    },
+    {
+      "id": "ebac",
+      "name": "123",
+      "email": "stylinalivlogs@gmail.com",
+      "password": "dsf"
     }
   ],
   "result": [
     {
-      "id": 1,
+      "voterID": 1,
       "votes": 100
     },
     {
-      "id": 2,
+      "voterID": 2,
       "votes": 150
     }
   ],
   "signin": [
     {
-      "email": "Sincere@april.biz",
-      "password": "Sincere123"
+      "id": "1",
+      "password": "Chaim123"
     },
     {
-      "email": "Julianne.OConner@kory.org",
-      "password": "Julianne123"
+      "id": "2",
+      "password": "Shanna123"
+    },
+    {
+      "id": "84c9",
+      "email": "Real Me",
+      "password": "real me"
     }
   ],
   "signup": [
     {
-      "id": "1",
+      "voterID": "1",
       "name": "Abdul Latif - عبد اللطیف",
       "email": "Chaim_McDermott@dana.io",
       "password": "Chaim123"
     },
     {
-      "id": "2",
+      "voterID": "2",
       "name": "Amjad Ali Khan - امجد علی خان",
       "email": "Shanna@melissa.tv",
       "password": "Shanna123"
+    },
+    {
+      "id": "dc99",
+      "name": "AliHo",
+      "email": "AliHo@gmail.com",
+      "password": "aliHO"
     }
   ]
 }
