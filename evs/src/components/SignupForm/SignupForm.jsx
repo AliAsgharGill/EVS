@@ -4,7 +4,7 @@ import { signUpUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
 
 
-const SignupForm = () => {
+const SignupForm = ({ prop }) => {
     const dispatch = useDispatch()
 
     const onFinish = (values) => {
@@ -14,7 +14,7 @@ const SignupForm = () => {
 
     return (
         <Form
-            className="bg-gray-300 p-10 rounded w-1/3"
+            className={`bg-gray-300 p-10 rounded ${prop}`}
             name="signup-form"
             onFinish={onFinish}
             layout="vertical"
@@ -57,7 +57,7 @@ const SignupForm = () => {
                     </Link>
                 </p>
             </Form.Item>
-        </Form>
+        </Form >
     );
 };
 

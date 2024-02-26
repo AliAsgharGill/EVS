@@ -4,7 +4,7 @@ const Login = () => {
     return (
         <>
             <div className="min-h-screen flex justify-center items-center">
-                <LoginForm />
+                <LoginForm prop='w-[400px]' />
             </div>
         </>
     )

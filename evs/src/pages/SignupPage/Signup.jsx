@@ -4,7 +4,7 @@ const Signup = () => {
     return (
         <>
             <div className="min-h-screen flex justify-center items-center ">
-                <SignupForm />
+                <SignupForm prop='w-[400px]'  />
             </div>
         </>
     )

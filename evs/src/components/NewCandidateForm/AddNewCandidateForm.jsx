@@ -1,4 +1,4 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Upload } from "antd";
 
 import { useDispatch } from "react-redux";
 import { addNewCandidate } from "../../slices/authSlice/authSlice";
@@ -17,6 +17,7 @@ const AddNewCandidateForm = () => {
   return (
     <div className="flex justify-center   ">
       <Form
+
         className="bg-gray-300 p-10 rounded "
         name="signup-form"
         onFinish={onFinish}
@@ -39,12 +40,33 @@ const AddNewCandidateForm = () => {
         </Form.Item>
 
         <Form.Item
+          label="Na Number"
+          name="na"
+          rules={[{ required: true, message: "Please enter your NA Number!" }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please enter your password!" }]}
         >
           <Input.Password />
         </Form.Item>
+
+
+        <Form.Item
+          label="Symbol Image"
+          name="image"
+          rules={[{ required: true, message: "Please enter your Symbol Image!" }]}
+        >
+          <Upload action={'http://localhost:3000/candidates'}>
+            <Button>Upload</Button>
+          </Upload>
+        </Form.Item>
+
+
         <Form.Item>
           <Button className="bg-gray-900" type="primary" htmlType="submit">
             Add

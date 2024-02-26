@@ -2,7 +2,7 @@ import { Form, Input, Button } from 'antd';
 import { useDispatch } from 'react-redux'
 import { signInUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
-const LoginForm = () => {
+const LoginForm = ({ prop }) => {
 
   const dispatch = useDispatch()
 
@@ -12,11 +12,12 @@ const LoginForm = () => {
   };
 
   return (
+
     <Form
       name="login-form"
       onFinish={onFinish}
       layout="vertical"
-      className='bg-gray-300 p-10 rounded w-1/3'
+      className={`bg-gray-300 p-10 rounded ${prop}`}
     >
       <Form.Item
         label="Email"
