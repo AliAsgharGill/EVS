@@ -3,6 +3,7 @@
         "id": "1",
         "name": "Leanne Graham",
         "symbol": "public/Images/symbols/na1.jpg",
+        "votes": "0",
         "username": "Bret",
         "email": "Sincere@april.biz",
         "address": {
@@ -26,6 +27,7 @@
     {
         "id": "2",
         "name": "Ervin Howell",
+        "votes": "0",
         "symbol": "public/Images/symbols/na2.jpg",
         "username": "Antonette",
         "email": "Shanna@melissa.tv",
@@ -51,6 +53,7 @@
         "id": "3",
         "name": "Leanne Graham ok",
         "symbol": "public/Images/symbols/na3.jpg",
+        "votes": "0",
         "username": "Samantha",
         "email": "Nathan@yesenia.net",
         "address": {
@@ -77,6 +80,7 @@
         "username": "Karianne",
         "symbol": "public/Images/symbols/na4.jpg",
         "email": "Julianne.OConner@kory.org",
+        "votes": "0",
         "address": {
             "street": "Hoeger Mall",
             "suite": "Apt. 692",
@@ -98,6 +102,7 @@
     {
         "id": "5",
         "name": "Chelsey Dietrich",
+        "votes": "0",
         "symbol": "public/Images/symbols/na5.jpg",
         "username": "Kamren",
         "email": "Lucio_Hettinger@annie.ca",
@@ -122,6 +127,7 @@
     {
         "id": "6",
         "name": "Mrs. Dennis Schulist",
+        "votes": "0",
         "symbol": "public/Images/symbols/na6.jpg",
         "username": "Leopoldo_Corkery",
         "email": "Karley_Dach@jasper.info",
@@ -146,6 +152,7 @@
     {
         "id": "7",
         "name": "Kurtis Weissnat",
+        "votes": "0",
         "symbol": "public/Images/symbols/na7.jpg",
         "username": "Elwyn.Skiles",
         "email": "Telly.Hoeger@billy.biz",
@@ -170,6 +177,7 @@
     {
         "id": "8",
         "name": "Nicholas Runolfsdottir V",
+        "votes": "0",
         "symbol": "public/Images/symbols/na8.jpg",
         "username": "Maxime_Nienow",
         "email": "Sherwood@rosamond.me",
@@ -194,6 +202,7 @@
     {
         "id": "9",
         "name": "Glenna Reichert",
+        "votes": "0",
         "symbol": "public/Images/symbols/na9.jpg",
         "username": "Delphine",
         "email": "Chaim_McDermott@dana.io",
@@ -218,6 +227,7 @@
     {
         "id": "10",
         "name": "Clementina DuBuque",
+        "votes": "0",
         "symbol": "public/Images/symbols/na10.jpg",
         "username": "Moriah.Stanton",
         "email": "Rey.Padberg@karina.biz",

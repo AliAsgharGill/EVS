@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 export const HomePageHero = () => {
     const navigate = useNavigate()
-    const result = useSelector(state => state.user)
-    console.log("Result:",);
+    const candidates = useSelector(state => state.candidates.candidates)
+
     return (
         <div className="relative">
             <img
@@ -52,12 +52,19 @@ export const HomePageHero = () => {
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                                 <h3 className="font-bold text-lg">Voting Result Till Now!</h3>
-                                {/* {result.map(candidate => { candidate.name })} */}
+                                {candidates ?
+                                    candidates.map(candidate => (
+                                        <div className="flex justify-between bg-slate-300 p-2 rounded-md space-x-3  " key={candidate.id}>
+                                            <p> {candidate.name} Got</p>
+                                            <p> {candidate.votes} Votes</p>
+                                        </div>
+                                    ))
+                                    : "Waiting For Result"}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };

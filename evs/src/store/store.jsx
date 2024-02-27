@@ -7,7 +7,8 @@ const store = configureStore({
   reducer: {
     candidates: candidateReducer,
     user: authSlice,
-    myCandidates: voteCandidates
+    myCandidates: voteCandidates,
+    voteCandidates: voteCandidates
   },
 }); ``
 
