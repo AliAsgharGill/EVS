@@ -3,6 +3,7 @@
     {
       "id": "1",
       "name": "Leanne Graham",
+      "symbol": "public/Images/symbols/na1.jpg",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
@@ -26,6 +27,7 @@
     {
       "id": "2",
       "name": "Ervin Howell",
+      "symbol": "public/Images/symbols/na2.jpg",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
       "address": {
@@ -48,7 +50,8 @@
     },
     {
       "id": "3",
-      "name": "Clementine Bauch",
+      "name": "Leanne Graham ok",
+      "symbol": "public/Images/symbols/na3.jpg",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {
@@ -71,9 +74,10 @@
     },
     {
       "id": "4",
-      "name": "Ali Asghar",
+      "name": "okok",
       "username": "Karianne",
-      "email": "Julianne.OsdfConner@kory.org",
+      "symbol": "public/Images/symbols/na4.jpg",
+      "email": "Julianne.OConner@kory.org",
       "address": {
         "street": "Hoeger Mall",
         "suite": "Apt. 692",
@@ -84,7 +88,7 @@
           "lng": "-164.2990"
         }
       },
-      "phone": "03026822324",
+      "phone": "493-170-9623 x156",
       "website": "kale.biz",
       "company": {
         "name": "Robel-Corkery",
@@ -95,6 +99,7 @@
     {
       "id": "5",
       "name": "Chelsey Dietrich",
+      "symbol": "public/Images/symbols/na5.jpg",
       "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
       "address": {
@@ -118,6 +123,7 @@
     {
       "id": "6",
       "name": "Mrs. Dennis Schulist",
+      "symbol": "public/Images/symbols/na6.jpg",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
       "address": {
@@ -141,6 +147,7 @@
     {
       "id": "7",
       "name": "Kurtis Weissnat",
+      "symbol": "public/Images/symbols/na7.jpg",
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",
       "address": {
@@ -164,6 +171,7 @@
     {
       "id": "8",
       "name": "Nicholas Runolfsdottir V",
+      "symbol": "public/Images/symbols/na8.jpg",
       "username": "Maxime_Nienow",
       "email": "Sherwood@rosamond.me",
       "address": {
@@ -187,6 +195,7 @@
     {
       "id": "9",
       "name": "Glenna Reichert",
+      "symbol": "public/Images/symbols/na9.jpg",
       "username": "Delphine",
       "email": "Chaim_McDermott@dana.io",
       "address": {
@@ -210,6 +219,7 @@
     {
       "id": "10",
       "name": "Clementina DuBuque",
+      "symbol": "public/Images/symbols/na10.jpg",
       "username": "Moriah.Stanton",
       "email": "Rey.Padberg@karina.biz",
       "address": {
@@ -228,49 +238,6 @@
         "name": "Hoeger LLC",
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
-      }
-    },
-    {
-      "id": "8390",
-      "name": "Ahmed",
-      "email": "ahmed@gmail.com",
-      "na": "3232",
-      "password": "fsdf23",
-      "image": {
-        "file": {
-          "uid": "rc-upload-1709008522949-2",
-          "lastModified": 1708352005411,
-          "lastModifiedDate": "2024-02-19T14:13:25.411Z",
-          "name": "81fFwRCJidL._AC_UF1000,1000_QL80_.jpg",
-          "size": 120576,
-          "type": "image/jpeg",
-          "percent": 0,
-          "originFileObj": {
-            "uid": "rc-upload-1709008522949-2"
-          },
-          "error": {
-            "isTrusted": true
-          },
-          "status": "error"
-        },
-        "fileList": [
-          {
-            "uid": "rc-upload-1709008522949-2",
-            "lastModified": 1708352005411,
-            "lastModifiedDate": "2024-02-19T14:13:25.411Z",
-            "name": "81fFwRCJidL._AC_UF1000,1000_QL80_.jpg",
-            "size": 120576,
-            "type": "image/jpeg",
-            "percent": 0,
-            "originFileObj": {
-              "uid": "rc-upload-1709008522949-2"
-            },
-            "error": {
-              "isTrusted": true
-            },
-            "status": "error"
-          }
-        ]
       }
     }
   ],

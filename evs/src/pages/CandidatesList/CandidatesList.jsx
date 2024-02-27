@@ -32,6 +32,7 @@ const CandidateList = () => {
     const handleUpdateCandidate = () => {
         dispatch(candidatesActions.updateCandidate(edit));
         setViewModal(false);
+        setEdit("")
     }
 
 
@@ -103,7 +104,7 @@ const CandidateList = () => {
                         hoverable={true}
                     >
                         <div key={candidate.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded h-[350px]'>
-                            <img src={candidate.image} alt='Symbol' className='rounded-full flex justify-center items-center' />,
+                            <img src={candidate.symbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
                             <div className='font-bold  font-serif  '>
                                 {candidate.name}
                             </div>
@@ -152,28 +153,32 @@ const CandidateList = () => {
                 title="Edit Candidate"
                 onCancel={() => setViewModal(false)}
                 onOk={handleUpdateCandidate}
+                okButtonProps={{ style: { backgroundColor: 'blue' } }}
             >
                 {edit ? (
-                    <Form onSubmit={handleUpdateCandidate} className='flex justify-center items-center flex-col'>
+                    <Form onSubmit={handleUpdateCandidate} className='flex p-2 justify-center space-y-2  items-center flex-col bg-slate-300 '>
                         <input
+                            className='mt-3 p-1 rounded-lg w-1/2 outline-none'
                             type="text"
                             name='name'
                             defaultValue={edit.name}
                             onChange={(e) => setEdit({ ...edit, name: e.target.value })}
                         />
                         <input
+                            className='mt-3 p-1 rounded-lg w-1/2 outline-none'
                             type="text"
                             name='email'
                             defaultValue={edit.email}
                             onChange={(e) => setEdit({ ...edit, email: e.target.value })}
                         />
                         <input
+                            className='mt-3 p-1 rounded-lg w-1/2 outline-none'
                             type="text"
                             name='phone'
                             defaultValue={edit.phone}
                             onChange={(e) => setEdit({ ...edit, phone: e.target.value })}
                         />
-                        <button type="submit">Submit</button>
+
                     </Form>
                 ) : (
                     'No Data'
