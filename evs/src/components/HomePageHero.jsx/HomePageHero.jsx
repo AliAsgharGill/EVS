@@ -54,8 +54,8 @@ export const HomePageHero = () => {
                                 <h3 className="font-bold text-lg">Voting Result Till Now!</h3>
                                 {candidates ?
                                     candidates.map(candidate => (
-                                        <div className="flex justify-between bg-slate-300 p-2 rounded-md space-x-3  " key={candidate.id}>
-                                            <p> {candidate.name} Got</p>
+                                        <div className="flex justify-between items-center  bg-slate-300 p-2 rounded-md space-x-3" key={candidate.id}>
+                                            <p> {candidate.name}</p>
                                             <p> {candidate.votes} Votes</p>
                                         </div>
                                     ))
