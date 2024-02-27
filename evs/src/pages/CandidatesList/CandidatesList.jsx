@@ -32,7 +32,7 @@ const CandidateList = () => {
     const handleUpdateCandidate = () => {
         dispatch(candidatesActions.updateCandidate(edit));
         setViewModal(false);
-        setEdit("")
+        setEdit(null)
     }
 
 
@@ -63,9 +63,7 @@ const CandidateList = () => {
         }
     }
 
-    // const handleClose = () => {
-    //     setViewModal(false)
-    // }
+
 
     useEffect(() => {
         if (status === 'idle') {
@@ -92,7 +90,7 @@ const CandidateList = () => {
             </div>
             {/* List of Candidates */}
             <div className=' grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
-                {candidates.map((candidate, index) => (
+                {candidates ? candidates.map((candidate, index) => (
 
                     <Card key={index} className='' actions={[
                         <EditOutlined key={candidate.id} style={{ color: 'blue' }} onClick={() => handleEdit(candidate.id)} />,
@@ -116,7 +114,7 @@ const CandidateList = () => {
                             </div>
                         </div>
                     </Card>
-                ))}
+                )) : "No Candidates"}
             </div >
 
             {/* View Modal Code */}
@@ -156,7 +154,7 @@ const CandidateList = () => {
                 okButtonProps={{ style: { backgroundColor: 'blue' } }}
             >
                 {edit ? (
-                    <Form onSubmit={handleUpdateCandidate} className='flex p-2 justify-center space-y-2  items-center flex-col bg-slate-300 '>
+                    <Form Form onSubmit={handleUpdateCandidate} className='flex p-2 justify-center space-y-2  items-center flex-col bg-slate-300 '>
                         <input
                             className='mt-3 p-1 rounded-lg w-1/2 outline-none'
                             type="text"
@@ -183,7 +181,7 @@ const CandidateList = () => {
                 ) : (
                     'No Data'
                 )}
-            </Modal>
+            </Modal >
 
 
         </>
