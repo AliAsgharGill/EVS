@@ -7,7 +7,7 @@ const Navbar = () => {
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={'public/Images/Logo/EvsLogo.jpg'} className="h-8" alt="EVS" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F09A3E]">Election Voting System</span>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F09A3E]">Voting System</span>
                     </NavLink>
                     <div className="flex md:order-2 md:space-x-0 rtl:space-x-reverse">
 

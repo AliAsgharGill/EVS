@@ -1,14 +1,20 @@
+import { Button, Card, Modal, Form } from 'antd';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { candidatesActions, fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
-import { Card, Modal, Button } from "antd"
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
-import SignupForm from '../../components/SignupForm/SignupForm';
 import AddNewCandidateForm from '../../components/NewCandidateForm/AddNewCandidateForm';
+
 
 
 const CandidateList = () => {
     const dispatch = useDispatch()
+
+    const [selectedCandidate, setSelectedCandidate] = useState(false)
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
+    const [viewModal, setViewModal] = useState(false)
+    const [edit, setEdit] = useState(null)
 
     const candidates = useSelector((state) => state.candidates.candidates)
     const status = useSelector((state) => state.candidates.status)
@@ -17,9 +23,17 @@ const CandidateList = () => {
 
     const handleEdit = (id) => {
         const findCandidate = candidates.find(candidate => candidate.id === id)
-        // setCandidate(findCandidate)
-        console.log('Can:', findCandidate);
+        if (findCandidate) {
+            setEdit(findCandidate)
+            setViewModal(true)
+        }
     }
+
+    const handleUpdateCandidate = () => {
+        dispatch(candidatesActions.updateCandidate(edit));
+        setViewModal(false);
+    }
+
 
     const handleIdCardClick = (id) => {
         const findCandidate = candidates.find(candidate => candidate.id === id)
@@ -27,17 +41,31 @@ const CandidateList = () => {
         setIsModalVisible(true)
     }
 
-    const [selectedCandidate, setSelectedCandidate] = useState(false)
-    const [isModalVisible, setIsModalVisible] = useState(false)
-    const [isVisible, setIsVisible] = useState(false)
 
+    const handleAddNewCandidate = () => {
+        setIsVisible(true)
+    }
+
+
+    const onFinish = (values) => {
+        console.log('Success:', values);
+        setViewModal(false)
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+        setViewModal(false)
+    };
 
     const handleDelete = (id) => {
-        // console.log("Delete:", id);
         if (window.confirm('Are you sure you want to delete this candidate?')) {
             dispatch(candidatesActions.deleteCandidate(id));
         }
     }
+
+    // const handleClose = () => {
+    //     setViewModal(false)
+    // }
+
     useEffect(() => {
         if (status === 'idle') {
             dispatch(fetchCandidates())
@@ -52,10 +80,7 @@ const CandidateList = () => {
         return <div>Error:{error}</div>
     }
 
-    const handleAddNewCandidate = () => {
-        setIsVisible(true)
 
-    }
 
     return (
         <>
@@ -79,23 +104,23 @@ const CandidateList = () => {
                     >
                         <div key={candidate.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded h-[350px]'>
                             <img src={candidate.image} alt='Symbol' className='rounded-full flex justify-center items-center' />,
-                            <div className='font-bold  font-serif '>
+                            <div className='font-bold  font-serif  '>
                                 {candidate.name}
                             </div>
-                            <div className='font-bold  font-serif '>
+                            <div className='  font-serif '>
                                 {candidate.email}
                             </div>
-                            <div className='font-bold  font-serif '>
-                                {candidate.na}
+                            <div className='  font-serif  '>
+                                {candidate.phone}
                             </div>
                         </div>
                     </Card>
                 ))}
             </div >
 
-            {/* Modal Code */}
+            {/* View Modal Code */}
 
-            <Modal open={isModalVisible} title="Canditate For National Assembly" onCancel={() => setIsModalVisible(false)} onOk={() => setIsModalVisible(false)}  >
+            <Modal open={isModalVisible} title="Canditate For National Assembly" onCancel={() => setIsModalVisible(false)} onOk={() => setIsModalVisible(false)} onFinish={onFinish} onFinishFailed={onFinishFailed}  >
                 {selectedCandidate && (
                     <Card key={selectedCandidate.id} hoverable={true}>
                         <div className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded'>
@@ -116,9 +141,45 @@ const CandidateList = () => {
                     </Card>
                 )}
             </Modal>
+            {/* Add new Candidate Modal */}
             <Modal open={isVisible} title="Add Canditate For National Assembly" onCancel={() => setIsVisible(false)} onOk={() => setIsVisible(false)}  >
                 {<AddNewCandidateForm />}
             </Modal>
+
+            {/* Edit Modal Code */}
+            <Modal
+                open={viewModal}
+                title="Edit Candidate"
+                onCancel={() => setViewModal(false)}
+                onOk={handleUpdateCandidate}
+            >
+                {edit ? (
+                    <Form onSubmit={handleUpdateCandidate} className='flex justify-center items-center flex-col'>
+                        <input
+                            type="text"
+                            name='name'
+                            defaultValue={edit.name}
+                            onChange={(e) => setEdit({ ...edit, name: e.target.value })}
+                        />
+                        <input
+                            type="text"
+                            name='email'
+                            defaultValue={edit.email}
+                            onChange={(e) => setEdit({ ...edit, email: e.target.value })}
+                        />
+                        <input
+                            type="text"
+                            name='phone'
+                            defaultValue={edit.phone}
+                            onChange={(e) => setEdit({ ...edit, phone: e.target.value })}
+                        />
+                        <button type="submit">Submit</button>
+                    </Form>
+                ) : (
+                    'No Data'
+                )}
+            </Modal>
+
 
         </>
     )
@@ -126,6 +187,3 @@ const CandidateList = () => {
 }
 
 export default CandidateList
-
-
-

@@ -1,7 +1,7 @@
 {
-  "candidates":[
+  "candidates": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Leanne Graham",
       "username": "Bret",
       "email": "Sincere@april.biz",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ervin Howell",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
@@ -47,7 +47,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Clementine Bauch",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
@@ -70,10 +70,10 @@
       }
     },
     {
-      "id": 4,
-      "name": "Patricia Lebsack",
+      "id": "4",
+      "name": "Ali Asghar",
       "username": "Karianne",
-      "email": "Julianne.OConner@kory.org",
+      "email": "Julianne.OsdfConner@kory.org",
       "address": {
         "street": "Hoeger Mall",
         "suite": "Apt. 692",
@@ -84,7 +84,7 @@
           "lng": "-164.2990"
         }
       },
-      "phone": "493-170-9623 x156",
+      "phone": "03026822324",
       "website": "kale.biz",
       "company": {
         "name": "Robel-Corkery",
@@ -93,7 +93,7 @@
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Chelsey Dietrich",
       "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
@@ -116,7 +116,7 @@
       }
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Mrs. Dennis Schulist",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
@@ -139,7 +139,7 @@
       }
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Kurtis Weissnat",
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",
@@ -162,7 +162,7 @@
       }
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Nicholas Runolfsdottir V",
       "username": "Maxime_Nienow",
       "email": "Sherwood@rosamond.me",
@@ -185,7 +185,7 @@
       }
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Glenna Reichert",
       "username": "Delphine",
       "email": "Chaim_McDermott@dana.io",
@@ -208,7 +208,7 @@
       }
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Clementina DuBuque",
       "username": "Moriah.Stanton",
       "email": "Rey.Padberg@karina.biz",
@@ -228,6 +228,49 @@
         "name": "Hoeger LLC",
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
+      }
+    },
+    {
+      "id": "8390",
+      "name": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "na": "3232",
+      "password": "fsdf23",
+      "image": {
+        "file": {
+          "uid": "rc-upload-1709008522949-2",
+          "lastModified": 1708352005411,
+          "lastModifiedDate": "2024-02-19T14:13:25.411Z",
+          "name": "81fFwRCJidL._AC_UF1000,1000_QL80_.jpg",
+          "size": 120576,
+          "type": "image/jpeg",
+          "percent": 0,
+          "originFileObj": {
+            "uid": "rc-upload-1709008522949-2"
+          },
+          "error": {
+            "isTrusted": true
+          },
+          "status": "error"
+        },
+        "fileList": [
+          {
+            "uid": "rc-upload-1709008522949-2",
+            "lastModified": 1708352005411,
+            "lastModifiedDate": "2024-02-19T14:13:25.411Z",
+            "name": "81fFwRCJidL._AC_UF1000,1000_QL80_.jpg",
+            "size": 120576,
+            "type": "image/jpeg",
+            "percent": 0,
+            "originFileObj": {
+              "uid": "rc-upload-1709008522949-2"
+            },
+            "error": {
+              "isTrusted": true
+            },
+            "status": "error"
+          }
+        ]
       }
     }
   ],

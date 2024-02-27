@@ -40,9 +40,9 @@ const AddNewCandidateForm = () => {
         </Form.Item>
 
         <Form.Item
-          label="Na Number"
-          name="na"
-          rules={[{ required: true, message: "Please enter your NA Number!" }]}
+          label="Phone Number"
+          name="phone"
+          rules={[{ required: true, message: "Please enter your phone number!" }]}
         >
           <Input />
         </Form.Item>
@@ -69,17 +69,10 @@ const AddNewCandidateForm = () => {
 
         <Form.Item>
           <Button className="bg-gray-900" type="primary" htmlType="submit">
-            Add
+            Add CandidateS
           </Button>
         </Form.Item>
-        <Form.Item>
-          <p className="hover:text-black">
-            Already have an account?
-            <Link className="text-blue-500 hover:text-[#F09A3E]" to="/login">
-              --Login Now
-            </Link>
-          </p>
-        </Form.Item>
+
       </Form>
     </div>
   );
