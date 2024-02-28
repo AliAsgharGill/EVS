@@ -85,11 +85,11 @@ const CandidateList = () => {
         <>
 
             <h1 className='font-bold text-3xl mt-28  text-gray-500 '>List of Candidates</h1>
-            <div className='flex my-5' >
+            <div className='flex my-5 justify-center items-center' >
                 <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={handleAddNewCandidate} > Add New Candidate</Button>
             </div>
             {/* List of Candidates */}
-            <div className=' grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+            <div className=' grid gap-4 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 '>
                 {candidates ? candidates.map((candidate, index) => (
 
                     <Card key={index} className='' actions={[

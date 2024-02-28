@@ -1,23 +1,22 @@
-import EmojiPicker from 'emoji-picker-react';
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Button, } from 'antd';
 import { useDispatch } from 'react-redux'
 import { signUpUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 const SignupForm = ({ prop }) => {
     const dispatch = useDispatch()
 
-    const [isView, setIsView] = useState(false)
+    // const [isView, setIsView] = useState(false)
 
     const onFinish = (values) => {
         console.log('Signup Received values:', values);
         dispatch(signUpUser(values))
-    };   
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
     };
+    // const onFinishFailed = (errorInfo) => {
+    //     console.log('Failed:', errorInfo);
+    // };
 
     return (
         <Form
@@ -50,7 +49,7 @@ const SignupForm = ({ prop }) => {
             >
                 <Input />
             </Form.Item>
-            <Button onClick={() => setIsView(true)} >Choose Symbol</Button>
+            {/* <Button onClick={() => setIsView(true)} >Choose Symbol</Button>
             <Modal open={isView} onCancel={() => setIsView(false)} onOk={() => setIsView(false)} onFinish={() => onFinish} onFinishFailed={() => onFinishFailed} >
                 <Form.Item
                     label="Choose Symbol"
@@ -59,7 +58,7 @@ const SignupForm = ({ prop }) => {
                 >
                     <EmojiPicker />
                 </Form.Item>
-            </Modal>
+            </Modal> */}
 
 
 

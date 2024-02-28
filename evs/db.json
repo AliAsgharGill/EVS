@@ -127,11 +127,11 @@
     },
     {
       "id": "6",
-      "name": "Mrs. Dennis Schulist",
-      "votes": 1,
+      "name": "Ali Asghar",
+      "votes": 2,
       "symbol": "public/Images/symbols/na6.jpg",
       "username": "Leopoldo_Corkery",
-      "email": "Karley_Dach@jasper.info",
+      "email": "stylinalivlogs@gmail.com",
       "address": {
         "street": "Norberto Crossing",
         "suite": "Apt. 950",
@@ -142,37 +142,12 @@
           "lng": "71.7478"
         }
       },
-      "phone": "1-477-935-8478 x6430",
+      "phone": "03026822324",
       "website": "ola.org",
       "company": {
         "name": "Considine-Lockman",
         "catchPhrase": "Synchronised bottom-line interface",
         "bs": "e-enable innovative applications"
-      }
-    },
-    {
-      "id": "7",
-      "name": "Kurtis Weissnat",
-      "votes": "0",
-      "symbol": "public/Images/symbols/na7.jpg",
-      "username": "Elwyn.Skiles",
-      "email": "Telly.Hoeger@billy.biz",
-      "address": {
-        "street": "Rex Trail",
-        "suite": "Suite 280",
-        "city": "Howemouth",
-        "zipcode": "58804-1099",
-        "geo": {
-          "lat": "24.8918",
-          "lng": "21.8984"
-        }
-      },
-      "phone": "210.067.6132",
-      "website": "elvis.io",
-      "company": {
-        "name": "Johns Group",
-        "catchPhrase": "Configurable multimedia task-force",
-        "bs": "generate enterprise e-tailers"
       }
     },
     {

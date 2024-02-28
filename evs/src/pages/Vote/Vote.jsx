@@ -26,8 +26,8 @@ const Vote = () => {
     return (
         <>
             <div className="min-h-screen mt-12">
-                <h1 className='my-5 mb-10 text-4xl font-bold'>Cast Vote To Your Favorite Candidate</h1>
-                <div className='grid grid-cols-3 gap-4' >
+                <h1 className='my-5 mt-20 flex items-center  text-4xl font-bold'>Cast Vote To Your Favorite Candidate</h1>
+                <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center' >
                     {candidates ? candidates.map(candidate => (
                         <Card key={candidate.id} className='' actions={[
 

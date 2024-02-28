@@ -5,6 +5,7 @@ export const HomePageHero = () => {
     const navigate = useNavigate()
     const candidates = useSelector(state => state.candidates.candidates)
 
+
     return (
         <div className="relative">
             <img
@@ -54,7 +55,7 @@ export const HomePageHero = () => {
                                 <h3 className="font-bold text-lg">Voting Result Till Now!</h3>
                                 {candidates ?
                                     candidates.map(candidate => (
-                                        <div className="flex justify-between items-center  bg-slate-300 p-2 rounded-md space-x-3" key={candidate.id}>
+                                        <div className="flex justify-between items-center  m-1 bg-slate-300 p-2 rounded-md space-x-3" key={candidate.id}>
                                             <p> {candidate.name}</p>
                                             <p> {candidate.votes} Votes</p>
                                         </div>
