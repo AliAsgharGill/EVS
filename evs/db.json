@@ -1,10 +1,133 @@
 {
+  "campaigns": [
+    {
+      "name": "Candidates",
+      "description": "Explore a diverse range of candidates with varying backgrounds, experiences, and visions for the future, Cast vote to your favorite.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlGrPLYk-YU4p3zX0wDMp8JIEEmyptrqqkA&usqp=CAU"
+    },
+    {
+      "name": "Programming Languages",
+      "description": "Discover a variety of programming languages, each with its own strengths and use cases. Cast vote to your favorite.",
+      "image": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg"
+    },
+    {
+      "name": "Phones",
+      "description": "Explore the latest smartphones with advanced features and cutting-edge technology,Cast vote to your favorite.",
+      "image": "https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_640.jpg"
+    },
+    {
+      "name": "Electronics",
+      "description": "Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite.",
+      "image": "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg"
+    }
+  ],
+  "programming": [
+    {
+      "id": "1",
+      "name": "JavaScript",
+      "symbol": "public/Images/symbols/javascript.png",
+      "votes": 0,
+      "email": "javascript@gmail.com",
+      "launchdate": "4th December 1995",
+      "feature": "The language of the web"
+    },
+    {
+      "id": "2",
+      "name": "Python",
+      "symbol": "public/Images/symbols/python.png",
+      "votes": 0,
+      "email": "python@gmail.com",
+      "launchdate": "20th February 1991",
+      "feature": "Versatile and easy to learn"
+    },
+    {
+      "id": "3",
+      "name": "Java",
+      "symbol": "public/Images/symbols/java.png",
+      "votes": 0,
+      "email": "java@gmail.com",
+      "launchdate": "23rd May 1995",
+      "feature": "Platform-independent"
+    },
+    {
+      "id": "4",
+      "name": "C++",
+      "symbol": "public/Images/symbols/cpp.png",
+      "votes": 0,
+      "email": "cpp@gmail.com",
+      "launchdate": "1983",
+      "feature": "Supports object-oriented programming"
+    },
+    {
+      "id": "5",
+      "name": "Ruby",
+      "symbol": "public/Images/symbols/ruby.png",
+      "votes": 0,
+      "email": "ruby@gmail.com",
+      "launchdate": "24th December 1995",
+      "feature": "Designed for programmer productivity"
+    },
+    {
+      "id": "6",
+      "name": "PHP",
+      "symbol": "public/Images/symbols/php.png",
+      "votes": 0,
+      "email": "php@gmail.com",
+      "launchdate": "8th June 1995",
+      "feature": "Powerful server-side scripting language"
+    },
+    {
+      "id": "7",
+      "name": "Swift",
+      "symbol": "public/Images/symbols/swift.png",
+      "votes": 0,
+      "email": "swift@gmail.com",
+      "launchdate": "2nd June 2014",
+      "feature": "Developed by Apple for iOS, macOS, watchOS, and tvOS"
+    },
+    {
+      "id": "8",
+      "name": "Kotlin",
+      "symbol": "public/Images/symbols/kotlin.png",
+      "votes": 0,
+      "email": "kotlin@gmail.com",
+      "launchdate": "15th July 2011",
+      "feature": "Interoperable with Java"
+    },
+    {
+      "id": "9",
+      "name": "Go",
+      "symbol": "public/Images/symbols/go.png",
+      "votes": 0,
+      "email": "go@gmail.com",
+      "launchdate": "10th November 2009",
+      "feature": "Efficient and scalable language developed by Google"
+    },
+    {
+      "id": "10",
+      "name": "Rust",
+      "symbol": "public/Images/symbols/rust.png",
+      "votes": 0,
+      "email": "rust@gmail.com",
+      "launchdate": "7th July 2010",
+      "feature": "Focuses on safety, speed, and concurrency"
+    },
+    {
+      "id": "11",
+      "name": "TypeScript",
+      "symbol": "public/Images/symbols/typescript.png",
+      "votes": 0,
+      "email": "typescript@gmail.com",
+      "launchdate": "1st October 2012",
+      "feature": "Static typing for JavaScript"
+    }
+  ],
   "candidates": [
     {
       "id": "1",
       "name": "Leanne Graham",
       "symbol": "public/Images/symbols/na1.jpg",
-      "votes": 1,
+      "votes": "0",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
@@ -28,7 +151,7 @@
     {
       "id": "2",
       "name": "Ervin Howell",
-      "votes": 1,
+      "votes": "0",
       "symbol": "public/Images/symbols/na2.jpg",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
@@ -54,7 +177,7 @@
       "id": "3",
       "name": "Leanne Graham ok",
       "symbol": "public/Images/symbols/na3.jpg",
-      "votes": 2,
+      "votes": "0",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {
@@ -77,7 +200,7 @@
     },
     {
       "id": "4",
-      "name": "okok",
+      "name": "Julianne",
       "username": "Karianne",
       "symbol": "public/Images/symbols/na4.jpg",
       "email": "Julianne.OConner@kory.org",
@@ -127,11 +250,11 @@
     },
     {
       "id": "6",
-      "name": "Ali Asghar",
-      "votes": 2,
+      "name": "Mrs. Dennis Schulist",
+      "votes": "0",
       "symbol": "public/Images/symbols/na6.jpg",
       "username": "Leopoldo_Corkery",
-      "email": "stylinalivlogs@gmail.com",
+      "email": "Karley_Dach@jasper.info",
       "address": {
         "street": "Norberto Crossing",
         "suite": "Apt. 950",
@@ -142,12 +265,37 @@
           "lng": "71.7478"
         }
       },
-      "phone": "03026822324",
+      "phone": "1-477-935-8478 x6430",
       "website": "ola.org",
       "company": {
         "name": "Considine-Lockman",
         "catchPhrase": "Synchronised bottom-line interface",
         "bs": "e-enable innovative applications"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Kurtis Weissnat",
+      "votes": "0",
+      "symbol": "public/Images/symbols/na7.jpg",
+      "username": "Elwyn.Skiles",
+      "email": "Telly.Hoeger@billy.biz",
+      "address": {
+        "street": "Rex Trail",
+        "suite": "Suite 280",
+        "city": "Howemouth",
+        "zipcode": "58804-1099",
+        "geo": {
+          "lat": "24.8918",
+          "lng": "21.8984"
+        }
+      },
+      "phone": "210.067.6132",
+      "website": "elvis.io",
+      "company": {
+        "name": "Johns Group",
+        "catchPhrase": "Configurable multimedia task-force",
+        "bs": "generate enterprise e-tailers"
       }
     },
     {
@@ -226,16 +374,222 @@
       }
     }
   ],
-  "result": [
+  "phone": [
     {
-      "voterID": 1,
-      "votes": 100,
-      "id": "2643"
+      "id": "1",
+      "name": "Samsung Galaxy S21",
+      "new_price": 699,
+      "old_price": 799,
+      "percentage_off": "12.5%",
+      "company": "Samsung",
+      "features": [
+        "5G connectivity",
+        "Dynamic AMOLED display",
+        "Quad camera system"
+      ],
+      "votes": "0"
     },
     {
-      "voterID": 2,
-      "votes": 150,
-      "id": "e4f6"
+      "id": "2",
+      "name": "Samsung Galaxy Note 20",
+      "new_price": 899,
+      "old_price": 999,
+      "percentage_off": "10%",
+      "company": "Samsung",
+      "features": [
+        "S Pen functionality",
+        "Ultra-fast processor",
+        "Large display"
+      ],
+      "votes": "0"
+    },
+    {
+      "id": "3",
+      "name": "Samsung Galaxy Z Fold 3",
+      "new_price": 1799,
+      "old_price": 1999,
+      "percentage_off": "10%",
+      "company": "Samsung",
+      "features": ["Foldable display", "Flex mode", "Advanced multitasking"],
+      "votes": "0"
+    },
+    {
+      "id": "4",
+      "name": "Samsung Galaxy A52",
+      "new_price": 349,
+      "old_price": 399,
+      "percentage_off": "12.5%",
+      "company": "Samsung",
+      "features": [
+        "Quad camera setup",
+        "High-refresh-rate display",
+        "Long-lasting battery"
+      ],
+      "votes": "0"
+    },
+    {
+      "id": "5",
+      "name": "Samsung Galaxy M32",
+      "new_price": 249,
+      "old_price": 299,
+      "percentage_off": "16.7%",
+      "company": "Samsung",
+      "features": [
+        "Large Super AMOLED display",
+        "Quad camera setup",
+        "Massive battery"
+      ],
+      "votes": "0"
+    },
+    {
+      "id": "6",
+      "name": "iPhone 12",
+      "new_price": 799,
+      "old_price": 899,
+      "percentage_off": "11.1%",
+      "company": "Apple",
+      "features": [
+        "A14 Bionic chip",
+        "Super Retina XDR display",
+        "Dual-camera system"
+      ],
+      "votes": "0"
+    },
+    {
+      "id": "7",
+      "name": "iPhone 11",
+      "new_price": 599,
+      "old_price": 699,
+      "percentage_off": "14.3%",
+      "company": "Apple",
+      "features": ["Liquid Retina HD display", "A13 Bionic chip", "Face ID"],
+      "votes": "0"
+    },
+    {
+      "id": "8",
+      "name": "iPhone SE",
+      "new_price": 399,
+      "old_price": 499,
+      "percentage_off": "20%",
+      "company": "Apple",
+      "features": ["A13 Bionic chip", "Retina HD display", "Touch ID"],
+      "votes": "0"
+    },
+    {
+      "id": "9",
+      "name": "iPhone XR",
+      "new_price": 499,
+      "old_price": 599,
+      "percentage_off": "16.7%",
+      "company": "Apple",
+      "features": ["Liquid Retina HD display", "A12 Bionic chip", "Face ID"],
+      "votes": "0"
+    },
+    {
+      "id": "10",
+      "name": "iPhone 13 Pro Max",
+      "new_price": 1099,
+      "old_price": 1199,
+      "percentage_off": "8.3%",
+      "company": "Apple",
+      "features": [
+        "ProMotion display",
+        "A15 Bionic chip",
+        "Advanced camera system"
+      ],
+      "votes": "0"
+    }
+  ],
+  "electronic": [
+    {
+      "id": "1",
+      "name": "Smartphone",
+      "new_price": 499,
+      "old_price": 599,
+      "percentage_off": "17%",
+      "company": "Samsung",
+      "votes": "0"
+    },
+    {
+      "id": "2",
+      "name": "Laptop",
+      "new_price": 899,
+      "old_price": 999,
+      "percentage_off": "10%",
+      "company": "Apple",
+      "votes": "0"
+    },
+    {
+      "id": "3",
+      "name": "Smart TV",
+      "new_price": 699,
+      "old_price": 799,
+      "percentage_off": "12.5%",
+      "company": "LG",
+      "votes": "0"
+    },
+    {
+      "id": "4",
+      "name": "Tablet",
+      "new_price": 299,
+      "old_price": 349,
+      "percentage_off": "14.3%",
+      "company": "Microsoft",
+      "votes": "0"
+    },
+    {
+      "id": "5",
+      "name": "Headphones",
+      "new_price": 149,
+      "old_price": 169,
+      "percentage_off": "11.8%",
+      "company": "Sony",
+      "votes": "0"
+    },
+    {
+      "id": "6",
+      "name": "Smart Watch",
+      "new_price": 199,
+      "old_price": 249,
+      "percentage_off": "20%",
+      "company": "Fitbit",
+      "votes": "0"
+    },
+    {
+      "id": "7",
+      "name": "Digital Camera",
+      "new_price": 449,
+      "old_price": 499,
+      "percentage_off": "10%",
+      "company": "Canon",
+      "votes": "0"
+    },
+    {
+      "id": "8",
+      "name": "Gaming Console",
+      "new_price": 349,
+      "old_price": 399,
+      "percentage_off": "12.5%",
+      "company": "Nintendo",
+      "votes": "0"
+    },
+    {
+      "id": "9",
+      "name": "Wireless Speaker",
+      "new_price": 99,
+      "old_price": 119,
+      "percentage_off": "16.8%",
+      "company": "Bose",
+      "votes": "0"
+    },
+    {
+      "id": "10",
+      "name": "External Hard Drive",
+      "new_price": 79,
+      "old_price": 99,
+      "percentage_off": "20%",
+      "company": "Seagate",
+      "votes": "0"
     }
   ],
   "signin": [
@@ -289,6 +643,12 @@
       "name": "Ahmed Ali",
       "email": "ahmed@gmail.com",
       "password": "234rdsf"
+    },
+    {
+      "id": "ff6c",
+      "name": "Ayoub",
+      "email": "Ayoub@gmail.com",
+      "password": "123adskfljei"
     }
   ]
 }

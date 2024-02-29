@@ -76,7 +76,7 @@
     },
     {
         "id": "4",
-        "name": "okok",
+        "name": "Julianne",
         "username": "Karianne",
         "symbol": "public/Images/symbols/na4.jpg",
         "email": "Julianne.OConner@kory.org",

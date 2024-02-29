@@ -24,15 +24,12 @@ const Navbar = () => {
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul id="sidebar" className=" flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-300 md:dark:bg-gray-300 dark:border-gray-300">
-                            <li>
-                                <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/vote" className="hover:underline me-4 md:me-6">Voting</NavLink>
-                            </li>
+
+                            <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
+                            <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
+                            <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
+                            {/* <NavLink to="/vote" className="hover:underline me-4 md:me-6">Voting</NavLink> */}
+
                         </ul>
                     </div>
                 </div>

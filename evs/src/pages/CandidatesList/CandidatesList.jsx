@@ -7,6 +7,7 @@ import AddNewCandidateForm from '../../components/NewCandidateForm/AddNewCandida
 
 
 
+
 const CandidateList = () => {
     const dispatch = useDispatch()
 
@@ -85,7 +86,7 @@ const CandidateList = () => {
         <>
 
             <h1 className='font-bold text-3xl mt-28  text-gray-500 '>List of Candidates</h1>
-            <div className='flex my-5 justify-center items-center' >
+            <div className='flex my-5  justify-center sm:justify-start items-center' >
                 <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={handleAddNewCandidate} > Add New Candidate</Button>
             </div>
             {/* List of Candidates */}
@@ -115,6 +116,7 @@ const CandidateList = () => {
                         </div>
                     </Card>
                 )) : "No Candidates"}
+                
             </div >
 
             {/* View Modal Code */}

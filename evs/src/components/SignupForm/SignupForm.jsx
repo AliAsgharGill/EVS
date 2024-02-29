@@ -2,11 +2,13 @@ import { Form, Input, Button, } from 'antd';
 import { useDispatch } from 'react-redux'
 import { signUpUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 // import { useState } from 'react';
 
 
 const SignupForm = ({ prop }) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     // const [isView, setIsView] = useState(false)
 
@@ -47,7 +49,7 @@ const SignupForm = ({ prop }) => {
                 name="password"
                 rules={[{ required: true, message: 'Please enter your password!' }]}
             >
-                <Input />
+                <Input.Password />
             </Form.Item>
             {/* <Button onClick={() => setIsView(true)} >Choose Symbol</Button>
             <Modal open={isView} onCancel={() => setIsView(false)} onOk={() => setIsView(false)} onFinish={() => onFinish} onFinishFailed={() => onFinishFailed} >
@@ -63,7 +65,7 @@ const SignupForm = ({ prop }) => {
 
 
             <Form.Item>
-                <Button className='bg-gray-900' type="primary" htmlType="submit">
+                <Button onClick={()=> navigate('/')} className='bg-gray-900' type="primary" htmlType="submit">
                     Sign Up
                 </Button>
             </Form.Item>

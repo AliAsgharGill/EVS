@@ -1,10 +1,12 @@
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useState } from "react";
+
 export const HomePageHero = () => {
     const navigate = useNavigate()
     const candidates = useSelector(state => state.candidates.candidates)
-
+    const [view, setView] = useState(false)
 
     return (
         <div className="relative">
@@ -38,7 +40,7 @@ export const HomePageHero = () => {
                             <Button
                                 onClick={() => navigate('/vote')}
                                 aria-label=""
-                                className="inline-flex bg-[#F09A3E] items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
+                                className=" text-black inline-flex bg-[#F09A3E] items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700 p-5 "
                             >
                                 Cast Vote Now
                                 <svg
@@ -50,22 +52,31 @@ export const HomePageHero = () => {
                                 </svg>
                             </Button>
                         </div>
+
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-                            <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
-                                <h3 className="font-bold text-lg">Voting Result Till Now!</h3>
-                                {candidates ?
-                                    candidates.map(candidate => (
-                                        <div className="flex justify-between items-center  m-1 bg-slate-300 p-2 rounded-md space-x-3" key={candidate.id}>
-                                            <p> {candidate.name}</p>
-                                            <p> {candidate.votes} Votes</p>
-                                        </div>
-                                    ))
-                                    : "Waiting For Result"}
+                            <div className="bg-white rounded-md shadow-2xl p-7 sm:p-10">
+                                <h3 className="font-bold text-lg">Voting Result of All Campaigns!</h3>
+                                <div className="grid gap-4 sm:grid-cols-2 p-2 mt-3">
+                                    <Button className="bg-[#F09A3E] font-bold    hover:shadow-xl" onClick={() => setView(true)} >Candidates Result </Button>
+                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Programming</Button>
+                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Phones Result</Button>
+                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Electronics Result</Button>
+                                </div>
+                                <Modal open={view} onCancel={() => setView(false)} onOk={() => setView(false)} >
+                                    {candidates ?
+                                        candidates.map(candidate => (
+                                            <div className="flex justify-between items-center m-2 bg-slate-300 p-1 rounded-md space-x-3" key={candidate.id}>
+                                                <p className="p-1" > {candidate.name}</p>
+                                                <p className="bg-[#F09A3E] p-1 rounded-md"> {candidate.votes} Votes</p>
+                                            </div>
+                                        ))
+                                        : "Waiting For Result"}
+                                </Modal>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </div >
     );
 };
