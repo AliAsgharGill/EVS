@@ -7,11 +7,10 @@ const CustomCard = ({ image, title, description, path }) => {
     return (
         <>
             <Card
-                className='outline outline-gray-100'
+                style={{ width: 300, }}
+                className='outline outline-gray-100 outline-1 '
                 hoverable
-                style={{
-                    width: 300,
-                }}
+
 
                 cover={
                     <img
@@ -29,7 +28,8 @@ const CustomCard = ({ image, title, description, path }) => {
                 ]}
             >
                 <Meta
-                    style={{ textAlign: 'justify' }}
+
+                    style={{ textAlign: 'justify', height: '120px' }}
                     title={title}
                     description={description}
                 />

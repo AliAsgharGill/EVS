@@ -8,7 +8,7 @@ import { fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
 import { useNavigate } from 'react-router-dom'
 
 
-const Vote = () => {
+const CandidateVote = () => {
     const candidates = useSelector(state => state.candidates.candidates);
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -62,4 +62,4 @@ const Vote = () => {
     );
 };
 
-export default Vote;
+export default CandidateVote;

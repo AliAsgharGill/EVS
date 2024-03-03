@@ -2,7 +2,7 @@ import { Form, Input, Button, Upload } from "antd";
 
 import { useDispatch } from "react-redux";
 import { addNewCandidate } from "../../slices/authSlice/authSlice";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const AddNewCandidateForm = () => {
   const dispatch = useDispatch();

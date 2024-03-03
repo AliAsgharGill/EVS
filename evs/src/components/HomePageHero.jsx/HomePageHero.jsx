@@ -12,7 +12,7 @@ export const HomePageHero = () => {
         <div className="relative">
             <img
                 src="public/Images/Background/HomePageHero.jpg"
-                className="absolute inset-0 object-cover w-full h-full filter brightness-75 "
+                className="absolute inset-0 object-cover w-full h-full filter brightness-75 rounded-lg "
                 alt="HeroImage"
             />
             <div className="relative bg-opacity-75 bg-deep-purple-accent-700">

@@ -11,23 +11,23 @@ const CampaignPage = () => {
     const electronicsImage = "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg"
 
     const dispatch = useDispatch()
-    const campaigns = useSelector((state) => state.campaign.campaigns)
-    console.log("camp", campaigns);
+    // const campaigns = useSelector((state) => state.campaign.campaigns)
+    // console.log("camp", campaigns);
     useEffect(() => {
         dispatch(fetchCampaigns())
     }, [])
     return (
         <>
-            <h1 className=" mt-20 sm:mt-12 font-bold text-3xl text-[#F09A3E] ">Choose Campaign To Vote</h1>
-            <div className='grid sm:grid-cols-3 gap-y-6 gap-4 my-10'>
+            <h1 className=" mt-20 sm:mt-12 font-bold text-3xl text-[#EF9A3E] ">Choose Campaign To Vote</h1>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-4  place-items-center my-10'>
                 {/* candidate card */}
                 <CustomCard title={'Candidates'} description={'Explore a diverse range of candidates with varying backgrounds, experiences, and visions for the future, Cast vote to your favorite.'} image={candidateImage} path={'/candidates'} />
                 {/* programming card */}
-                <CustomCard title={'Programming Languages'} description={"Discover a variety of programming languages, each with its own strengths and use cases. Cast vote to your favorite."} image={programmingImage} path={'/'} />
+                <CustomCard title={'Programming Languages'} description={"Discover a variety of programming languages, each with its own strengths and use cases. Cast vote to your favorite."} image={programmingImage} path={'/programming'} />
                 {/* Phones Card */}
-                <CustomCard title={'Phones'} description={'"Explore the latest smartphones with advanced features and cutting-edge technology,Cast vote to your favorite.",'} image={phonesImage} path={'/'} />
+                <CustomCard title={'Phones'} description={'"Explore the latest smartphones with advanced features and cutting-edge technology,Cast vote to your favorite.",'} image={phonesImage} path={'/phones'} />
                 {/* Electronics Card */}
-                <CustomCard title={"Electronics"} description={"Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite."} image={electronicsImage} path={'/'} />
+                <CustomCard title={"Electronics"} description={"Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite."} image={electronicsImage} path={'/electronics'} />
             </div >
             {/* Dyanimic Data */}
             {/* <div>
@@ -68,7 +68,6 @@ const CampaignPage = () => {
                         : console.log("No Campaigns Launch Yet!")}
                 </div>
             </div> */}
-            <UserDetails />
         </>
     )
 }

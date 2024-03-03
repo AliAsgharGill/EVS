@@ -1,31 +1,125 @@
 {
+  "signin": [
+    {
+      "id": "06f8",
+      "email": "AliAsghar@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "129b",
+      "email": "Iamuser@gmail.com",
+      "password": "user123"
+    }
+  ],
+  "signup": [
+    {
+      "voterID": "1",
+      "name": "Abdul Latif - عبد اللطیف",
+      "email": "Chaim_McDermott@dana.io",
+      "password": "Chaim123",
+      "id": "2751"
+    },
+    {
+      "voterID": "2",
+      "name": "Amjad Ali Khan - امجد علی خان",
+      "email": "Shanna@melissa.tv",
+      "password": "Shanna123",
+      "id": "d6af"
+    },
+    {
+      "id": "dc99",
+      "name": "AliHo",
+      "email": "AliHo@gmail.com",
+      "password": "aliHO"
+    },
+    {
+      "id": "8422",
+      "name": "Ahmed Ali",
+      "email": "ahmed@gmail.com",
+      "password": "234rdsf"
+    },
+    {
+      "id": "ff6c",
+      "name": "Ayoub",
+      "email": "Ayoub@gmail.com",
+      "password": "123adskfljei"
+    }
+  ],
+  "admins": [
+    {
+      "id": "e863",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali1234"
+    }
+  ],
+  "users": [
+    {
+      "id": "0c77",
+      "email": "Ali",
+      "password": "Ali"
+    },
+    {
+      "id": "6a57",
+      "email": "Iamuserone@gmail.com",
+      "password": "user1234"
+    },
+    {
+      "id": "c452",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali123"
+    },
+    {
+      "id": "a077",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali123"
+    },
+    {
+      "id": "4d7f",
+      "name": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "ahmedgill"
+    },
+    {
+      "id": "1088",
+      "name": "Trinity Emmerich-Raynor",
+      "email": "your.email+fakedata92182@gmail.com",
+      "password": "UBIJ1kJKCFukN67"
+    }
+  ],
   "campaigns": [
     {
       "name": "Candidates",
       "description": "Explore a diverse range of candidates with varying backgrounds, experiences, and visions for the future, Cast vote to your favorite.",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlGrPLYk-YU4p3zX0wDMp8JIEEmyptrqqkA&usqp=CAU"
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlGrPLYk-YU4p3zX0wDMp8JIEEmyptrqqkA&usqp=CAU",
+      "id": "bde3"
     },
     {
       "name": "Programming Languages",
       "description": "Discover a variety of programming languages, each with its own strengths and use cases. Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg"
+      "image": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg",
+      "id": "f8b6"
     },
     {
       "name": "Phones",
       "description": "Explore the latest smartphones with advanced features and cutting-edge technology,Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_640.jpg"
+      "image": "https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_640.jpg",
+      "id": "5137"
     },
     {
       "name": "Electronics",
       "description": "Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg"
+      "image": "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg",
+      "id": "bb20"
     }
   ],
   "programming": [
     {
       "id": "1",
       "name": "JavaScript",
-      "symbol": "public/Images/symbols/javascript.png",
+      "symbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png",
       "votes": 0,
       "email": "javascript@gmail.com",
       "launchdate": "4th December 1995",
@@ -34,7 +128,7 @@
     {
       "id": "2",
       "name": "Python",
-      "symbol": "public/Images/symbols/python.png",
+      "symbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
       "votes": 0,
       "email": "python@gmail.com",
       "launchdate": "20th February 1991",
@@ -43,7 +137,7 @@
     {
       "id": "3",
       "name": "Java",
-      "symbol": "public/Images/symbols/java.png",
+      "symbol": "https://www.devopsschool.com/blog/wp-content/uploads/2022/03/java_logo_icon_168609.png",
       "votes": 0,
       "email": "java@gmail.com",
       "launchdate": "23rd May 1995",
@@ -52,7 +146,7 @@
     {
       "id": "4",
       "name": "C++",
-      "symbol": "public/Images/symbols/cpp.png",
+      "symbol": "https://miro.medium.com/v2/resize:fit:1400/0*sZ1IzKNMKqOSbwHU.jpg",
       "votes": 0,
       "email": "cpp@gmail.com",
       "launchdate": "1983",
@@ -61,7 +155,7 @@
     {
       "id": "5",
       "name": "Ruby",
-      "symbol": "public/Images/symbols/ruby.png",
+      "symbol": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190902124355/ruby-programming-language.png",
       "votes": 0,
       "email": "ruby@gmail.com",
       "launchdate": "24th December 1995",
@@ -70,7 +164,7 @@
     {
       "id": "6",
       "name": "PHP",
-      "symbol": "public/Images/symbols/php.png",
+      "symbol": "https://www.php.net/images/meta-image.png",
       "votes": 0,
       "email": "php@gmail.com",
       "launchdate": "8th June 1995",
@@ -79,7 +173,7 @@
     {
       "id": "7",
       "name": "Swift",
-      "symbol": "public/Images/symbols/swift.png",
+      "symbol": "https://miro.medium.com/v2/resize:fit:750/1*OgeU8HPo8TFF1cZQ-4XjJw.jpeg",
       "votes": 0,
       "email": "swift@gmail.com",
       "launchdate": "2nd June 2014",
@@ -88,7 +182,7 @@
     {
       "id": "8",
       "name": "Kotlin",
-      "symbol": "public/Images/symbols/kotlin.png",
+      "symbol": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
       "votes": 0,
       "email": "kotlin@gmail.com",
       "launchdate": "15th July 2011",
@@ -97,7 +191,7 @@
     {
       "id": "9",
       "name": "Go",
-      "symbol": "public/Images/symbols/go.png",
+      "symbol": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
       "votes": 0,
       "email": "go@gmail.com",
       "launchdate": "10th November 2009",
@@ -106,7 +200,7 @@
     {
       "id": "10",
       "name": "Rust",
-      "symbol": "public/Images/symbols/rust.png",
+      "symbol": "https://www.rust-lang.org/static/images/rust-social.jpg",
       "votes": 0,
       "email": "rust@gmail.com",
       "launchdate": "7th July 2010",
@@ -115,7 +209,7 @@
     {
       "id": "11",
       "name": "TypeScript",
-      "symbol": "public/Images/symbols/typescript.png",
+      "symbol": "https://miro.medium.com/v2/resize:fit:1358/1*moJeTvW97yShLB7URRj5Kg.png",
       "votes": 0,
       "email": "typescript@gmail.com",
       "launchdate": "1st October 2012",
@@ -151,7 +245,7 @@
     {
       "id": "2",
       "name": "Ervin Howell",
-      "votes": "0",
+      "votes": 1,
       "symbol": "public/Images/symbols/na2.jpg",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
@@ -374,7 +468,7 @@
       }
     }
   ],
-  "phone": [
+  "phones": [
     {
       "id": "1",
       "name": "Samsung Galaxy S21",
@@ -410,7 +504,11 @@
       "old_price": 1999,
       "percentage_off": "10%",
       "company": "Samsung",
-      "features": ["Foldable display", "Flex mode", "Advanced multitasking"],
+      "features": [
+        "Foldable display",
+        "Flex mode",
+        "Advanced multitasking"
+      ],
       "votes": "0"
     },
     {
@@ -462,7 +560,11 @@
       "old_price": 699,
       "percentage_off": "14.3%",
       "company": "Apple",
-      "features": ["Liquid Retina HD display", "A13 Bionic chip", "Face ID"],
+      "features": [
+        "Liquid Retina HD display",
+        "A13 Bionic chip",
+        "Face ID"
+      ],
       "votes": "0"
     },
     {
@@ -472,7 +574,11 @@
       "old_price": 499,
       "percentage_off": "20%",
       "company": "Apple",
-      "features": ["A13 Bionic chip", "Retina HD display", "Touch ID"],
+      "features": [
+        "A13 Bionic chip",
+        "Retina HD display",
+        "Touch ID"
+      ],
       "votes": "0"
     },
     {
@@ -482,7 +588,11 @@
       "old_price": 599,
       "percentage_off": "16.7%",
       "company": "Apple",
-      "features": ["Liquid Retina HD display", "A12 Bionic chip", "Face ID"],
+      "features": [
+        "Liquid Retina HD display",
+        "A12 Bionic chip",
+        "Face ID"
+      ],
       "votes": "0"
     },
     {
@@ -500,7 +610,7 @@
       "votes": "0"
     }
   ],
-  "electronic": [
+  "electronics": [
     {
       "id": "1",
       "name": "Smartphone",
@@ -590,65 +700,6 @@
       "percentage_off": "20%",
       "company": "Seagate",
       "votes": "0"
-    }
-  ],
-  "signin": [
-    {
-      "id": "1",
-      "password": "Chaim123"
-    },
-    {
-      "id": "2",
-      "password": "Shanna123"
-    },
-    {
-      "id": "84c9",
-      "email": "Real Me",
-      "password": "real me"
-    },
-    {
-      "id": "3854",
-      "email": "Ali@gmail.com",
-      "password": "123sdsf"
-    },
-    {
-      "id": "a843",
-      "email": "Ali@gmail.com",
-      "password": "123sdsf"
-    }
-  ],
-  "signup": [
-    {
-      "voterID": "1",
-      "name": "Abdul Latif - عبد اللطیف",
-      "email": "Chaim_McDermott@dana.io",
-      "password": "Chaim123",
-      "id": "2751"
-    },
-    {
-      "voterID": "2",
-      "name": "Amjad Ali Khan - امجد علی خان",
-      "email": "Shanna@melissa.tv",
-      "password": "Shanna123",
-      "id": "d6af"
-    },
-    {
-      "id": "dc99",
-      "name": "AliHo",
-      "email": "AliHo@gmail.com",
-      "password": "aliHO"
-    },
-    {
-      "id": "8422",
-      "name": "Ahmed Ali",
-      "email": "ahmed@gmail.com",
-      "password": "234rdsf"
-    },
-    {
-      "id": "ff6c",
-      "name": "Ayoub",
-      "email": "Ayoub@gmail.com",
-      "password": "123adskfljei"
     }
   ]
 }

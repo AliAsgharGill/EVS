@@ -4,18 +4,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { candidatesActions, fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 import AddNewCandidateForm from '../../components/NewCandidateForm/AddNewCandidateForm';
-
-
+import { useNavigate } from 'react-router-dom'
 
 
 const CandidateList = () => {
-    const dispatch = useDispatch()
 
     const [selectedCandidate, setSelectedCandidate] = useState(false)
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [isVisible, setIsVisible] = useState(false)
     const [viewModal, setViewModal] = useState(false)
     const [edit, setEdit] = useState(null)
+
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
 
     const candidates = useSelector((state) => state.candidates.candidates)
     const status = useSelector((state) => state.candidates.status)
@@ -74,10 +76,10 @@ const CandidateList = () => {
 
 
     if (status === 'Loading...') {
-        return <div className='bg-red-600'>Loading...</div>
+        return <div className='font-bold text-3xl mt-28  text-[#F09A3E] '>Loading...</div>
     }
     if (status === 'Failed') {
-        return <div>Error:{error}</div>
+        return <div className='font-bold text-3xl mt-28  text-[#F09A3E] '>Error:{error}</div>
     }
 
 
@@ -86,19 +88,20 @@ const CandidateList = () => {
         <>
 
             <h1 className='font-bold text-3xl mt-28  text-gray-500 '>List of Candidates</h1>
-            <div className='flex my-5  justify-center sm:justify-start items-center' >
+            <div className='flex my-5  justify-center sm:justify-start items-center space-x-5 ' >
                 <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={handleAddNewCandidate} > Add New Candidate</Button>
+                <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={() => navigate('/candidatesVoting')} > Cast Vote Now</Button>
             </div>
             {/* List of Candidates */}
             <div className=' grid gap-4 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 '>
                 {candidates ? candidates.map((candidate, index) => (
 
                     <Card key={index} className='' actions={[
-                        <EditOutlined key={candidate.id} style={{ color: 'blue' }} onClick={() => handleEdit(candidate.id)} />,
+                        <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(candidate.id)} />,
 
-                        < IdcardOutlined key={candidate.id} style={{ color: 'skyblue' }} onClick={() => handleIdCardClick(candidate.id)} />,
+                        < IdcardOutlined key='view' style={{ color: 'skyblue' }} onClick={() => handleIdCardClick(candidate.id)} />,
 
-                        <DeleteOutlined key={candidate.id} style={{ color: '#c13584' }} onClick={() => handleDelete(candidate.id)} />
+                        <DeleteOutlined key='delete' style={{ color: '#c13584' }} onClick={() => handleDelete(candidate.id)} />
                     ]}
                         hoverable={true}
                     >
@@ -116,7 +119,7 @@ const CandidateList = () => {
                         </div>
                     </Card>
                 )) : "No Candidates"}
-                
+
             </div >
 
             {/* View Modal Code */}
