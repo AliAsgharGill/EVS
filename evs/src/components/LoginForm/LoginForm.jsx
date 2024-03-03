@@ -28,12 +28,14 @@ const LoginForm = ({ prop, path, type }) => {
         message.error('Invalid password. Please try again.');
       } else if (type === 'admin') {
         message.success("Welcome Back Admin")
-        dispatch(setUser(passwordResponse.data[0]))
-        navigate('/login/admin')
+        localStorage.setItem('user', JSON.stringify(passwordResponse.data[0]))
+        dispatch(setAdmin(passwordResponse.data[0]))
+        navigate('/')
       } else if (type === 'user') {
         message.success("Welcome Back")
+        localStorage.setItem('user', JSON.stringify(passwordResponse.data[0]))
         dispatch(setUser(passwordResponse.data[0]))
-        navigate('/login/user')
+        navigate('/')
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -78,7 +80,7 @@ const LoginForm = ({ prop, path, type }) => {
           <Form.Item>
             <p className='hover:text-black'>
               Dont have an account
-              <Link className='text-blue-500 hover:text-[#F09A3E]' to={path} >
+              <Link className='text-blue-500 hover:text-[#F09A3E]' to='/signup/user' >
                 --Register Now
               </Link>
             </p>

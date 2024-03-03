@@ -130,7 +130,7 @@ const SignupForm = ({ prop, type, path }) => {
                     <Form.Item>
                         <p className='hover:text-black'>
                             Already have an account?
-                            <Link className='text-blue-500 hover:text-[#F09A3E]' to={path} >
+                            <Link className='text-blue-500 hover:text-[#F09A3E]' to='/login/user' >
                                 --Login Now
                             </Link>
                         </p>

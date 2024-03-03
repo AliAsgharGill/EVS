@@ -87,6 +87,18 @@
       "name": "Trinity Emmerich-Raynor",
       "email": "your.email+fakedata92182@gmail.com",
       "password": "UBIJ1kJKCFukN67"
+    },
+    {
+      "id": "35a6",
+      "name": "Ali Akbar",
+      "email": "AliAkbar@gmail.com",
+      "password": "AliAkbar@gmail.com"
+    },
+    {
+      "id": "403b",
+      "name": "realme",
+      "email": "realme@realme.com",
+      "password": "realme"
     }
   ],
   "campaigns": [
