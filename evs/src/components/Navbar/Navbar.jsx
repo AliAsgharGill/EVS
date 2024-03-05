@@ -1,22 +1,30 @@
-import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { useSelector, useDispatch } from 'react-redux'
-import { logoutUser, selectUser } from "../../slices/userSlice/userSlice"
+import { useDispatch } from 'react-redux'
+import { logoutUser } from "../../slices/userSlice/userSlice"
 import { Button } from 'antd'
+import { FaRegCircleUser } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+
 
 const Navbar = () => {
     const dispatch = useDispatch()
-    // const user = useSelector(selectUser)
+    const [change, setChange] = useState(false)
+
     const user = JSON.parse(localStorage.getItem('user'))
     // console.log("User", user);
     const handleLogout = () => {
         localStorage.removeItem('user')
         dispatch(logoutUser())
+        setChange(true)
+    }
+    const handleChange = () => {
+        setChange(true)
     }
 
-    // const [logedIn, setLogedIn] = useState(false)
-    // const user = useSelector(state => state.users.currentUser)
-    // console.log("User", user);
+    useEffect(() => {
+
+    }, [change])
+
     return (
         <>
 
@@ -29,15 +37,19 @@ const Navbar = () => {
 
                     <div className="flex justify-between space-x-5 md:order-2 md:space-x-0 rtl:space-x-reverse items-center">
 
-                        <div className="">
-                            {user ? <div className="flex items-center justify-evenly">{user.name}
-                                <Button type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleLogout}>Logout</Button>
-                            </div> :
-                                <div>
-                                    <NavLink to={'/login/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]">Login</NavLink>
+                        <div className="space-x-5">
+                            {user ?
+                                <div className="flex justify-around space-x-5 items-center ">
+                                    <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
+                                    <Button type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleLogout}>
+                                        Logout
+                                    </Button>
+                                </div> :
+                                <div className="flex justify-around items-center ">
+                                    <NavLink to={'/login/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleChange} >Login</NavLink>
                                     <span className="w-5"></span>
 
-                                    <NavLink to={'/signup/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]">Signup</NavLink>
+                                    <NavLink to={'/signup/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleChange}>Signup</NavLink>
                                 </div>
                             }</div>
                         <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
@@ -50,6 +62,7 @@ const Navbar = () => {
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul id="sidebar" className=" flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-300 md:dark:bg-gray-300 dark:border-gray-300">
 
+
                             <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
                             <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
                             <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
@@ -58,7 +71,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav >
 
         </>
     )

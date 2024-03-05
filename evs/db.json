@@ -1,106 +1,4 @@
 {
-  "signin": [
-    {
-      "id": "06f8",
-      "email": "AliAsghar@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "129b",
-      "email": "Iamuser@gmail.com",
-      "password": "user123"
-    }
-  ],
-  "signup": [
-    {
-      "voterID": "1",
-      "name": "Abdul Latif - عبد اللطیف",
-      "email": "Chaim_McDermott@dana.io",
-      "password": "Chaim123",
-      "id": "2751"
-    },
-    {
-      "voterID": "2",
-      "name": "Amjad Ali Khan - امجد علی خان",
-      "email": "Shanna@melissa.tv",
-      "password": "Shanna123",
-      "id": "d6af"
-    },
-    {
-      "id": "dc99",
-      "name": "AliHo",
-      "email": "AliHo@gmail.com",
-      "password": "aliHO"
-    },
-    {
-      "id": "8422",
-      "name": "Ahmed Ali",
-      "email": "ahmed@gmail.com",
-      "password": "234rdsf"
-    },
-    {
-      "id": "ff6c",
-      "name": "Ayoub",
-      "email": "Ayoub@gmail.com",
-      "password": "123adskfljei"
-    }
-  ],
-  "admins": [
-    {
-      "id": "e863",
-      "name": "Ali Asghar",
-      "email": "aliasghar@gmail.com",
-      "password": "ali1234"
-    }
-  ],
-  "users": [
-    {
-      "id": "0c77",
-      "email": "Ali",
-      "password": "Ali"
-    },
-    {
-      "id": "6a57",
-      "email": "Iamuserone@gmail.com",
-      "password": "user1234"
-    },
-    {
-      "id": "c452",
-      "name": "Ali Asghar",
-      "email": "aliasghar@gmail.com",
-      "password": "ali123"
-    },
-    {
-      "id": "a077",
-      "name": "Ali Asghar",
-      "email": "aliasghar@gmail.com",
-      "password": "ali123"
-    },
-    {
-      "id": "4d7f",
-      "name": "Ahmed",
-      "email": "ahmed@gmail.com",
-      "password": "ahmedgill"
-    },
-    {
-      "id": "1088",
-      "name": "Trinity Emmerich-Raynor",
-      "email": "your.email+fakedata92182@gmail.com",
-      "password": "UBIJ1kJKCFukN67"
-    },
-    {
-      "id": "35a6",
-      "name": "Ali Akbar",
-      "email": "AliAkbar@gmail.com",
-      "password": "AliAkbar@gmail.com"
-    },
-    {
-      "id": "403b",
-      "name": "realme",
-      "email": "realme@realme.com",
-      "password": "realme"
-    }
-  ],
   "campaigns": [
     {
       "name": "Candidates",
@@ -125,6 +23,38 @@
       "description": "Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite.",
       "image": "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg",
       "id": "bb20"
+    },
+    {
+      "id": "8cb3",
+      "name": "Laptops",
+      "description": "Best Laptops In Market ",
+      "image": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/1:1/w_1485,h_1485,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
+    },
+    {
+      "id": "3ece",
+      "name": "Bahawalpur",
+      "description": "Candidates of Bahawalpur",
+      "candidates": [
+        "Ali Asghar Gill",
+        "Ahmed Gujjar"
+      ],
+      "image": "https://www.travelgirls.pk/wp-content/uploads/2020/09/Noor-Mahal-Bahawalpur-750x400.jpg"
+    },
+    {
+      "id": "a324",
+      "name": "Karachi",
+      "description": "Participant's of Karachi ",
+      "candidates": [
+        {
+          "firstCandidate": "Ali Asghar",
+          "firstSymbol": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
+        },
+        {
+          "secondCandidate": "Ali Ahmed",
+          "secondSymbol": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
+        }
+      ],
+      "image": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
     }
   ],
   "programming": [
@@ -228,6 +158,120 @@
       "feature": "Static typing for JavaScript"
     }
   ],
+  "signin": [
+    {
+      "id": "06f8",
+      "email": "AliAsghar@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "129b",
+      "email": "Iamuser@gmail.com",
+      "password": "user123"
+    }
+  ],
+  "signup": [
+    {
+      "voterID": "1",
+      "name": "Abdul Latif - عبد اللطیف",
+      "email": "Chaim_McDermott@dana.io",
+      "password": "Chaim123",
+      "id": "2751"
+    },
+    {
+      "voterID": "2",
+      "name": "Amjad Ali Khan - امجد علی خان",
+      "email": "Shanna@melissa.tv",
+      "password": "Shanna123",
+      "id": "d6af"
+    },
+    {
+      "id": "dc99",
+      "name": "AliHo",
+      "email": "AliHo@gmail.com",
+      "password": "aliHO"
+    },
+    {
+      "id": "8422",
+      "name": "Ahmed Ali",
+      "email": "ahmed@gmail.com",
+      "password": "234rdsf"
+    },
+    {
+      "id": "ff6c",
+      "name": "Ayoub",
+      "email": "Ayoub@gmail.com",
+      "password": "123adskfljei"
+    }
+  ],
+  "admins": [
+    {
+      "id": "e863",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali@1234"
+    },
+    {
+      "id": "e8w2",
+      "name": "Ahmed Ali",
+      "email": "ahmedali@gmail.com",
+      "password": "ahmed1234"
+    }
+  ],
+  "users": [
+    {
+      "id": "0c77",
+      "email": "Ali",
+      "password": "Ali"
+    },
+    {
+      "id": "6a57",
+      "email": "Iamuserone@gmail.com",
+      "password": "user1234"
+    },
+    {
+      "id": "c452",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali@123"
+    },
+    {
+      "id": "a077",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "password": "ali123"
+    },
+    {
+      "id": "4d7f",
+      "name": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "ahmedgill"
+    },
+    {
+      "id": "1088",
+      "name": "Trinity Emmerich-Raynor",
+      "email": "your.email+fakedata92182@gmail.com",
+      "password": "UBIJ1kJKCFukN67"
+    },
+    {
+      "id": "35a6",
+      "name": "Ali Akbar",
+      "email": "AliAkbar@gmail.com",
+      "password": "AliAkbar@gmail.com"
+    },
+    {
+      "id": "403b",
+      "name": "realme",
+      "email": "realme@realme.com",
+      "password": "realme"
+    },
+    {
+      "id": "ce65",
+      "name": "Hafsa Malik",
+      "email": "hafsamalik2585@gmail.com",
+      "password": "hafsa123"
+    }
+  ],
   "candidates": [
     {
       "id": "1",
@@ -306,11 +350,11 @@
     },
     {
       "id": "4",
-      "name": "Julianne",
+      "name": "Ayoub",
       "username": "Karianne",
       "symbol": "public/Images/symbols/na4.jpg",
-      "email": "Julianne.OConner@kory.org",
-      "votes": "0",
+      "email": "Ayoub.OConner@kory.org",
+      "votes": 1,
       "address": {
         "street": "Hoeger Mall",
         "suite": "Apt. 692",
@@ -382,7 +426,7 @@
     {
       "id": "7",
       "name": "Kurtis Weissnat",
-      "votes": "0",
+      "votes": 1,
       "symbol": "public/Images/symbols/na7.jpg",
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",

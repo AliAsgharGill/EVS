@@ -11,7 +11,7 @@ export const HomePageHero = () => {
     return (
         <div className="relative">
             <img
-                src="public/Images/Background/HomePageHero.jpg"
+                src="https://files.nc.gov/sbe/styles/barrio_carousel_full/public/images/2023-10/voting-carousel.png?VersionId=ER574NcpCUMUeTPOSBp7YvzKFNEHdb1z&itok=L5jgnngw"
                 className="absolute inset-0 object-cover w-full h-full filter brightness-75 rounded-lg "
                 alt="HeroImage"
             />

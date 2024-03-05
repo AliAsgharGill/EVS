@@ -30,7 +30,7 @@ const LoginForm = ({ prop, path, type }) => {
         message.success("Welcome Back Admin")
         localStorage.setItem('user', JSON.stringify(passwordResponse.data[0]))
         dispatch(setAdmin(passwordResponse.data[0]))
-        navigate('/')
+        navigate('/dashboard')
       } else if (type === 'user') {
         message.success("Welcome Back")
         localStorage.setItem('user', JSON.stringify(passwordResponse.data[0]))
@@ -79,11 +79,30 @@ const LoginForm = ({ prop, path, type }) => {
 
           <Form.Item>
             <p className='hover:text-black'>
-              Dont have an account
+              Dont have an account-
               <Link className='text-blue-500 hover:text-[#F09A3E]' to='/signup/user' >
-                --Register Now
+                Register Now
               </Link>
             </p>
+
+            <Link className='text-blue-500 hover:text-[#F09A3E]' to='/login/admin'>
+              {type === 'user' ? (
+                <>
+                  <p className='text-black hover:text-black'>OR</p>
+                  <p>Login as Admin</p>
+                </>
+              ) : ''}
+            </Link>
+            <Link className='text-blue-500 hover:text-[#F09A3E]' to='/login/user'>
+              {type === 'admin' ? (
+                <>
+                  <p className='text-black hover:text-black'>OR</p>
+                  <p>Login as User</p>
+                </>
+              ) : ''}
+            </Link>
+
+
           </Form.Item>
         </Form >
       </div>

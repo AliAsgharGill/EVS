@@ -52,7 +52,17 @@ const candidateSlice = createSlice({
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    addCandidate(state, action) {
+      const { name, campaignId } = action.payload;
+      const newCandidate = {
+        id: state.length + 1, // You can use a UUID library for a more reliable id      
+        name,
+        campaignId,
+      };
+      state.candidates.push(newCandidate);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(
       fetchCandidates.pending, (state) => {
@@ -103,7 +113,7 @@ const candidateSlice = createSlice({
 
   },
 });
-
+export const { addCandidate } = candidateSlice.actions
 export default candidateSlice.reducer;
 
 export const candidatesActions = {
