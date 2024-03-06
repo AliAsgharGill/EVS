@@ -21,6 +21,12 @@ export const updateCampaign = createAsyncThunk('campaigns/updateCampagin', async
     return response.data
 })
 
+export const updateVotes = createAsyncThunk('campaigns/upadateVotes',
+    async ({ id, votes }) => {
+        const response = await axios.patch(`${apiURL}/${id}`, { votes })
+        return response.data
+    })
+
 export const deleteCampaign = createAsyncThunk('campaigns/DeleteCampaign', async (id) => {
     axios.delete(`${apiURL}/${id}`)
     return id
@@ -57,6 +63,14 @@ const campaignSlice = createSlice({
                 }
             }).addCase(deleteCampaign.fulfilled, (state, action) => {
                 state.campaigns = state.campaigns.filter(c => c.id !== action.payload)
+            }).addCase(
+                updateVotes.pending, (state) => {
+                    state.status = "Updating..."
+                }
+            )
+            .addCase(updateVotes.fulfilled, (state, action) => {
+                state.status = "Succeeded"
+                
             })
     }
 

@@ -6,6 +6,7 @@ import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons'
 import { useEffect, useRef, useState } from 'react';
 import { fetchCampaigns } from '../../slices/campaignSlice';
 import { ArrowRightOutlined } from '@ant-design/icons';
+import { FaLink } from "react-icons/fa6";
 
 
 const CampaignManagementPage = () => {
@@ -108,7 +109,7 @@ const CampaignManagementPage = () => {
             {/* Modal for voting */}
             <Modal Modal open={view} title="Canditates" onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className='w-screen' >
                 <div className='p-4'>
-                    <Button onClick={() => handleAddCandidate(selectedCampaign.candidates)} type="primary" key="button" className='bg-[#F09A3E]  ' icon={<ArrowRightOutlined />} >
+                    <Button onClick={() => handleAddCandidate(selectedCampaign.candidates)} type="primary" key="button" className='bg-[#F09A3E]  ' icon={<FaRegUserCircle />} >
                         Add Candidate
                     </Button >
                 </div>
@@ -146,7 +147,7 @@ const CampaignManagementPage = () => {
                 </div>
             </Modal >
             {/* Modal For Adding Candidate */}
-            <Modal Modal open={isModalOpen} title="Add Candidate" onCancel={() => setIsModalOpen(false)} onOk={() => setIsModalOpen(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} footer={null} >
+            <Modal Modal open={isModalOpen} title="Add Candidate/Product" onCancel={() => setIsModalOpen(false)} onOk={() => setIsModalOpen(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} footer={null} >
 
                 <Form
                     ref={formRef}
@@ -161,18 +162,18 @@ const CampaignManagementPage = () => {
                         name="candidateName"
                         rules={[{ required: true, message: 'Please enter your Name!' }]}
                     >
-                        <Input placeholder='Email' prefix={<FaRegUserCircle />} />
+                        <Input placeholder='Name' prefix={<FaRegUserCircle />} />
                     </Form.Item>
                     <Form.Item
                         label="Symbol Image Link"
                         name="candidateSymbol"
                         rules={[{ required: true, message: 'Please Input Link of Symbol!' }]}
                     >
-                        <Input placeholder='Password' prefix={<RiLockPasswordLine />} />
+                        <Input placeholder='Symbol Link' prefix={<FaLink />} />
                     </Form.Item>
 
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" className='bg-gray-900'>
+                        <Button type="primary" htmlType="submit" className='bg-gray-900 w-full'>
                             Add
                         </Button>
                     </Form.Item>

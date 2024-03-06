@@ -49,7 +49,7 @@ const CampaignPage = () => {
         dispatch(updateCandidateVotes({ id: candidate.id, votes: updatedVotes }));
         navigate('/')
     };
-    
+
     useEffect(() => {
         dispatch(fetchCandidates())
     }, [dispatch])
@@ -95,7 +95,7 @@ const CampaignPage = () => {
                 </div>
             </div>
 
-            {/* Modal */}
+            {/* Modal for Voting */}
             <Modal open={view} title="Canditates" onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className='w-screen'  >
                 {/* voting */}
                 <div className='grid  sm:grid-cols-1 md:grid-cols-2 gap-4'>

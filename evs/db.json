@@ -1,78 +1,18 @@
 {
   "campaigns": [
     {
-      "id": "8c23",
-      "name": "Ahmed",
-      "description": "three",
+      "id": "df76",
+      "name": "Bikes",
+      "description": "Vote the best bike in the era of fast and amazing bikes. ",
       "candidates": [
         {
-          "candidateName": "Ali Asghar Gill",
-          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
-          "votes": 0
-        },
-        {
-          "candidateName": "Asghar",
-          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
-          "votes": 0
-        },
-        {
-          "candidateName": "Asghar",
-          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
-          "votes": 0
-        },
-        {
-          "candidateName": "Asghar",
-          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
-          "votes": 0
-        },
-        {
-          "candidateName": "Asghar",
-          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "id": 5787,
+          "candidateName": "Yamaha",
+          "candidateSymbol": "https://4.bp.blogspot.com/-27XoXVymnCk/U3NGW7MzGKI/AAAAAAAAFKc/nXKyQFS6iTI/s1600/gf.jpg",
           "votes": 0
         }
       ],
-      "image": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11"
-    },
-    {
-      "id": "b99f",
-      "name": "Christ Gerlach",
-      "description": "Ducimus deleniti tenetur quis adipisci nulla ut quae ut hic.",
-      "candidates": [
-        {
-          "candidateName": "2023-04-07 23:10:25",
-          "candidateSymbol": "Natus fuga vero.",
-          "votes": 0
-        }
-      ],
-      "image": "Deleniti laborum cupiditate nobis ipsam blanditiis."
-    },
-    {
-      "id": "dac1",
-      "name": "Emile Price",
-      "description": "Nisi est sed nisi exercitationem occaecati.",
-      "candidates": [
-        {
-          "id": 4,
-          "candidateName": "Hassan",
-          "candidateSymbol": "Velit non possimus quam.",
-          "votes": 0
-        }
-      ],
-      "image": "Porro laboriosam assumenda."
-    },
-    {
-      "id": "a79f",
-      "name": "Lucious Kiehn",
-      "description": "Similique quidem aperiam ipsam.",
-      "candidates": [
-        {
-          "id": 1,
-          "candidateName": "Dawood",
-          "candidateSymbol": "Similique sit voluptas quis doloremque illo aliquam voluptatem inventore.",
-          "votes": 0
-        }
-      ],
-      "image": "Eaque similique iste unde."
+      "image": "https://static.pakwheels.com/2017/11/yzf_r1_14.jpg"
     }
   ],
   "programming": [

@@ -34,8 +34,8 @@ const AdminDashboard = () => {
 
 
     const onFinish = (values) => {
-        const randomNumber = Math.floor(Math.random() * 9 + 1)
-        console.log(randomNumber);
+        const randomNumber = Math.floor(Math.random() * 10000 + 1)
+        console.log("randomNumber",randomNumber);
         const { name, description, image, candidateName, candidateSymbol } = values;
         const campaignData = {
             name,
