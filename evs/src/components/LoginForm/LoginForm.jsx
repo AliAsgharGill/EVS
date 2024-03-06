@@ -2,14 +2,12 @@ import { Form, Input, Button, message } from 'antd';
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useDispatch } from 'react-redux'
-import { signInUser } from '../../slices/authSlice/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import axios from 'axios'
 
-import { selectUser, setUser } from '../../slices/userSlice/userSlice';
+import { setUser } from '../../slices/userSlice/userSlice';
 import { setAdmin } from '../../slices/adminSlice/adminSlice';
-const LoginForm = ({ prop, path, type }) => {
+const LoginForm = ({ prop,type }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()

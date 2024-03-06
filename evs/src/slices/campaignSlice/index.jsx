@@ -68,9 +68,9 @@ const campaignSlice = createSlice({
                     state.status = "Updating..."
                 }
             )
-            .addCase(updateVotes.fulfilled, (state, action) => {
+            .addCase(updateVotes.fulfilled, (state) => {
                 state.status = "Succeeded"
-                
+
             })
     }
 

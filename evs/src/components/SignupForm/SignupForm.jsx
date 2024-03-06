@@ -1,6 +1,5 @@
 import { Form, Input, Button, message } from 'antd';
 import { useDispatch } from 'react-redux'
-import { signUpUser } from '../../slices/authSlice/authSlice';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import { RiLockPasswordFill, RiUserFill } from "react-icons/ri";
@@ -10,9 +9,8 @@ import { setUser } from '../../slices/userSlice/userSlice';
 import { setAdmin } from '../../slices/adminSlice/adminSlice';
 // import { useState } from 'react';
 import axios from 'axios'
-import { useState } from 'react';
 
-const SignupForm = ({ prop, type, path }) => {
+const SignupForm = ({ prop, type }) => {
     const dispatch = useDispatch()
     // const navigate = useNavigate()
 
@@ -20,25 +18,25 @@ const SignupForm = ({ prop, type, path }) => {
 
     // const [isView, setIsView] = useState(false)
 
-    const [loading, setLoading] = useState(false)
+
 
     const navigate = useNavigate()
 
     const onFinish = async (values) => {
-        setLoading(true)
+
         try {
 
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(values.email)) {
                 message.error('Invalid email format. Please enter a valid email.');
-                setLoading(false);
+
                 return;
             }
 
             if (values.password.length < 6) {
                 message.error('Password must be at least 6 characters long.');
-                setLoading(false);
+
                 return;
             }
 
@@ -66,9 +64,9 @@ const SignupForm = ({ prop, type, path }) => {
 
         } catch (error) {
             message.error('Error Singup:', error)
-            setLoading(false)
+
         }
-        setLoading(false)
+
         // history.push('/login')
         // dispatch(signUpUser(values))
     };
