@@ -45,6 +45,9 @@ const CandidateList = () => {
         setIsModalVisible(true)
     }
 
+    const handleCloseModal = () => {
+        setIsVisible(false);
+    };
 
     const handleAddNewCandidate = () => {
         setIsVisible(true)
@@ -106,7 +109,7 @@ const CandidateList = () => {
                         hoverable={true}
                     >
                         <div key={candidate.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded h-[350px]'>
-                            <img src={candidate.symbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
+                            <img src={candidate.symbol ? candidate.symbol : candidate.image} alt='Symbol' className='rounded-full flex justify-center items-center' />,
                             <div className='font-bold  font-serif  '>
                                 {candidate.name}
                             </div>
@@ -123,7 +126,6 @@ const CandidateList = () => {
             </div >
 
             {/* View Modal Code */}
-
             <Modal open={isModalVisible} title="Canditate For National Assembly" onCancel={() => setIsModalVisible(false)} onOk={() => setIsModalVisible(false)} onFinish={onFinish} onFinishFailed={onFinishFailed}  >
                 {selectedCandidate && (
                     <Card key={selectedCandidate.id} hoverable={true}>
@@ -145,9 +147,10 @@ const CandidateList = () => {
                     </Card>
                 )}
             </Modal>
+
             {/* Add new Candidate Modal */}
-            <Modal open={isVisible} title="Add Canditate For National Assembly" onCancel={() => setIsVisible(false)} onOk={() => setIsVisible(false)}  >
-                {<AddNewCandidateForm />}
+            <Modal open={isVisible} title="Add Canditate" onCancel={() => setIsVisible(false)} onOk={() => setIsVisible(false)}  >
+                {<AddNewCandidateForm onCloseModal={handleCloseModal} />}
             </Modal>
 
             {/* Edit Modal Code */}

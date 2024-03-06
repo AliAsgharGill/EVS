@@ -285,7 +285,7 @@
       "id": "3",
       "name": "Leanne Graham ok",
       "symbol": "public/Images/symbols/na3.jpg",
-      "votes": "0",
+      "votes": 1,
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {
@@ -480,6 +480,22 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       }
+    },
+    {
+      "id": "b983",
+      "name": "Ali Asghar",
+      "email": "stylinalivlogs@gmail.com",
+      "phone": "03026822324",
+      "password": "123",
+      "image": "https://i.ytimg.com/vi/LRFKqrpm7E0/hqdefault.jpg?sqp=-oaymwE1CKgBEF5IVfKriqkDKAgBFQAAiEIYAXABwAEG8AEB-AH-CYAC0AWKAgwIABABGGogaihqMA8=&rs=AOn4CLCtCn3vnyR1PAsVL4naNk3ygxcGIw"
+    },
+    {
+      "id": "8048",
+      "name": "Ali Asghar",
+      "email": "aliasghar@gmail.com",
+      "phone": "03026822324",
+      "password": "ali@123",
+      "image": "https://lh4.googleusercontent.com/proxy/ZJFXWQ2LoxJga_DnzxOoAExdT6wJs42EFUTJmnmoduBNEoziIttSHcH9Xd7KkNeYv56R6wCOdIa6DgaOUEqX6jCdMdySxizIW26STzoOE7GizL6MQKxXsrVwriQpQaEIAQ"
     }
   ],
   "phones": [
@@ -518,11 +534,7 @@
       "old_price": 1999,
       "percentage_off": "10%",
       "company": "Samsung",
-      "features": [
-        "Foldable display",
-        "Flex mode",
-        "Advanced multitasking"
-      ],
+      "features": ["Foldable display", "Flex mode", "Advanced multitasking"],
       "votes": "0"
     },
     {
@@ -574,11 +586,7 @@
       "old_price": 699,
       "percentage_off": "14.3%",
       "company": "Apple",
-      "features": [
-        "Liquid Retina HD display",
-        "A13 Bionic chip",
-        "Face ID"
-      ],
+      "features": ["Liquid Retina HD display", "A13 Bionic chip", "Face ID"],
       "votes": "0"
     },
     {
@@ -588,11 +596,7 @@
       "old_price": 499,
       "percentage_off": "20%",
       "company": "Apple",
-      "features": [
-        "A13 Bionic chip",
-        "Retina HD display",
-        "Touch ID"
-      ],
+      "features": ["A13 Bionic chip", "Retina HD display", "Touch ID"],
       "votes": "0"
     },
     {
@@ -602,11 +606,7 @@
       "old_price": 599,
       "percentage_off": "16.7%",
       "company": "Apple",
-      "features": [
-        "Liquid Retina HD display",
-        "A12 Bionic chip",
-        "Face ID"
-      ],
+      "features": ["Liquid Retina HD display", "A12 Bionic chip", "Face ID"],
       "votes": "0"
     },
     {

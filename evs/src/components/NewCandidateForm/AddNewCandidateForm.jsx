@@ -1,23 +1,26 @@
 import { Form, Input, Button, Upload } from "antd";
-
 import { useDispatch } from "react-redux";
+import { addNewCanidate } from "../../slices/canidateSlice/canidateSlice";
+import { useRef } from "react";
 // import { Link } from "react-router-dom";
 
-const AddNewCandidateForm = () => {
+const AddNewCandidateForm = ({ onCloseModal }) => {
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
     console.log("New Candidate Received values:", values);
-    // dispatch(addNewCandidate(values));
+    dispatch(addNewCanidate(values));
+    formRef.current.restFields();
+    onCloseModal();
   };
 
-
+  const formRef = useRef(null)
 
   return (
     <div className="flex justify-center   ">
       <Form
-
-        className="bg-gray-300 p-10 rounded "
+        ref={formRef}
+        className="bg-gray-300 p-10 rounded w-full "
         name="signup-form"
         onFinish={onFinish}
         layout="vertical"
@@ -58,17 +61,15 @@ const AddNewCandidateForm = () => {
         <Form.Item
           label="Symbol Image"
           name="image"
-          rules={[{ required: true, message: "Please enter your Symbol Image!" }]}
+          rules={[{ required: true, message: "Please Enter Link of Symbol" }]}
         >
-          <Upload action={'http://localhost:3000/candidates'}>
-            <Button>Upload</Button>
-          </Upload>
+          <Input />
         </Form.Item>
 
 
         <Form.Item>
-          <Button className="bg-gray-900" type="primary" htmlType="submit">
-            Add CandidateS
+          <Button className="bg-gray-900 w-full" type="primary" htmlType="submit">
+            Add Candidate
           </Button>
         </Form.Item>
 
