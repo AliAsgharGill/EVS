@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { message, Form, Input, Button, Modal, Select } from 'antd'
 import axios from 'axios'
 import { addCampaign } from '../../slices/campaignSlice';
-import { addCandidate } from '../../slices/canidateSlice/canidateSlice';
 
 const AdminDashboard = () => {
     const navigate = useNavigate();

@@ -6,9 +6,15 @@
       "description": "Vote the best bike in the era of fast and amazing bikes. ",
       "candidates": [
         {
-          "id": 5787,
+          "id": 973,
           "candidateName": "Yamaha",
           "candidateSymbol": "https://4.bp.blogspot.com/-27XoXVymnCk/U3NGW7MzGKI/AAAAAAAAFKc/nXKyQFS6iTI/s1600/gf.jpg",
+          "votes": 0
+        },
+        {
+          "id": 8303,
+          "candidateName": "Motorists",
+          "candidateSymbol": "https://static.pakwheels.com/2017/11/black.png",
           "votes": 0
         }
       ],

@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input, Button, message, Card, Modal } from 'antd';
-import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
 import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 import { useEffect, useRef, useState } from 'react';
 import { fetchCampaigns } from '../../slices/campaignSlice';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { FaLink } from "react-icons/fa6";
-
+import { addCandidateToCampaign } from './../../slices/campaignSlice'
+import axios from 'axios';
 
 const CampaignManagementPage = () => {
     const { Meta } = Card;
@@ -44,8 +44,11 @@ const CampaignManagementPage = () => {
         console.log('Failed:', errorInfo);
     };
 
-    const onFinishFrom = (values) => {
+    const onFinishFrom = async (values) => {
         console.log('Success:', values);
+        const { campaignId, ...candidate } = values;
+        const response = await axios.post(`http://localhost:3000/campaigns/${campaignId}/candidates`, values);
+        dispatch(addCandidateToCampaign({ campaignId, candidate: response.data }));
         formRef.current.resetFields()
         // dispatch()        
         setIsModalOpen(false)

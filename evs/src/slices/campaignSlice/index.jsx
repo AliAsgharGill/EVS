@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { message } from 'antd'
 
 const apiURL = 'http://localhost:3000/campaigns'
 
@@ -22,9 +23,9 @@ export const updateCampaign = createAsyncThunk('campaigns/updateCampagin', async
 })
 
 export const updateVotes = createAsyncThunk('campaigns/upadateVotes',
-    async ({ id, votes }) => {
-        const response = await axios.patch(`${apiURL}/${id}`, { votes })
-        return response.data
+    async ({ campaignId, candidateId }) => {
+        const response = await axios.patch(`${apiURL}/${campaignId}/candidates/${candidateId}`, { vote: 1 });
+        return response.data;
     })
 
 export const deleteCampaign = createAsyncThunk('campaigns/DeleteCampaign', async (id) => {
@@ -39,7 +40,18 @@ const campaignSlice = createSlice({
         status: 'idle',
         error: null
     },
-    reducers: {},
+    reducers: {
+        addCandidateToCampaign(state, action) {
+            const { campaignId, candidate } = action.payload;
+            const campaignIndex = state.candidates.findIndex(c => c.id === campaignId);
+            if (campaignIndex !== -1) {
+                state.campaigns[campaignIndex].candidates.push(candidate);
+                message.success("Successfully Added")
+            } else {
+                message.error("Data Not Added!")
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCampaigns.pending, (state) => {
             state.status = "Loading..."
@@ -68,14 +80,22 @@ const campaignSlice = createSlice({
                     state.status = "Updating..."
                 }
             )
-            .addCase(updateVotes.fulfilled, (state) => {
-                state.status = "Succeeded"
-
+            .addCase(updateVotes.fulfilled, (state, action) => {
+                state.status = "Succeeded";
+                // Update the votes for the candidate in the campaigns array
+                const { id, votes } = action.payload;
+                state.campaigns.forEach((campaign) => {
+                    const candidateToUpdate = campaign.candidates.find((candidate) => candidate.id === id);
+                    if (candidateToUpdate) {
+                        candidateToUpdate.votes = votes;
+                    }
+                });
             })
     }
 
 })
 
+export const { addCandidateToCampaign } = campaignSlice.actions
 export default campaignSlice.reducer
 
 export const campaignActions = {
