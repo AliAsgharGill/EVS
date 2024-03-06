@@ -1,19 +1,20 @@
 import { Form, Input, Button, message } from 'antd';
-import { FaRegUserCircle } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { FaRegUserCircle } from "react-icons/fa";
 import { useDispatch } from 'react-redux'
 import { signInUser } from '../../slices/authSlice/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios'
 
-import { setUser } from '../../slices/userSlice/userSlice';
+import { selectUser, setUser } from '../../slices/userSlice/userSlice';
 import { setAdmin } from '../../slices/adminSlice/adminSlice';
 const LoginForm = ({ prop, path, type }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  
   const onFinish = async (values) => {
     try {
       const emailResponse = await axios.get(`http://localhost:3000/${type}s?email=${values.email}`)

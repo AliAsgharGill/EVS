@@ -34,12 +34,14 @@ const AdminDashboard = () => {
 
 
     const onFinish = (values) => {
-        const { name, description, image, firstCandidate, firstSymbol, secondCandidate, secondSymbol, } = values;
+        const randomNumber = Math.floor(Math.random() * 9 + 1)
+        console.log(randomNumber);
+        const { name, description, image, candidateName, candidateSymbol } = values;
         const campaignData = {
             name,
             description,
-            candidates: [{ firstCandidate, firstSymbol }, { secondCandidate, secondSymbol }],
-            image
+            candidates: [{ id: randomNumber, candidateName, candidateSymbol, votes: 0 }],
+            image,
         };
         console.log('Success:', campaignData);
         dispatch(addCampaign(campaignData))
@@ -52,8 +54,7 @@ const AdminDashboard = () => {
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [canModalOpen, setCanModalOpen] = useState(false);
-    
+
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -65,27 +66,8 @@ const AdminDashboard = () => {
         setIsModalOpen(false);
     };
 
-    const canModalCan = () => {
-        setCanModalOpen(true)
-    };
-    const handleOkCan = () => {
-        setCanModalOpen(false)
-    };
-    const handleCancelCan = () => {
-        setCanModalOpen(false)
-    };
 
-    // candidate modal    
-    const campaigns = useSelector((state) => state.campaign.campaigns);
-    // console.log("Campaigns", campaigns);
-    const [selectedCampaign, setSelectedCampaign] = useState('');
-    const [candidateName, setCandidateName] = useState('');
-    const handleSubmit = () => {
-        dispatch(addCandidate({ name: candidateName, campaignId: selectedCampaign }));
-        message.success('Candidate added successfully');
-        setCandidateName('');
-        setSelectedCampaign('');
-    };
+
 
 
     return (
@@ -100,8 +82,8 @@ const AdminDashboard = () => {
                             <Button type="primary" onClick={showModal} className='bg-[#F09A3E]'  >
                                 Add Campaign
                             </Button>
-                            <Button type="primary" onClick={canModalCan} className='bg-[#F09A3E]'  >
-                                Add Candidate
+                            <Button type="primary" onClick={() => navigate('/campaignspage')} className='bg-[#F09A3E]'  >
+                                Manage Campaigns
                             </Button>
                         </div>
                     </div>
@@ -165,7 +147,7 @@ const AdminDashboard = () => {
 
                             <Form.Item
                                 label="1st Canididate Name"
-                                name="firstCandidate"
+                                name="candidateName"
                                 rules={[
                                     {
                                         required: true,
@@ -178,7 +160,7 @@ const AdminDashboard = () => {
 
                             <Form.Item
                                 label="1st's Symbol Link"
-                                name="firstSymbol"
+                                name="candidateSymbol"
                                 rules={[
                                     {
                                         required: true,
@@ -190,31 +172,6 @@ const AdminDashboard = () => {
                             </Form.Item>
 
                             <Form.Item
-                                label="2nd Canididate Name"
-                                name="secondCandidate"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input Candidate/Product!',
-                                    },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
-
-                            <Form.Item
-                                label="2nd's Symbol Link"
-                                name="secondSymbol"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Symbol link of 2nd Canididate!',
-                                    },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
-                            <Form.Item
                                 wrapperCol={{
                                     offset: 8,
                                     span: 16,
@@ -224,28 +181,6 @@ const AdminDashboard = () => {
                                     Add Campaign
                                 </Button>
                             </Form.Item>
-                        </Form>
-                    </Modal>
-                    {/* Add candidate Modal */}
-                    <Modal title="Add Candidate" open={canModalOpen} onOk={handleOkCan} onCancel={handleCancelCan}  >
-                        <Form >
-                            <Form.Item label="Candidate Name">
-                                <Input value={candidateName} onChange={(e) => setCandidateName(e.target.value)} />
-                            </Form.Item>
-                            <Form.Item label="Campaign">
-                                <Select value={selectedCampaign} onChange={(value) => setSelectedCampaign(value)}>
-                                    {campaigns.map((campaign) => (
-                                        <Select.Option key={campaign.id} value={campaign.id}>
-                                            {campaign.name}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </Form.Item>
-                            <div className='flex justify-end '>
-                                <Form.Item>
-                                    <Button type="primary" className='bg-gray-600 w-full mt-4' onClick={handleSubmit}>Add Candidate</Button>
-                                </Form.Item>
-                            </div>
                         </Form>
                     </Modal>
                 </div>

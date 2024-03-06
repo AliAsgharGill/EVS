@@ -47,7 +47,7 @@ const campaignSlice = createSlice({
                 state.error = action.error.message
             })
             .addCase(addCampaign.fulfilled, (state, action) => {
-                state.status = "New Campaign Added" 
+                state.status = "New Campaign Added"
                 state.campaigns.push(action.payload)
             })
             .addCase(updateCampaign.fulfilled, (state, action) => {

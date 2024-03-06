@@ -1,60 +1,78 @@
 {
   "campaigns": [
     {
-      "name": "Candidates",
-      "description": "Explore a diverse range of candidates with varying backgrounds, experiences, and visions for the future, Cast vote to your favorite.",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlGrPLYk-YU4p3zX0wDMp8JIEEmyptrqqkA&usqp=CAU",
-      "id": "bde3"
-    },
-    {
-      "name": "Programming Languages",
-      "description": "Discover a variety of programming languages, each with its own strengths and use cases. Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg",
-      "id": "f8b6"
-    },
-    {
-      "name": "Phones",
-      "description": "Explore the latest smartphones with advanced features and cutting-edge technology,Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_640.jpg",
-      "id": "5137"
-    },
-    {
-      "name": "Electronics",
-      "description": "Discover a wide range of electronic products, from gaming consoles to laptops and drones,Cast vote to your favorite.",
-      "image": "https://cdn.pixabay.com/photo/2017/07/31/18/29/laptop-2559792_1280.jpg",
-      "id": "bb20"
-    },
-    {
-      "id": "8cb3",
-      "name": "Laptops",
-      "description": "Best Laptops In Market ",
-      "image": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/1:1/w_1485,h_1485,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
-    },
-    {
-      "id": "3ece",
-      "name": "Bahawalpur",
-      "description": "Candidates of Bahawalpur",
-      "candidates": [
-        "Ali Asghar Gill",
-        "Ahmed Gujjar"
-      ],
-      "image": "https://www.travelgirls.pk/wp-content/uploads/2020/09/Noor-Mahal-Bahawalpur-750x400.jpg"
-    },
-    {
-      "id": "a324",
-      "name": "Karachi",
-      "description": "Participant's of Karachi ",
+      "id": "8c23",
+      "name": "Ahmed",
+      "description": "three",
       "candidates": [
         {
-          "firstCandidate": "Ali Asghar",
-          "firstSymbol": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
+          "candidateName": "Ali Asghar Gill",
+          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "votes": 0
         },
         {
-          "secondCandidate": "Ali Ahmed",
-          "secondSymbol": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
+          "candidateName": "Asghar",
+          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "votes": 0
+        },
+        {
+          "candidateName": "Asghar",
+          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "votes": 0
+        },
+        {
+          "candidateName": "Asghar",
+          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "votes": 0
+        },
+        {
+          "candidateName": "Asghar",
+          "candidateSymbol": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11",
+          "votes": 0
         }
       ],
-      "image": "https://thesportsfactory.pk/wp-content/uploads/2021/01/3-min-1-2.png"
+      "image": "https://www.bennetts.co.uk/-/media/bikesocial/2022-december-images/top-10-ten-fastest-bikes/top-10-ten-fastest-bikes_01.ashx?h=493&w=740&la=en&hash=3DD4A469779362F2F4C636865D1DF7B231FCAA11"
+    },
+    {
+      "id": "b99f",
+      "name": "Christ Gerlach",
+      "description": "Ducimus deleniti tenetur quis adipisci nulla ut quae ut hic.",
+      "candidates": [
+        {
+          "candidateName": "2023-04-07 23:10:25",
+          "candidateSymbol": "Natus fuga vero.",
+          "votes": 0
+        }
+      ],
+      "image": "Deleniti laborum cupiditate nobis ipsam blanditiis."
+    },
+    {
+      "id": "dac1",
+      "name": "Emile Price",
+      "description": "Nisi est sed nisi exercitationem occaecati.",
+      "candidates": [
+        {
+          "id": 4,
+          "candidateName": "Hassan",
+          "candidateSymbol": "Velit non possimus quam.",
+          "votes": 0
+        }
+      ],
+      "image": "Porro laboriosam assumenda."
+    },
+    {
+      "id": "a79f",
+      "name": "Lucious Kiehn",
+      "description": "Similique quidem aperiam ipsam.",
+      "candidates": [
+        {
+          "id": 1,
+          "candidateName": "Dawood",
+          "candidateSymbol": "Similique sit voluptas quis doloremque illo aliquam voluptatem inventore.",
+          "votes": 0
+        }
+      ],
+      "image": "Eaque similique iste unde."
     }
   ],
   "programming": [

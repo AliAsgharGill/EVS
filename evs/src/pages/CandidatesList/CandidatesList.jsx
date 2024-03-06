@@ -1,8 +1,8 @@
 import { Button, Card, Modal, Form } from 'antd';
+import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { candidatesActions, fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
-import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 import AddNewCandidateForm from '../../components/NewCandidateForm/AddNewCandidateForm';
 import { useNavigate } from 'react-router-dom'
 

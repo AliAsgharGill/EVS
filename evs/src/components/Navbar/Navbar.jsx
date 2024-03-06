@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { logoutUser } from "../../slices/userSlice/userSlice"
+import { logoutUser, setUser } from "../../slices/userSlice/userSlice"
 import { Button } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ const Navbar = () => {
 
     useEffect(() => {
 
-    }, [change])
+    }, [change, dispatch])
 
     return (
         <>
@@ -66,6 +66,7 @@ const Navbar = () => {
                             <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
                             <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
                             <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
+                            {/* <NavLink to="/voting" className="hover:underline me-4 md:me-6">Voting</NavLink> */}
                             {/* <NavLink to="/vote" className="hover:underline me-4 md:me-6">Voting</NavLink> */}
 
                         </ul>

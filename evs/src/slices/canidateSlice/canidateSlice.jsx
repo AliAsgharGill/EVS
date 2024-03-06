@@ -56,7 +56,7 @@ const candidateSlice = createSlice({
     addCandidate(state, action) {
       const { name, campaignId } = action.payload;
       const newCandidate = {
-        id: state.length + 1, // You can use a UUID library for a more reliable id      
+        id: state.length + 1,
         name,
         campaignId,
       };
