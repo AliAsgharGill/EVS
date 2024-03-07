@@ -6,27 +6,37 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchCampaigns } from '../../slices/campaignSlice';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { FaLink } from "react-icons/fa6";
-import { addCandidateToCampaign } from './../../slices/campaignSlice'
-import axios from 'axios';
-import { addCandidate } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
+
+import { addCandidate, fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 
 const CampaignManagementPage = () => {
     const { Meta } = Card;
     const formRef = useRef(null)
     const dispatch = useDispatch()
 
-
-    const campaigns = useSelector(state => state.campaign.campaigns)
-    console.log("Campagins", campaigns);
-
     const [view, setView] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [selectedCampaign, setSelectedCampaign] = useState(null)
     const [campaignID, setCampaignID] = useState(null)
+    const campaigns = useSelector(state => state.campaign.campaigns)
+    // console.log("Campagins", campaigns);    
+    const dynamicCandidates = useSelector(state => state.dynamicCandidates.candidates)
+
+    const [selectedCampaign, setSelectedCampaign] = useState(null)
+    const [participants, setParticipants] = useState(null)
 
     const manageCandidates = (campagin) => {
         const campaignExist = campaigns.find(camp => camp.id === campagin.id)
+        const contestants = dynamicCandidates.filter(can => can.campaignID === campaignExist.id)
+        // console.log("contestants", contestants);
+        setParticipants(contestants)
         if (campaignExist) {
+            const data = campaignExist.candidates
+            setSelectedCampaign(data)
+            setView(true)
+        }
+
+        const campExist = campaigns.find(camp => camp.id === campagin.id)
+        if (campExist) {
             setSelectedCampaign(campaignExist.candidates)
             setCampaignID(campaignExist.id)
             setView(true)
@@ -35,6 +45,7 @@ const CampaignManagementPage = () => {
 
     useEffect(() => {
         dispatch(fetchCampaigns())
+        dispatch(fetchDynamicCandidates())
     }, [dispatch])
 
 
@@ -52,6 +63,7 @@ const CampaignManagementPage = () => {
         formRef.current.resetFields()
         dispatch(addCandidate({ ...values, campaignID: campaignID, votes: 0 }))
         setIsModalOpen(false)
+        message.success("Candidate Added Successfully!")
     };
 
     const onFinishFailedFrom = (errorInfo) => {
@@ -72,7 +84,7 @@ const CampaignManagementPage = () => {
             <div className=' mt-20 sm:mt-10'>
                 <h2 className='font-bold text-3xl' >Campaign Management</h2>
                 {/* Fetching Existing campaigns */}
-                <div className=' p-5 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 place-items-center'>
+                <div className=' p-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'>
                     {campaigns.map(campagin => (
                         <Card
                             key={campagin.id}
@@ -118,13 +130,13 @@ const CampaignManagementPage = () => {
                     </Button >
                 </div>
                 <div className='grid  sm:grid-cols-1 md:grid-cols-2 gap-4'>
-                    {selectedCampaign && (
+                    {participants && (
                         // console.log("Camp Cand", selectedCampaign),
-                        selectedCampaign.map((candidate, index) => (
+                        participants.map((participant => (
                             // start
 
                             // end
-                            <Card key={index} className='' actions={[
+                            <Card key={participant.id} className='' actions={[
                                 <EditOutlined key='edit' style={{ color: 'blue' }} /*onClick={() => handleEdit(candidate.id)} */ />,
 
                                 < IdcardOutlined key='view' style={{ color: 'skyblue' }}/* onClick={() => handleIdCardClick(candidate.id)} */ />,
@@ -133,21 +145,21 @@ const CampaignManagementPage = () => {
                             ]}
                                 hoverable={true}
                             >
-                                <div key={candidate.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded h-[350px]'>
-                                    <img src={candidate.candidateSymbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
+                                <div key={participant.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded h-[350px]'>
+                                    <img src={participant.candidateSymbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
                                     <div className='font-bold  font-serif  '>
-                                        {candidate.candidateName}
+                                        {participant.candidateName}
                                     </div>
                                     <div className='font-bold  font-serif  '>
-                                        ID:{candidate.id}
+                                        ID:{participant.id}
                                     </div>
                                     <div className='font-serif  '>
-                                        Votes:{candidate.votes}
+                                        Votes:{participant.votes}
                                     </div>
                                 </div>
                             </Card>
                         ))
-                    )}
+                        ))}
                 </div>
             </Modal >
             {/* Modal For Adding Candidate */}

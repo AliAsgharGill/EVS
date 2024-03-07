@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Card, Button, Modal } from 'antd'
+import { Card, Button, Modal, message } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCampaigns, updateVotes } from '../../slices/campaignSlice';
+import { fetchCampaigns } from '../../slices/campaignSlice';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { MdHowToVote } from "react-icons/md";
 
 
 // voting
-
-import { LiaVoteYeaSolid } from "react-icons/lia";
 import { fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
 import { useNavigate } from 'react-router-dom'
 import { fetchDynamicCandidates, updateCandidateVotes } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
@@ -27,23 +25,20 @@ const CampaignPage = () => {
 
     const campaigns = useSelector(state => state.campaign.campaigns)
     const dynamicCandidates = useSelector(state => state.dynamicCandidates.candidates)
-    console.log("Dynamic", dynamicCandidates);
-    // console.log("campaigns", campaigns);
+    // console.log("Dynamic", dynamicCandidates);    
 
 
     const [view, setView] = useState(false)
-    const [selectedCampaign, setSelectedCampaign] = useState(null)
-    const [urlId, setUrlId] = useState(false)
+    const [selectedCampaign, setSelectedCampaign] = useState(null)    
     const [participants, setParticipants] = useState(null)
     console.log("selectedCampaign", selectedCampaign);
 
     const handleMangeCampaign = (campagin) => {
         const campaignExist = campaigns.find(camp => camp.id === campagin.id)
         const contestants = dynamicCandidates.filter(can => can.campaignID === campaignExist.id)
-        console.log("contestants", contestants);
+        // console.log("contestants", contestants);
         setParticipants(contestants)
-        if (campaignExist) {
-            setUrlId(campaignExist.id)
+        if (campaignExist) {            
             const data = campaignExist.candidates
             setSelectedCampaign(data)
             setView(true)
@@ -51,12 +46,11 @@ const CampaignPage = () => {
     }
 
     // voting
-    const handleVoteClick = (candidate, campaignId) => {
-
-    };
-    const handleVote = (campaignId, candidateId, votes) => {
-        console.log("Data", campaignId, candidateId, votes);
-        dispatch(updateCandidateVotes({ campaignId, candidateId, votes }));
+    const handleVoteClick = (participant) => {
+        console.log("Participant Updated", participant);
+        dispatch(updateCandidateVotes(participant));
+        message.success('Your Vote Counted Successfully')
+        navigate('/')
     };
 
     useEffect(() => {
@@ -117,28 +111,28 @@ const CampaignPage = () => {
             </div>
 
             {/* Modal for Voting */}
-            <Modal open={view} title="Canditates" footer={null} onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className=''  >
+            <Modal open={view} title="Participants" footer={null} onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className=''  >
                 {/* voting */}
                 <div className='grid  sm:grid-cols-1 md:grid-cols-2 gap-4'>
-                    {participants ? participants.map(candidate => (
-                        <Card key={candidate.id} className='' actions={
+                    {participants ? participants.map(participant => (
+                        <Card key={participant.id} className='' actions={
                             [
-                                <div className='flex justify-evenly items-center' key={candidate.id}>
-                                    <LiaVoteYeaSolid focusable={true} key={candidate.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVoteClick(candidate, urlId)} />
-                                    <MdHowToVote focusable={true} key={candidate.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVote(candidate, urlId, candidate.votes)} />
+                                <div className='flex justify-evenly items-center' key={participant.id}>
+                                    {/* <LiaVoteYeaSolid focusable={true} key={participant.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVoteClick(participant, urlId)} /> */}
+                                    <MdHowToVote focusable={true} key={participant.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVoteClick(participant)} />
                                 </div>
                             ]}
 
                             hoverable={true}
                         >
-                            <div key={candidate.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded  h-[350px] '>
-                                <img src={candidate.candidateSymbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
+                            <div key={participant.id} className='bg-gray-300 flex justify-center items-center flex-col p-8 rounded  h-[350px] '>
+                                <img src={participant.candidateSymbol} alt='Symbol' className='rounded-full flex justify-center items-center' />,
                                 <div className='font-bold  font-serif  '>
-                                    {candidate.candidateName}
+                                    {participant.candidateName}
                                 </div>
 
                                 <div className='  font-serif  '>
-                                    {candidate.votes}
+                                    {participant.votes}
                                 </div>
                             </div>
                         </Card>

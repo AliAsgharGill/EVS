@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useEffect, useRef, useState } from 'react';
-import { message, Form, Input, Button, Modal, Select } from 'antd'
+import { message, Form, Input, Button, Modal } from 'antd'
 import axios from 'axios'
 import { addCampaign } from '../../slices/campaignSlice';
 

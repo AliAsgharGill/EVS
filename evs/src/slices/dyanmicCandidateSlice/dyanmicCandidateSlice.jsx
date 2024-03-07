@@ -14,8 +14,8 @@ export const fetchDynamicCandidates = createAsyncThunk('candidates/fetchDynamicC
 
 export const updateCandidateVotes = createAsyncThunk(
     'candidates/updateCandidateVotes',
-    async ({ campaignId, candidateId, votes }) => {
-        const response = await axios.put(`http://localhost:3000/campaigns/${campaignId}/candidates/${candidateId}`, { votes });
+    async (participant) => {
+        const response = await axios.patch(`http://localhost:3000/dynamicCandidates/${participant.id}`, { votes: participant.votes + 1 });
         return response.data;
     }
 );
@@ -50,11 +50,11 @@ const dyanmicCandidatesSlice = createSlice({
             })
             .addCase(updateCandidateVotes.fulfilled, (state, action) => {
                 state.status = 'idle';
-                const updatedCandidate = action.payload;
-                const campaignIndex = state.candidates.findIndex(campaign => campaign.id === updatedCandidate.campaignId);
-                const candidateIndex = state.candidates[campaignIndex].candidates.findIndex(candidate => candidate.id === updatedCandidate.id);
-                state.candidates[campaignIndex].candidates[candidateIndex].votes = updatedCandidate.votes;
-                console.log("Fulfilled Done");
+                state.candidates = state.candidates.map((candidate) =>
+                    candidate.id === action.payload.id ? { ...candidate, votes: action.payload.votes } : candidate
+                );
+                // const updatedCandidate = action.payload;
+                // console.log("updatedCandidate", updatedCandidate);
             })
             .addCase(updateCandidateVotes.rejected, (state, action) => {
                 state.status = 'idle';
