@@ -113,6 +113,7 @@ const candidateSlice = createSlice({
 
   },
 });
+
 export const { addCandidate } = candidateSlice.actions
 export default candidateSlice.reducer;
 

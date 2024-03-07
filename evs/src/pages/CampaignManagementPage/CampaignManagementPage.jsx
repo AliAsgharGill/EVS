@@ -8,6 +8,7 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { FaLink } from "react-icons/fa6";
 import { addCandidateToCampaign } from './../../slices/campaignSlice'
 import axios from 'axios';
+import { addCandidate } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 
 const CampaignManagementPage = () => {
     const { Meta } = Card;
@@ -21,11 +22,13 @@ const CampaignManagementPage = () => {
     const [view, setView] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedCampaign, setSelectedCampaign] = useState(null)
+    const [campaignID, setCampaignID] = useState(null)
 
     const manageCandidates = (campagin) => {
         const campaignExist = campaigns.find(camp => camp.id === campagin.id)
         if (campaignExist) {
             setSelectedCampaign(campaignExist.candidates)
+            setCampaignID(campaignExist.id)
             setView(true)
         }
     }
@@ -46,11 +49,8 @@ const CampaignManagementPage = () => {
 
     const onFinishFrom = async (values) => {
         console.log('Success:', values);
-        const { campaignId, ...candidate } = values;
-        const response = await axios.post(`http://localhost:3000/campaigns/${campaignId}/candidates`, values);
-        dispatch(addCandidateToCampaign({ campaignId, candidate: response.data }));
         formRef.current.resetFields()
-        // dispatch()        
+        dispatch(addCandidate({ ...values, campaignID: campaignID, votes: 0 }))
         setIsModalOpen(false)
     };
 
@@ -61,7 +61,8 @@ const CampaignManagementPage = () => {
 
 
 
-    const handleAddCandidate = () => {
+    const handleAddCandidate = (campaign) => {
+        console.log("Campaign Is:", campaign);
         setIsModalOpen(true)
 
     }
@@ -112,7 +113,7 @@ const CampaignManagementPage = () => {
             {/* Modal for voting */}
             <Modal Modal open={view} title="Canditates" onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className='w-screen' >
                 <div className='p-4'>
-                    <Button onClick={() => handleAddCandidate(selectedCampaign.candidates)} type="primary" key="button" className='bg-[#F09A3E]  ' icon={<FaRegUserCircle />} >
+                    <Button onClick={() => handleAddCandidate(selectedCampaign)} type="primary" key="button" className='bg-[#F09A3E]  ' icon={<FaRegUserCircle />} >
                         Add Candidate
                     </Button >
                 </div>

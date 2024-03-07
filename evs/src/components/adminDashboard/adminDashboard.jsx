@@ -33,17 +33,18 @@ const AdminDashboard = () => {
 
 
     const onFinish = (values) => {
-        const randomNumber = Math.floor(Math.random() * 10000 + 1)
-        console.log("randomNumber",randomNumber);
-        const { name, description, image, candidateName, candidateSymbol } = values;
+        // const randomNumber = Math.floor(Math.random() * 10000 + 1)
+        // console.log("randomNumber",randomNumber);
+        const { name, description, image, /* candidateName, candidateSymbol */ } = values;
         const campaignData = {
             name,
             description,
-            candidates: [{ id: randomNumber, candidateName, candidateSymbol, votes: 0 }],
+            // candidates: [{ id: randomNumber, candidateName, candidateSymbol, votes: 0 }],
             image,
         };
         console.log('Success:', campaignData);
-        dispatch(addCampaign(campaignData))
+        // dispatch(addCampaign(campaignData))
+        dispatch(addCampaign(values))
         formRef.current.resetFields()
         message.success('Campagin Added Successfully')
         setIsModalOpen(false);
@@ -144,7 +145,7 @@ const AdminDashboard = () => {
                                 <Input />
                             </Form.Item>
 
-                            <Form.Item
+                            {/* <Form.Item
                                 label="1st Canididate Name"
                                 name="candidateName"
                                 rules={[
@@ -168,7 +169,7 @@ const AdminDashboard = () => {
                                 ]}
                             >
                                 <Input />
-                            </Form.Item>
+                            </Form.Item> */}
 
                             <Form.Item
                                 wrapperCol={{

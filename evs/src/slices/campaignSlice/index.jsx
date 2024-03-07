@@ -23,8 +23,8 @@ export const updateCampaign = createAsyncThunk('campaigns/updateCampagin', async
 })
 
 export const updateVotes = createAsyncThunk('campaigns/upadateVotes',
-    async ({ campaignId, candidateId }) => {
-        const response = await axios.patch(`${apiURL}/${campaignId}/candidates/${candidateId}`, { vote: 1 });
+    async ({ campaignId, candidateId }) => {                
+        const response = await axios.patch(`${apiURL}/${campaignId}/candidates/${candidateId}`, { vote: 1+1 });
         return response.data;
     })
 
@@ -66,7 +66,9 @@ const campaignSlice = createSlice({
             })
             .addCase(addCampaign.fulfilled, (state, action) => {
                 state.status = "New Campaign Added"
-                state.campaigns.push(action.payload)
+                // state.campaigns.push(action.payload)
+                state.campaigns = [...state.campaigns, action.payload];
+
             })
             .addCase(updateCampaign.fulfilled, (state, action) => {
                 const findIndex = state.campaigns.findIndex(c => c.id === action.payload.id)
