@@ -1,32 +1,68 @@
 {
   "dynamicCandidates": [
     {
-      "id": "c528",
-      "candidateName": "Ali Asghar",
-      "candidateSymbol": "https://i.ytimg.com/vi/RiZL2j5mIPw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBkZ2Zu92Ko_Yy8IF9YZLtU77qLZw",
-      "campaignID": "93e8",
-      "votes": 3
-    },
-    {
-      "id": "0efc",
-      "candidateName": "Dawood",
-      "candidateSymbol": "https://cdn.pixabay.com/photo/2023/04/11/13/27/bird-7917250_1280.jpg",
-      "campaignID": "93e8",
-      "votes": 2
-    },
-    {
       "id": "b373",
       "candidateName": "Ahmed Yar",
       "candidateSymbol": "https://cdn.pixabay.com/photo/2019/04/28/09/16/bird-4162483_1280.jpg",
       "campaignID": "a78d",
-      "votes": 2
+      "votes": 6,
+      "name": "ok"
     },
     {
       "id": "2ebf",
       "candidateName": "Ayoub",
       "candidateSymbol": "https://cdn.pixabay.com/photo/2022/02/16/14/47/bird-7016926_1280.jpg",
       "campaignID": "a78d",
+      "votes": 10
+    },
+    {
+      "id": "8b77",
+      "candidateName": "Ninja 1000SX",
+      "candidateSymbol": "https://www.autosmodel.com/wp-content/uploads/2014/11/Kawasaki-Ninja-ZX-14R.jpg",
+      "campaignID": "a93f",
+      "votes": 0
+    },
+    {
+      "id": "79e3",
+      "candidateName": "Suzuki Hayabusa",
+      "candidateSymbol": "https://www.globalsuzuki.com/motorcycle/smgs/digital-archive/images/2_bike/sports/img_078_4.jpg",
+      "campaignID": "a93f",
+      "votes": 0
+    },
+    {
+      "id": "8984",
+      "candidateName": "Imran khan",
+      "candidateSymbol": "https://cdn.siasat.com/wp-content/uploads/2023/02/Imran_Khan.jpg",
+      "campaignID": "35bc",
       "votes": 1
+    },
+    {
+      "id": "c720",
+      "candidateName": "Asif Ali Zardari",
+      "candidateSymbol": "https://i.ndtvimg.com/i/2016-06/asif-ali-zardari_650x400_71465647580.jpg",
+      "campaignID": "35bc",
+      "votes": 0
+    },
+    {
+      "id": "ead0",
+      "candidateName": "Nawaz Sharif",
+      "candidateSymbol": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ9rTMONBcLOJbxNPc6aQQUpgppVflYYO-I8dbvfH1-LTAHJIc_JeSvb5_pySYLbtOp5tvLf1OFrrNlYZA",
+      "campaignID": "35bc",
+      "votes": 0
+    },
+    {
+      "id": "ac8c",
+      "candidateName": "Coach Garmin",
+      "candidateSymbol": "https://m.media-amazon.com/images/I/41rYBhgCzoL._SL500_.jpg",
+      "campaignID": "b846",
+      "votes": 1
+    },
+    {
+      "id": "1d72",
+      "candidateName": "Sanda",
+      "candidateSymbol": "https://static-01.daraz.pk/p/b68585c0c95b12300c3c301a64cdc021.jpg",
+      "campaignID": "b846",
+      "votes": 0
     }
   ],
   "campaigns": [
@@ -41,6 +77,24 @@
       "name": "Karachi",
       "description": "karachi",
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Imran_Ahmed_Khan_Niazi_-_UNGA_%2848784380531%29_%28cropped%29.jpg"
+    },
+    {
+      "id": "a93f",
+      "name": "Super Bikes",
+      "description": "Super bikes are the epitome of speed and precision in the world of motorcycles. With sleek designs and powerful engines, these machines are built for performance. Whether tearing up the track or cruising the streets, super bikes offer riders an exhilarating experience like no other.",
+      "image": "https://static.pakwheels.com/2017/11/yzf_r1_14.jpg"
+    },
+    {
+      "id": "35bc",
+      "name": "Pakistan Politics",
+      "description": " Pakistan Tehreek-e-Insaf (PTI), Pakistan Muslim League-Nawaz (PML-N), and Pakistan Peoples Party (PPP) being among the prominent ones. Issues such as corruption, terrorism, and economic development are key topics of debate and contention within Pakistan's political discourse.",
+      "image": "https://www.samaa.tv/images/pakistan-elections-2024-1.jpg"
+    },
+    {
+      "id": "b846",
+      "name": "Sports Watches",
+      "description": "Sports watches are designed to cater to the needs of athletes and fitness enthusiasts, offering features that help track and improve performance. These watches often include functions such as heart rate monitoring, GPS tracking, and activity tracking.",
+      "image": "https://www.outdoorlife.com/wp-content/uploads/2021/09/09/WatchCollage.jpg"
     }
   ],
   "admins": [

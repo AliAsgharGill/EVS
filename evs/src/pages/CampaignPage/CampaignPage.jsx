@@ -20,8 +20,26 @@ const CampaignPage = () => {
         dispatch(fetchCampaigns())
     }, [dispatch])
 
+    const [disabledCampaigns, setDisabledCampaigns] = useState(() => {
+        const storedDisabledCampaigns = localStorage.getItem('disabledCampaigns');
+        return storedDisabledCampaigns ? JSON.parse(storedDisabledCampaigns) : [];
+    });
 
 
+    const handleVotingClick = (campagin) => {
+        console.log("Campaign HandleVoting Main Iee Ha", campagin);
+        Modal.confirm({
+            title: 'Alert Vote',
+            content: 'Are you sure you want to cast your vote? Once you confirm, you won\'t be able to cast your vote again.',
+            okButtonProps: { style: { backgroundColor: "#F09A60" } },
+            onOk() {
+                setView(true);
+                handleMangeCampaign(campagin)
+            },
+            onCancel() {
+            },
+        });
+    };
 
     const campaigns = useSelector(state => state.campaign.campaigns)
     const dynamicCandidates = useSelector(state => state.dynamicCandidates.candidates)
@@ -29,21 +47,22 @@ const CampaignPage = () => {
 
 
     const [view, setView] = useState(false)
-    const [selectedCampaign, setSelectedCampaign] = useState(null)    
+    // const [selectedCampaign, setSelectedCampaign] = useState(null)
     const [participants, setParticipants] = useState(null)
-    console.log("selectedCampaign", selectedCampaign);
+    // console.log("selectedCampaign", selectedCampaign);
 
     const handleMangeCampaign = (campagin) => {
+        console.log("Campaign Jo Iee Ha", campagin);
         const campaignExist = campaigns.find(camp => camp.id === campagin.id)
         const contestants = dynamicCandidates.filter(can => can.campaignID === campaignExist.id)
-        // console.log("contestants", contestants);
         setParticipants(contestants)
-        if (campaignExist) {            
-            const data = campaignExist.candidates
-            setSelectedCampaign(data)
+        if (campaignExist) {
             setView(true)
+            const updatedDisabledCampaigns = [...disabledCampaigns, campaignExist.id];
+            setDisabledCampaigns(updatedDisabledCampaigns); // Update the state
+            localStorage.setItem('disabledCampaigns', JSON.stringify(updatedDisabledCampaigns)); // Update local storage
         }
-    }
+    };
 
     // voting
     const handleVoteClick = (participant) => {
@@ -90,7 +109,7 @@ const CampaignPage = () => {
                             actions={[
                                 <>
                                     <div className='flex justify-around space-x-3'>
-                                        <Button onClick={() => { handleMangeCampaign(campagin) }} type="primary" key="buttonOne" className='bg-[#F09A3E] ' icon={<ArrowRightOutlined />} >
+                                        <Button onClick={() => { handleVotingClick(campagin) }} type="primary" key="buttonOne" className='bg-[#F09A3E]' icon={<ArrowRightOutlined />} disabled={disabledCampaigns.includes(campagin.id)} >
                                             Voting
                                         </Button>
 
@@ -104,21 +123,19 @@ const CampaignPage = () => {
                                 title={campagin.name}
                                 description={campagin.description}
                             />
-
                         </Card>
                     ))}
                 </div>
             </div>
 
             {/* Modal for Voting */}
-            <Modal open={view} title="Participants" footer={null} onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className=''  >
+            <Modal open={view} title="Participants" width={1000} footer={null} onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} onFinishFailed={onFinishFailed} className=''  >
                 {/* voting */}
-                <div className='grid  sm:grid-cols-1 md:grid-cols-2 gap-4'>
+                <div className='grid  sm:grid-cols-1 md:grid-cols-3 gap-4'>
                     {participants ? participants.map(participant => (
                         <Card key={participant.id} className='' actions={
                             [
                                 <div className='flex justify-evenly items-center' key={participant.id}>
-                                    {/* <LiaVoteYeaSolid focusable={true} key={participant.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVoteClick(participant, urlId)} /> */}
                                     <MdHowToVote focusable={true} key={participant.id} style={{ color: 'green', fontSize: '30px' }} className=' hover:fill-green-500 rounded-lg fill-gray-500 ' onClick={() => handleVoteClick(participant)} />
                                 </div>
                             ]}
@@ -130,14 +147,13 @@ const CampaignPage = () => {
                                 <div className='font-bold  font-serif  '>
                                     {participant.candidateName}
                                 </div>
-
-                                <div className='  font-serif  '>
+                                <div className='font-serif'>
                                     {participant.votes}
                                 </div>
                             </div>
                         </Card>
 
-                    )) : "No Candidates Yet For Voting!"}
+                    )) : <div>No Candidates Yet For Voting!</div>}
                 </div>
             </Modal >
         </>

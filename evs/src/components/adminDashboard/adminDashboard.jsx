@@ -67,7 +67,9 @@ const AdminDashboard = () => {
     };
 
 
-
+    const clearLocalStorage = () => {
+        localStorage.clear();
+    }
 
 
     return (
@@ -84,6 +86,9 @@ const AdminDashboard = () => {
                             </Button>
                             <Button type="primary" onClick={() => navigate('/campaignspage')} className='bg-[#F09A3E]'  >
                                 Manage Campaigns
+                            </Button>
+                            <Button type="primary" onClick={() => clearLocalStorage()} className='bg-[#F09A3E]'  >
+                                Clear Local Storage
                             </Button>
                         </div>
                     </div>

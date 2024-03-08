@@ -102,7 +102,7 @@ const CandidateList = () => {
                     <Card key={index} className='' actions={[
                         <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(candidate.id)} />,
 
-                        < IdcardOutlined key='view' style={{ color: 'skyblue' }} onClick={() => handleIdCardClick(candidate.id)} />,
+                        <IdcardOutlined key='view' style={{ color: 'skyblue' }} onClick={() => handleIdCardClick(candidate.id)} />,
 
                         <DeleteOutlined key='delete' style={{ color: '#c13584' }} onClick={() => handleDelete(candidate.id)} />
                     ]}

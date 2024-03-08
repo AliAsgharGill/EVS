@@ -23,8 +23,8 @@ export const updateCampaign = createAsyncThunk('campaigns/updateCampagin', async
 })
 
 export const updateVotes = createAsyncThunk('campaigns/upadateVotes',
-    async ({ campaignId, candidateId }) => {                
-        const response = await axios.patch(`${apiURL}/${campaignId}/candidates/${candidateId}`, { vote: 1+1 });
+    async ({ campaignId, candidateId }) => {
+        const response = await axios.patch(`${apiURL}/${campaignId}/candidates/${candidateId}`, { vote: 1 + 1 });
         return response.data;
     })
 

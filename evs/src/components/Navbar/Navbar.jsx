@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { logoutUser, setUser } from "../../slices/userSlice/userSlice"
-import { Button } from 'antd'
+import { logoutUser } from "../../slices/userSlice/userSlice"
+import { Button, Modal } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
@@ -13,9 +13,17 @@ const Navbar = () => {
     const user = JSON.parse(localStorage.getItem('user'))
     // console.log("User", user);
     const handleLogout = () => {
-        localStorage.removeItem('user')
-        dispatch(logoutUser())
-        setChange(true)
+        Modal.confirm({
+            title: 'Confirm Logout',
+            content: 'Are you sure you want Logout?',
+            okButtonProps: { style: { backgroundColor: "#F09A60" } },
+            onOk() {
+                localStorage.removeItem('user')
+                dispatch(logoutUser())
+                setChange(true)
+            },
+            onCancel() { },
+        });
     }
     const handleChange = () => {
         setChange(true)

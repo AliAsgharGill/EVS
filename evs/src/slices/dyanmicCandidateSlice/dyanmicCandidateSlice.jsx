@@ -28,6 +28,19 @@ export const addCandidate = createAsyncThunk(
         return response.data
     }
 )
+export const updateCandidate = createAsyncThunk(
+    'candidate/updateCandidate', async (candidate) => {
+        const response = await axios.put(`http://localhost:3000/dynamicCandidates/${candidate.id}`, candidate)
+        return response.data
+    }
+)
+export const deleteCandidate = createAsyncThunk(
+    'candidate/deleteCanidate', async (id) => {
+        await axios.delete(`http://localhost:3000/dynamicCandidates/${id}`);
+        return id;
+    }
+)
+
 
 const dyanmicCandidatesSlice = createSlice({
     name: 'dynamicCandidates',
@@ -72,11 +85,18 @@ const dyanmicCandidatesSlice = createSlice({
                 state.status = "idle"
                 state.error = action.error.message
                 console.log("Add Candidate Rejected");
+            }).addCase(updateCandidate.fulfilled, (state, action) => {
+                const index = state.candidates.findIndex((c) => c.id === action.payload.id)
+                if (index !== -1) {
+                    state.candidates[index] = action.payload
+                }
+            }).addCase(deleteCandidate.fulfilled, (state, action) => {
+                state.candidates = state.candidates.filter(c => c.id !== action.payload)
             })
     },
 });
 
 export default dyanmicCandidatesSlice.reducer;
 export const campaignActions = {
-    ...dyanmicCandidatesSlice, updateCandidateVotes, fetchDynamicCandidates, addCandidate
+    ...dyanmicCandidatesSlice, updateCandidateVotes, fetchDynamicCandidates, addCandidate, deleteCandidate, updateCandidate
 }

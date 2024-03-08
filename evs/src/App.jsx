@@ -32,13 +32,10 @@ const router = createBrowserRouter(
       <Route path="/candidatesVoting" element={<CandidateVote />} />
       <Route path="/signup/user" element={<SignupForm path="/signup/user" prop='w-1/3' type='user' />} />
       <Route path="/login/user" element={<LoginForm path="/login/user" prop='w-[400px]' type='user' />} />
-      <Route path="/campaigns" element={<CampaignPage />} >
-
-      </Route>
+      <Route path="/campaigns" element={<CampaignPage />} />
       <Route path="*" element={<NoMatch />} />
       <Route path="/dashboard" element={<AdminDashboard />} />
       <Route path="/campaignsPage" element={<CampaignManagementPage />} />
-
 
       {/* dynamic */}
       <Route path="/signup/user" element={<SignupForm prop='w-1/3' type='users' path="/signup/user" />} />

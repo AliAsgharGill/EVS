@@ -9,7 +9,6 @@ import dyanmicCandidateSlice from '../slices/dyanmicCandidateSlice/dyanmicCandid
 const store = configureStore({
   reducer: {
     candidates: candidateReducer,
-    // myCandidates: voteCandidates,
     dynamicCandidates: dyanmicCandidateSlice,
     voteCandidates: voteCandidates,
     campaign: campaignSlice,
