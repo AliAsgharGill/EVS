@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { logoutUser } from "../../slices/userSlice/userSlice"
+import { logoutUser, setUser } from "../../slices/userSlice/userSlice"
 import { Button, Modal } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
@@ -28,9 +28,9 @@ const Navbar = () => {
     const handleChange = () => {
         setChange(true)
     }
-
+    
     useEffect(() => {
-
+        
     }, [change, dispatch])
 
     return (

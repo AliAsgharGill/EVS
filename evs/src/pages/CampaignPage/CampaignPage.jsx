@@ -25,7 +25,7 @@ const CampaignPage = () => {
                 const adminResponse = await axios.get(`http://localhost:3000/admins?email=${user.email}&password=${user.password}`);
                 setIsUser(!!userResponse.data.length || !!adminResponse.data.length)
             } catch (error) {
-                console.log("Error Fetching Admins", error);
+                console.log("Error Fetching Users", error);
             }
         }
 

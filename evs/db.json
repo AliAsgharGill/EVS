@@ -5,8 +5,7 @@
       "candidateName": "Ahmed Yar",
       "candidateSymbol": "https://cdn.pixabay.com/photo/2019/04/28/09/16/bird-4162483_1280.jpg",
       "campaignID": "a78d",
-      "votes": 6,
-      "name": "ok"
+      "votes": 6
     },
     {
       "id": "2ebf",
@@ -20,7 +19,7 @@
       "candidateName": "Ninja 1000SX",
       "candidateSymbol": "https://www.autosmodel.com/wp-content/uploads/2014/11/Kawasaki-Ninja-ZX-14R.jpg",
       "campaignID": "a93f",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "79e3",
@@ -34,7 +33,7 @@
       "candidateName": "Imran khan",
       "candidateSymbol": "https://cdn.siasat.com/wp-content/uploads/2023/02/Imran_Khan.jpg",
       "campaignID": "35bc",
-      "votes": 1
+      "votes": 2
     },
     {
       "id": "c720",
@@ -66,18 +65,6 @@
     }
   ],
   "campaigns": [
-    {
-      "id": "93e8",
-      "name": "Lahore",
-      "description": "Lhaore",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Imran_Ahmed_Khan_Niazi_-_UNGA_%2848784380531%29_%28cropped%29.jpg"
-    },
-    {
-      "id": "a78d",
-      "name": "Karachi",
-      "description": "karachi",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Imran_Ahmed_Khan_Niazi_-_UNGA_%2848784380531%29_%28cropped%29.jpg"
-    },
     {
       "id": "a93f",
       "name": "Super Bikes",
@@ -117,6 +104,12 @@
       "name": "Dawood Gill",
       "email": "dawoodgill@gmail.com",
       "password": "DawoodGill@132"
+    },
+    {
+      "id": "b84d",
+      "name": "Zain Shahid",
+      "email": "zainshahid@gmail.com",
+      "password": "zainshahid@123"
     }
   ],
   "candidates": [
@@ -248,7 +241,7 @@
     {
       "id": "6",
       "name": "Mrs. Dennis Schulist",
-      "votes": 1,
+      "votes": 2,
       "symbol": "public/Images/symbols/na6.jpg",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
