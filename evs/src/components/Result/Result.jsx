@@ -4,7 +4,7 @@ import { fetchCampaigns } from '../../slices/campaignSlice';
 import { fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { message, Table } from 'antd'
+import { message } from 'antd'
 
 const Result = () => {
     const navigate = useNavigate()
@@ -44,21 +44,19 @@ const Result = () => {
         dispatch(fetchDynamicCandidates)
     }, [dispatch])
 
-    
-    
-    const onChange = (pagination, filters, sorter, extra) => {
-        console.log('params', pagination, filters, sorter, extra);
-    };
+
+
+    // const onChange = (pagination, filters, sorter, extra) => {
+    //     console.log('params', pagination, filters, sorter, extra);
+    // };
 
     const campaginIds = []
-    
-    for (const campagin of campaigns) {        
+
+    for (const campagin of campaigns) {
         campaginIds.push(campagin.id)
-    }    
+    }
     console.log(campaginIds);
-    
-    const data = [];
-    const columns = [];
+
 
 
 
@@ -67,17 +65,19 @@ const Result = () => {
             {isUser &&
                 <div className="mt-10">
                     <h1 className="font-bold text-3xl text-[#F09A3E] my-5">Results</h1>
-                    <Table columns={columns} dataSource={data} onChange={onChange} />
                     {candidates &&
                         candidates.map(candidate => (
-                            <div key={candidate.id} className='flex space-x-5'>
-                                <div>{candidate.candidateName}</div>
-                                <div>{candidate.votes}</div>
+                            <div key={candidate.id} className='flex items-center justify-center'>
+                                <div className='flex space-x-5 p-2  justify-between items-center fonbo w-1/2'>
+                                    <div className='bg-[#EE993E] rounded-md w-48 p-4 '>{candidate.candidateName}</div>
+                                    <div className='bg-[#EE993E] rounded-md p-4 w-20'>{candidate.votes}</div>
+                                </div>
                             </div>
                         ))
                     }
                 </div>
             }
+
         </>
     )
 }
