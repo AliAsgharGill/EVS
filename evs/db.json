@@ -103,60 +103,20 @@
       "name": "Ali Asghar",
       "email": "aliasghar@gmail.com",
       "password": "ali@1234"
-    },
-    {
-      "id": "e8w2",
-      "name": "Ahmed Ali",
-      "email": "ahmedali@gmail.com",
-      "password": "ahmed1234"
     }
   ],
   "users": [
     {
-      "id": "0c77",
-      "email": "Ali",
-      "password": "Ali"
+      "id": "772c",
+      "name": "Ahmed Gill",
+      "email": "ahmedali@gmail.com",
+      "password": "ahmed1234"
     },
     {
-      "id": "6a57",
-      "email": "Iamuserone@gmail.com",
-      "password": "user1234"
-    },
-    {
-      "id": "c452",
-      "name": "Ali Asghar",
-      "email": "aliasghar@gmail.com",
-      "password": "ali@123"
-    },
-    {
-      "id": "a077",
-      "name": "Ali Asghar",
-      "email": "aliasghar@gmail.com",
-      "password": "ali123"
-    },
-    {
-      "id": "4d7f",
-      "name": "Ahmed",
-      "email": "ahmed@gmail.com",
-      "password": "ahmedgill"
-    },
-    {
-      "id": "1088",
-      "name": "Trinity Emmerich-Raynor",
-      "email": "your.email+fakedata92182@gmail.com",
-      "password": "UBIJ1kJKCFukN67"
-    },
-    {
-      "id": "35a6",
-      "name": "Ali Akbar",
-      "email": "AliAkbar@gmail.com",
-      "password": "AliAkbar@gmail.com"
-    },
-    {
-      "id": "403b",
-      "name": "realme",
-      "email": "realme@realme.com",
-      "password": "realme"
+      "id": "f084",
+      "name": "Dawood Gill",
+      "email": "dawoodgill@gmail.com",
+      "password": "DawoodGill@132"
     }
   ],
   "candidates": [

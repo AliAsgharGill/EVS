@@ -20,6 +20,7 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import LoginForm from "./components/LoginForm/LoginForm";
 import AdminDashboard from "./components/adminDashboard/adminDashboard";
 import CampaignManagementPage from "./pages/CampaignManagementPage/CampaignManagementPage";
+import Result from "./components/Result/Result";
 
 
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<NoMatch />} />
       <Route path="/dashboard" element={<AdminDashboard />} />
       <Route path="/campaignsPage" element={<CampaignManagementPage />} />
-
+      <Route path="/result" element={<Result />} />
       {/* dynamic */}
       <Route path="/signup/user" element={<SignupForm prop='w-1/3' type='users' path="/signup/user" />} />
       <Route path="/login/user" element={<LoginForm prop='w-1/3' type='users' path="/login/users" />} />

@@ -74,8 +74,7 @@ const Navbar = () => {
                             <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
                             <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
                             <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
-                            {/* <NavLink to="/voting" className="hover:underline me-4 md:me-6">Voting</NavLink> */}
-                            {/* <NavLink to="/vote" className="hover:underline me-4 md:me-6">Voting</NavLink> */}
+                            <NavLink to="/result" className="hover:underline me-4 md:me-6">Result</NavLink>
 
                         </ul>
                     </div>

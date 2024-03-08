@@ -15,7 +15,9 @@ const CampaignManagementPage = () => {
     const formRef = useRef(null)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
     const [isAdmin, setIsAdmin] = useState(false)
+
     const user = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {

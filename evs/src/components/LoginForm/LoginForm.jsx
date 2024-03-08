@@ -3,17 +3,19 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'
-
 import { setUser } from '../../slices/userSlice/userSlice';
 import { setAdmin } from '../../slices/adminSlice/adminSlice';
-const LoginForm = ({ prop,type }) => {
+import axios from 'axios'
+
+const LoginForm = ({ prop, type }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  
+
   const onFinish = async (values) => {
+
+    // checking is member exist
     try {
       const emailResponse = await axios.get(`http://localhost:3000/${type}s?email=${values.email}`)
       if (emailResponse.data.length === 0) {
@@ -42,7 +44,7 @@ const LoginForm = ({ prop,type }) => {
     }
     // history('/')
     console.log('Received values:', values);
-    // dispatch(signInUser(values))
+    // dispatch(signInUser(values))    
   };
 
   return (
