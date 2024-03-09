@@ -55,12 +55,10 @@ export const HomePageHero = () => {
 
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded-md shadow-2xl p-7 sm:p-10">
-                                <h3 className="font-bold text-lg">Voting Result of All Campaigns!</h3>
-                                <div className="grid gap-4 sm:grid-cols-2 p-2 mt-3">
-                                    <Button className="bg-[#F09A3E] font-bold    hover:shadow-xl" onClick={() => setView(true)} >Candidates Result </Button>
-                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Programming</Button>
-                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Phones Result</Button>
-                                    <Button className="bg-[#F09A3E] font-bold hover:shadow-xl" onClick={() => setView(true)} >Electronics Result</Button>
+                                <h3 className="font-bold text-lg">Voting Result of Canidates Campaigns!</h3>
+                                <div className="grid gap-4 sm:grid-cols-1 p-2 mt-3">
+                                    <Button className="bg-[#F09A3E] font-bold w-full hover:shadow-xl" onClick={() => setView(true)} >Candidates Result </Button>
+
                                 </div>
                                 <Modal open={view} onCancel={() => setView(false)} onOk={() => setView(false)} >
                                     {candidates ?
