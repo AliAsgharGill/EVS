@@ -54,7 +54,7 @@ const LoginForm = ({ prop, type }) => {
           name="login-form"
           onFinish={onFinish}
           layout="vertical"
-          className={`bg-gray-300 p-10 rounded ${prop}`}
+          className='bg-gray-300 p-10 rounded mt-20 sm:mt-20 md:mt-0 sm:w-1/3'
         >
           <Form.Item
             label="Email"

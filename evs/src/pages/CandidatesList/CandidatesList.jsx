@@ -90,7 +90,7 @@ const CandidateList = () => {
     return (
         <>
 
-            <h1 className='font-bold text-3xl mt-28  text-gray-500 '>List of Candidates</h1>
+            <h1 className='font-bold text-3xl mt-10  text-gray-500 '>List of Candidates</h1>
             <div className='flex my-5  justify-center sm:justify-start items-center space-x-5 ' >
                 <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={handleAddNewCandidate} > Add New Candidate</Button>
                 <Button className='bg-[#F09A3E] font-bold text-gray-800' onClick={() => navigate('/candidatesVoting')} > Cast Vote Now</Button>

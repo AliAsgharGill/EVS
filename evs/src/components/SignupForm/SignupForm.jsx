@@ -66,19 +66,13 @@ const SignupForm = ({ prop, type }) => {
             message.error('Error Singup:', error)
 
         }
-
-        // history.push('/login')
-        // dispatch(signUpUser(values))
     };
-    // const onFinishFailed = (errorInfo) => {
-    //     console.log('Failed:', errorInfo);
-    // };
 
     return (
         <>
             <div className='min-h-screen flex justify-center items-center'>
                 <Form
-                    className={`bg-gray-300 p-10 rounded ${prop}`}
+                    className='bg-gray-300 p-10 rounded mt-20 sm:w-1/2 sm:mt-30 md:w-1/3  md:mt-0'
                     name="signup-form"
                     onFinish={onFinish}
                     layout="vertical"

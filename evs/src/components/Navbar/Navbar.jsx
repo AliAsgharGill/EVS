@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { logoutUser, setUser } from "../../slices/userSlice/userSlice"
+import { logoutUser } from "../../slices/userSlice/userSlice"
 import { Button, Modal } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
 
+
 const Navbar = () => {
     const dispatch = useDispatch()
     const [change, setChange] = useState(false)
-
     const user = JSON.parse(localStorage.getItem('user'))
     // console.log("User", user);
     const handleLogout = () => {
@@ -28,61 +28,152 @@ const Navbar = () => {
     const handleChange = () => {
         setChange(true)
     }
-    
     useEffect(() => {
-        
+
     }, [change, dispatch])
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
-        <>
-
-            <nav className="bg-white dark:bg-gray-300 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-300">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src={'public/Images/Logo/EvsLogo.jpg'} className="h-8" alt="EVS" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F09A3E]">Voting System</span>
+        <div className="bg-gray-300 ">
+            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div className="relative flex items-center justify-between">
+                    <NavLink
+                        to="/"
+                        aria-label="Voting System"
+                        title="Voting System"
+                        className="inline-flex items-center"
+                    >
+                        <img src={'public/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-bg-[#F09A3E] uppercase">
+                            Voting System
+                        </span>
                     </NavLink>
+                    <ul className="flex items-center hidden space-x-8   lg:flex">
+                        <li>
+                            <NavLink to="/" className="hover:underline me-4 font-bold md:me-6">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/candidates" className="hover:underline font-bold me-4 md:me-6">Candidates</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/campaigns" className="hover:underline font-bold me-4 md:me-6">Campaigns</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Result</NavLink>
+                        </li>
+                    </ul>
+                    <div className="space-x-5">
+                        {user ?
+                            <div className="flex justify-around space-x-5 items-center ">
+                                <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
+                                <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleLogout}>
+                                    Logout
+                                </Button>
+                            </div>
+                            :
+                            <div className="flex justify-around items-center ">
+                                <ul className="flex items-center hidden space-x-8 lg:flex">
+                                    <li>
 
-                    <div className="flex justify-between space-x-5 md:order-2 md:space-x-0 rtl:space-x-reverse items-center">
+                                        <NavLink to={'/login/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange} >Login</NavLink>
+                                        <span className="w-5"></span>
+                                    </li>
+                                    <li>
+                                        <NavLink to={'/signup/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange}>Signup</NavLink>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
 
-                        <div className="space-x-5">
-                            {user ?
-                                <div className="flex justify-around space-x-5 items-center ">
-                                    <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
-                                    <Button type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleLogout}>
-                                        Logout
-                                    </Button>
-                                </div> :
-                                <div className="flex justify-around items-center ">
-                                    <NavLink to={'/login/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleChange} >Login</NavLink>
-                                    <span className="w-5"></span>
-
-                                    <NavLink to={'/signup/user'} type="button" className="text-white bg-[#F09A3E] hover:bg-[#F09A3E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-[#F09A3E] dark:hover:text-black dark:focus:ring-[#F09A3E]" onClick={handleChange}>Signup</NavLink>
-                                </div>
-                            }</div>
-                        <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-                            <span className="sr-only">Open main menu</span>
-                            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+                    <div className="lg:hidden">
+                        <button
+                            aria-label="Open Menu"
+                            title="Open Menu"
+                            className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
+                            onClick={() => setIsMenuOpen(true)}
+                        >
+                            <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                                />
+                                <path
+                                    fill="currentColor"
+                                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                                />
+                                <path
+                                    fill="currentColor"
+                                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                                />
                             </svg>
                         </button>
-                    </div>
-                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                        <ul id="sidebar" className=" flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-300 md:dark:bg-gray-300 dark:border-gray-300">
-
-
-                            <NavLink to="/" className="hover:underline me-4 md:me-6">Home</NavLink>
-                            <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates</NavLink>
-                            <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
-                            <NavLink to="/result" className="hover:underline me-4 md:me-6">Result</NavLink>
-
-                        </ul>
+                        {isMenuOpen && (
+                            <div className="absolute top-0 left-0 w-full z-20">
+                                <div className="p-5 bg-white border rounded shadow-sm">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div>
+                                            <NavLink
+                                                to="/"
+                                                aria-label="Voting System"
+                                                title="Voting System"
+                                                className="inline-flex items-center"
+                                            >
+                                                <img src={'public/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
+                                                <span className="ml-2 text-xl font-bold tracking-wide text-bg-[#F09A3E] uppercase">
+                                                    Voting System
+                                                </span>
+                                            </NavLink>
+                                        </div>
+                                        <div>
+                                            <button
+                                                aria-label="Close Menu"
+                                                title="Close Menu"
+                                                className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
+                                                <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                                                    <path
+                                                        fill="currentColor"
+                                                        d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <nav>
+                                        <ul className="space-y-4 ">
+                                            <li>
+                                                <NavLink to="/" className="hover:underline me-4 font-bold md:me-6">Home</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to="/candidates" className="hover:underline me-4 md:me-6 font-bold">Candidates</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to="/campaigns" className="hover:underline me-4 md:me-6 font-bold">Campaigns</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to="/result" className="hover:underline me-4 md:me-6 font-bold">Result</NavLink>
+                                            </li>
+                                            <div className=" flex-col space-y-5 sm:flex sm:justify-around  ">
+                                                <li>
+                                                    <NavLink to={'/login/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange} >Login</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to={'/signup/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange}>Signup</NavLink>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-            </nav >
-
-        </>
-    )
-}
+            </div>
+        </div >
+    );
+};
 
 export default Navbar

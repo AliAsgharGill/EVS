@@ -115,7 +115,7 @@ const CampaignPage = () => {
             {isUser &&
                 <div>
                     <div>
-                        <h1 className='mt-20 font-bold text-3xl'>Campaigns</h1>
+                        <h1 className='mt-10 font-bold text-3xl'>Campaigns</h1>
                         <div className=' p-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'>
                             {campaigns.map(campagin => (
                                 <Card
