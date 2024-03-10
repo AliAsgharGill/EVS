@@ -61,7 +61,7 @@ const Navbar = () => {
                             <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Result</NavLink>
                         </li>
                     </ul>
-                    <div className="space-x-5">
+                    <div className="space-x-5 hidden sm:block ">
                         {user ?
                             <div className="flex justify-around space-x-5 items-center ">
                                 <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
@@ -154,13 +154,39 @@ const Navbar = () => {
                                             <li>
                                                 <NavLink to="/result" className="hover:underline me-4 md:me-6 font-bold">Result</NavLink>
                                             </li>
-                                            <div className=" flex-col space-y-5 sm:flex sm:justify-around  ">
-                                                <li>
-                                                    <NavLink to={'/login/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange} >Login</NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to={'/signup/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange}>Signup</NavLink>
-                                                </li>
+                                            {!user &&
+                                                <div className=" flex-col space-y-5   ">
+                                                    <li>
+                                                        <NavLink to={'/login/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange} >Login</NavLink>
+                                                    </li>
+                                                    <li>
+                                                        <NavLink to={'/signup/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange}>Signup</NavLink>
+                                                    </li>
+                                                </div>
+                                            }
+                                            {/* UserName and Logout on small screen */}
+                                            <div className="space-x-5  sm:hidden ">
+                                                {user ?
+                                                    <div className="flex justify-around space-x-5 items-center ">
+                                                        <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
+                                                        <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleLogout}>
+                                                            Logout
+                                                        </Button>
+                                                    </div>
+                                                    :
+                                                    <div className="flex justify-around items-center ">
+                                                        <ul className="flex items-center hidden space-x-8 lg:flex">
+                                                            <li>
+
+                                                                <NavLink to={'/login/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange} >Login</NavLink>
+                                                                <span className="w-5"></span>
+                                                            </li>
+                                                            <li>
+                                                                <NavLink to={'/signup/user'} type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleChange}>Signup</NavLink>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                }
                                             </div>
                                         </ul>
                                     </nav>
