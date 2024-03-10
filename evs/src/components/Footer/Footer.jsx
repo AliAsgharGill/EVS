@@ -20,7 +20,7 @@ const Footer = () => {
                                 <NavLink to="/candidates" className="hover:underline me-4 md:me-6">Candidates List</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/vote" className="hover:underline me-4 md:me-6">Vote Now</NavLink>
+                                <NavLink to="/campaigns" className="hover:underline me-4 md:me-6">Campaigns</NavLink>
                             </li>
                         </ul>
                     </div>

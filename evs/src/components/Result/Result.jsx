@@ -38,7 +38,6 @@ const Result = () => {
     const user = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {
-        dispatch(fetchCampaigns())
         const fetchUsers = async () => {
             try {
                 const userResponse = await axios.get(`http://localhost:3000/users?email=${user.email}&password=${user.password}`);
@@ -61,13 +60,26 @@ const Result = () => {
 
     const campaigns = useSelector(state => state.campaign.campaigns)
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
-    // console.log(' Campaigns', campaigns);
-    // console.log(' Candidates', candidates);
+    console.log(' Campaigns', campaigns);
+    console.log(' Candidates', candidates);
 
     useEffect(() => {
         dispatch(fetchCampaigns())
         dispatch(fetchDynamicCandidates())
     }, [dispatch])
+
+    // seprating candidates of each campaign
+    const [campaignCandidates, setCampaignCandidates] = useState([]);
+
+    useEffect(() => {
+        const campaignCandidatesObj = {};
+        for (const campaign of campaigns) {
+            campaignCandidatesObj[campaign.id] = candidates.filter(candidate => candidate.campaignID === campaign.id);
+        }
+        setCampaignCandidates(campaignCandidatesObj);
+    }, [campaigns, candidates]);
+
+    console.log('campaignCandidates', campaignCandidates);
 
 
 
@@ -75,12 +87,7 @@ const Result = () => {
     //     console.log('params', pagination, filters, sorter, extra);
     // };
 
-    const campaginIds = []
 
-    for (const campagin of campaigns) {
-        campaginIds.push(campagin.id)
-    }
-    // console.log(campaginIds);
 
     // graph start
 
@@ -120,21 +127,37 @@ const Result = () => {
         <>
             {isUser &&
                 <div className="mt-10">
-                    <div className='w-1/2 flex items-center'>
-                        <Bar options={options} data={data} />
+                    <h1 className="font-bold text-3xl text-[#F09A3E] my-5">Results</h1>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 '>
+                        {Object.entries(campaignCandidates).map(([campaignId, candidates]) => (
+                            <div key={campaignId} className='border p-5 bg-slate-300 rounded-md'>
+                                <h3 className='font-bold text-[#F09A3E] text-2xl text-start  '>{campaigns.find(campaign => campaign.id === campaignId)?.name}</h3>
+                                <table className='text-start'>
+                                    <thead >
+                                        <tr className='flex space-x-20' >
+                                            <th>Name</th>
+                                            <th>Votes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {candidates.map(candidate => (
+                                            <tr key={candidate.id}>
+                                                <td>{candidate.candidateName}</td>
+                                                <td>{candidate.votes}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ))}
+                    </div>
+                    <div className='md:w-1/2 space-y-5 hidden sm:block  md:flex md:items-center'>
+                        <Bar className='sm:hidden  md:hidden' options={options} data={data} />
                         <Doughnut data={data} />
                     </div>
-                    <h1 className="font-bold text-3xl text-[#F09A3E] my-5">Results</h1>
-                    {candidates &&
-                        candidates.map(candidate => (
-                            <div key={candidate.id} className='flex items-center justify-center'>
-                                <div className='flex space-x-5 p-2  justify-between items-center fonbo w-1/2'>
-                                    <div className='bg-[#EE993E] rounded-md w-48 p-4 '>{candidate.candidateName}</div>
-                                    <div className='bg-[#EE993E] rounded-md p-4 w-20'>{candidate.votes}</div>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <div className=' mx-auto flex items-center justify-center sm:hidden min-h-96'>
+                        <Doughnut data={data} />
+                    </div>
                 </div>
             }
 

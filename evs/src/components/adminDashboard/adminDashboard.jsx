@@ -139,18 +139,19 @@ const AdminDashboard = () => {
         <>
             {isAdmin && (
                 <div>
-                    <div className="mt-20 font-bold text-2xl text-[#F09A3E]">
+                    <div className="mt-5 font-bold text-3xl text-[#F09A3E]">
                         <h2>Admin Dashboard</h2>
                     </div>
                     <div className='min-h-screen'>
-                        <div className='flex justify-start space-x-3'>
-                            <Button type="primary" onClick={showModal} className='bg-[#F09A3E]'  >
+                        {/* <div className='flex justify-start space-x-3'> */}
+                        <div className='grid grid-cols-3 gap-4 my-16'>
+                            <Button type="primary" onClick={showModal} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Add Campaign
                             </Button>
-                            <Button type="primary" onClick={() => navigate('/campaignspage')} className='bg-[#F09A3E]'  >
+                            <Button type="primary" onClick={() => navigate('/campaignspage')} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Manage Campaigns
                             </Button>
-                            <Button type="primary" onClick={() => clearLocalStorage()} className='bg-[#F09A3E]'  >
+                            <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Clear Local Storage
                             </Button>
                         </div>

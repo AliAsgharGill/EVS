@@ -5,21 +5,21 @@
       "candidateName": "Ahmed Yar",
       "candidateSymbol": "https://cdn.pixabay.com/photo/2019/04/28/09/16/bird-4162483_1280.jpg",
       "campaignID": "a78d",
-      "votes": 6
+      "votes": 0
     },
     {
       "id": "2ebf",
       "candidateName": "Ayoub",
       "candidateSymbol": "https://cdn.pixabay.com/photo/2022/02/16/14/47/bird-7016926_1280.jpg",
       "campaignID": "a78d",
-      "votes": 10
+      "votes": 0
     },
     {
       "id": "8b77",
       "candidateName": "Ninja 1000SX",
       "candidateSymbol": "https://www.autosmodel.com/wp-content/uploads/2014/11/Kawasaki-Ninja-ZX-14R.jpg",
       "campaignID": "a93f",
-      "votes": 2
+      "votes": 0
     },
     {
       "id": "79e3",
@@ -33,7 +33,7 @@
       "candidateName": "Imran khan",
       "candidateSymbol": "https://cdn.siasat.com/wp-content/uploads/2023/02/Imran_Khan.jpg",
       "campaignID": "35bc",
-      "votes": 3
+      "votes": 0
     },
     {
       "id": "c720",
@@ -54,7 +54,7 @@
       "candidateName": "Coach Garmin",
       "candidateSymbol": "https://m.media-amazon.com/images/I/41rYBhgCzoL._SL500_.jpg",
       "campaignID": "b846",
-      "votes": 2
+      "votes": 0
     },
     {
       "id": "1d72",
@@ -75,7 +75,7 @@
       "candidateName": "Laptop 2",
       "candidateSymbol": "https://cdn.ttgtmedia.com/rms/onlineimages/hp_elitebook_mobile.jpg",
       "campaignID": "b03c",
-      "votes": 1
+      "votes": 0
     }
   ],
   "campaigns": [
