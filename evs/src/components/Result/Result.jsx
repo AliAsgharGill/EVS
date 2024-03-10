@@ -31,6 +31,7 @@ ChartJS.register(
 );
 
 const Result = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [isUser, setIsUser] = useState(false)
 
@@ -58,7 +59,6 @@ const Result = () => {
     }, [user, navigate]);
 
 
-    const dispatch = useDispatch()
     const campaigns = useSelector(state => state.campaign.campaigns)
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
     // console.log(' Campaigns', campaigns);
@@ -123,7 +123,6 @@ const Result = () => {
                     <div className='w-1/2 flex items-center'>
                         <Bar options={options} data={data} />
                         <Doughnut data={data} />
-
                     </div>
                     <h1 className="font-bold text-3xl text-[#F09A3E] my-5">Results</h1>
                     {candidates &&

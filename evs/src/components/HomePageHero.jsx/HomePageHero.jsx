@@ -1,12 +1,75 @@
 import { Button, Modal } from "antd";
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from "react";
+import { fetchDynamicCandidates } from "../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice";
+import { Doughnut } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    ArcElement,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+// import faker from 'faker';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    ArcElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
 
 export const HomePageHero = () => {
+    const dispatch = useDispatch()
+    const dynamicCandidates = useSelector(state => state.dynamicCandidates.candidates)
+
     const navigate = useNavigate()
     const candidates = useSelector(state => state.candidates.candidates)
     const [view, setView] = useState(false)
+    useEffect(() => {
+        dispatch(fetchDynamicCandidates())
+    }, [dispatch])
+
+    // graph start
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Running Campaigns',
+            },
+        },
+    };
+
+
+    const data = {
+        // labels: users.map(user => user.name),
+        labels: dynamicCandidates.map(candidate => candidate.candidateName),
+
+        datasets: [
+            {
+                label: 'Votes',
+                data: dynamicCandidates.map(candidate => candidate.votes),
+                backgroundColor: '#F09A3E',
+            },
+        ],
+    };
+
+    // graph end
+
+
 
     return (
         <div className="relative">
@@ -55,11 +118,12 @@ export const HomePageHero = () => {
 
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded-md shadow-2xl p-7 sm:p-10">
-                                <h3 className="font-bold text-lg">Voting Result of Canidates Campaigns!</h3>
-                                <div className="grid gap-4 sm:grid-cols-1 p-2 mt-3">
-                                    <Button className="bg-[#F09A3E] font-bold w-full hover:shadow-xl" onClick={() => setView(true)} >Candidates Result </Button>
+                                <h3 className="font-bold text-lg">Voting Result of All Campaigns!</h3>
+                               
+                                    {/* <Bar options={options} data={data} /> */}
+                                    <Doughnut data={data} options={options}/>
+                               
 
-                                </div>
                                 <Modal open={view} onCancel={() => setView(false)} onOk={() => setView(false)} >
                                     {candidates ?
                                         candidates.map(candidate => (
