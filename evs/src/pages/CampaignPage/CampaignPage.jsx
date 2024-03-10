@@ -9,6 +9,71 @@ import { fetchCandidates } from '../../slices/canidateSlice/canidateSlice'
 import { useNavigate } from 'react-router-dom'
 import { fetchDynamicCandidates, updateCandidateVotes } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 
+
+// graph start
+
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+// import faker from 'faker';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+
+export const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Ali Asghar Gill',
+        },
+    },
+};
+
+// const labels = ['Ali', 'Ahmed'];
+
+const users = [
+    { name: 'A', votes: 5 },
+    { name: 'B', votes: 6 },
+    { name: 'C', votes: 10 },
+    { name: 'D', votes: 9 }
+]
+export const data = {
+    labels: users.map(user => user.name),
+    datasets: [
+        {
+            label: 'Dataset 1',
+            data: users.map(user => user.votes),
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+            label: 'Dataset 2',
+            data: users.map(user => user.votes),
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+    ],
+};
+
+// graph end
+
+
 const CampaignPage = () => {
     const { Meta } = Card;
     const dispatch = useDispatch()
@@ -182,6 +247,7 @@ const CampaignPage = () => {
                             )) : <div>No Candidates Yet For Voting!</div>}
                         </div>
                     </Modal >
+
                 </div>
             }
         </>

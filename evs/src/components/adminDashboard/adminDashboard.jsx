@@ -1,9 +1,35 @@
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react';
 import { message, Form, Input, Button, Modal } from 'antd'
 import axios from 'axios'
-import { addCampaign } from '../../slices/campaignSlice';
+import { addCampaign, fetchCampaigns } from '../../slices/campaignSlice';
+import { fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+// import faker from 'faker';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+
+
+
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
@@ -12,7 +38,8 @@ const AdminDashboard = () => {
     const formRef = useRef(null)
 
     const user = JSON.parse(localStorage.getItem('user'));
-    // console.log("Admin", isAdmin);
+
+
     useEffect(() => {
         const fetchAdmins = async () => {
             try {
@@ -33,17 +60,13 @@ const AdminDashboard = () => {
 
 
     const onFinish = (values) => {
-        // const randomNumber = Math.floor(Math.random() * 10000 + 1)
-        // console.log("randomNumber",randomNumber);
-        const { name, description, image, /* candidateName, candidateSymbol */ } = values;
+        const { name, description, image } = values;
         const campaignData = {
             name,
             description,
-            // candidates: [{ id: randomNumber, candidateName, candidateSymbol, votes: 0 }],
             image,
         };
         console.log('Success:', campaignData);
-        // dispatch(addCampaign(campaignData))
         dispatch(addCampaign(values))
         formRef.current.resetFields()
         message.success('Campagin Added Successfully')
@@ -54,7 +77,6 @@ const AdminDashboard = () => {
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -70,6 +92,47 @@ const AdminDashboard = () => {
     const clearLocalStorage = () => {
         localStorage.clear();
     }
+
+    const candidates = useSelector(state => state.dynamicCandidates.candidates)
+    // console.log(' Campaigns', campaigns);
+    // console.log(' Candidates', candidates);
+
+    useEffect(() => {
+        dispatch(fetchCampaigns())
+        dispatch(fetchDynamicCandidates())
+    }, [dispatch])
+
+
+    // graph start
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Running Campaigns',
+            },
+        },
+    };
+
+
+    const data = {
+        // labels: users.map(user => user.name),
+        labels: candidates.map(candidate => candidate.candidateName),
+
+        datasets: [
+            {
+                label: 'Votes',
+                data: candidates.map(candidate => candidate.votes),
+                backgroundColor: '#F09A3E',
+            },
+        ],
+    };
+
+    // graph end
 
 
     return (
@@ -90,6 +153,10 @@ const AdminDashboard = () => {
                             <Button type="primary" onClick={() => clearLocalStorage()} className='bg-[#F09A3E]'  >
                                 Clear Local Storage
                             </Button>
+                        </div>
+                        <div className='w-1/2 flex items-center'>
+                            <Bar options={options} data={data} />
+                            <Doughnut data={data} />
                         </div>
                     </div>
                     {/* Add Campagin Modal */}
@@ -150,32 +217,6 @@ const AdminDashboard = () => {
                                 <Input />
                             </Form.Item>
 
-                            {/* <Form.Item
-                                label="1st Canididate Name"
-                                name="candidateName"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input Candidate/Product!',
-                                    },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
-
-                            <Form.Item
-                                label="1st's Symbol Link"
-                                name="candidateSymbol"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Symbol link of 1st Canididate!',
-                                    },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item> */}
-
                             <Form.Item
                                 wrapperCol={{
                                     offset: 8,
@@ -189,7 +230,8 @@ const AdminDashboard = () => {
                         </Form>
                     </Modal>
                 </div>
-            )}
+            )
+            }
         </>
     );
 };

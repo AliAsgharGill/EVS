@@ -5,8 +5,6 @@ import { Button, Modal } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
-
-
 const Navbar = () => {
     const dispatch = useDispatch()
     const [change, setChange] = useState(false)

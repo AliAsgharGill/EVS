@@ -4,7 +4,7 @@ const Signup = () => {
     return (
         <>
             <div className="min-h-screen flex justify-center ">
-                <div className="mt-20 w-fit">
+                <div className="mt-0 w-fit">
                 <SignupForm />
                 </div>
             </div>
