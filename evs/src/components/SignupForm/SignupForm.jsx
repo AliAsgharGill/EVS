@@ -26,6 +26,12 @@ const SignupForm = ({ prop, type }) => {
 
         try {
 
+            const userAllowed = await axios.get(`http://localhost:3000/allowedUsers?email=${values.email}`);
+            if (!userAllowed.data.length) {
+                message.warning("You can't register");
+                return;
+            }
+
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(values.email)) {
@@ -67,6 +73,7 @@ const SignupForm = ({ prop, type }) => {
 
         }
     };
+
 
     return (
         <>

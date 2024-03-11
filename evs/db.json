@@ -5,7 +5,7 @@
       "candidateName": "Ninja 1000SX",
       "candidateSymbol": "https://www.autosmodel.com/wp-content/uploads/2014/11/Kawasaki-Ninja-ZX-14R.jpg",
       "campaignID": "a93f",
-      "votes": 3
+      "votes": 4
     },
     {
       "id": "79e3",
@@ -62,6 +62,20 @@
       "candidateSymbol": "https://cdn.ttgtmedia.com/rms/onlineimages/hp_elitebook_mobile.jpg",
       "campaignID": "b03c",
       "votes": 2
+    },
+    {
+      "id": "9434",
+      "candidateName": "JavaScript",
+      "candidateSymbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png",
+      "campaignID": "f8fc",
+      "votes": 1
+    },
+    {
+      "id": "38d0",
+      "candidateName": "Python",
+      "candidateSymbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "campaignID": "f8fc",
+      "votes": 0
     }
   ],
   "campaigns": [
@@ -88,6 +102,22 @@
       "name": "Laptops",
       "description": "Choose the best laptop",
       "image": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/4:3/w_1787,h_1340,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
+    },
+    {
+      "id": "f8fc",
+      "name": "Python Vs JavaScript",
+      "description": "Python is a great choice for CPU-intensive tasks, whereas JavaScript is more suitable for dynamic and real-time interactions.",
+      "image": "https://www.simplilearn.com/ice9/free_resources_article_thumb/python_vs_javascript.jpg",
+      "startDate": "2024-03-11T09:59:11.200Z",
+      "endDate": "2024-03-12T09:57:12.700Z"
+    },
+    {
+      "id": "5a7a",
+      "name": "Checking",
+      "description": "Testing",
+      "image": "https://i.ytimg.com/vi/tOYkV6Yhrhs/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAUYpobRh_QdtXi4LY46C2dNwSyzA",
+      "startDate": "2024-03-11T10:47:01.000Z",
+      "endDate": "2024-03-11T11:49:07.000Z"
     }
   ],
   "admins": [
@@ -140,6 +170,38 @@
       "name": "Moeez Ali",
       "email": "MoeezAli@gmail.com",
       "password": "MoeezAli@gmail.com"
+    },
+    {
+      "id": "ba0b",
+      "name": "Saad Razi",
+      "email": "SaadRazi@gmail.com",
+      "password": "Saad Razi"
+    },
+    {
+      "id": "5e14",
+      "name": "User",
+      "email": "UserOne@gmail.com",
+      "password": "UserOne@gmail.com"
+    },
+    {
+      "id": "df54",
+      "name": "Ali One",
+      "email": "aliasgharone@gmail.com",
+      "password": "aliasgharone@gmail.com"
+    }
+  ],
+  "allowedUsers": [
+    {
+      "email": "aliasgharone@gmail.com",
+      "id": "84b5"
+    },
+    {
+      "id": "d655",
+      "email": "allowUserSlice@gmail.com"
+    },
+    {
+      "id": "f1ba",
+      "email": "MoeezAli@gmail.com"
     }
   ],
   "candidates": [
@@ -224,7 +286,7 @@
       "username": "Karianne",
       "symbol": "public/Images/symbols/na4.jpg",
       "email": "Ayoub.OConner@kory.org",
-      "votes": 2,
+      "votes": 3,
       "address": {
         "street": "Hoeger Mall",
         "suite": "Apt. 692",

@@ -4,6 +4,7 @@ import { message } from 'antd'
 
 const apiURL = 'http://localhost:3000/campaigns'
 
+
 export const fetchCampaigns = createAsyncThunk(
     'campaigns/fetchCampaigns', async () => {
         const response = await axios.get(apiURL)
@@ -16,6 +17,7 @@ export const addCampaign = createAsyncThunk(
         return response.data
     }
 )
+
 
 export const updateCampaign = createAsyncThunk('campaigns/updateCampagin', async (campaignData) => {
     const response = await axios.put(`${apiURL}/${campaignData.id}`, campaignData)

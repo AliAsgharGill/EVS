@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react';
-import { message, Form, Input, Button, Modal } from 'antd'
+import { message, Form, Input, Button, Modal, DatePicker } from 'antd'
 import axios from 'axios'
 import { addCampaign, fetchCampaigns } from '../../slices/campaignSlice';
 import { fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
@@ -15,6 +15,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+import { allowUserActions } from '../../slices/allowedUser/allowedUser';
 
 // import faker from 'faker';
 
@@ -58,6 +59,11 @@ const AdminDashboard = () => {
         }
     }, [user, navigate]);
 
+    const [form] = Form.useForm();
+    const [campaignDuration, setCampaignDuration] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
 
     const onFinish = (values) => {
         const { name, description, image } = values;
@@ -76,16 +82,26 @@ const AdminDashboard = () => {
         console.log('Failed:', errorInfo);
     };
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const onFinishAddUser = (values) => {
+        dispatch(allowUserActions.addAllowedUser(values))
+        formRef.current.resetFields()
+        setIsOpen(false)
+        message.success('Email Added Successfully')
+    }
+
+
 
     const showModal = () => {
         setIsModalOpen(true);
+        setIsOpen(true)
     };
     const handleOk = () => {
         setIsModalOpen(false);
+        setIsOpen(false)
     };
     const handleCancel = () => {
         setIsModalOpen(false);
+        setIsOpen(false)
     };
 
 
@@ -153,6 +169,10 @@ const AdminDashboard = () => {
 
     // graph end
 
+    const addEmail = () => {
+        setIsOpen(true)
+    }
+
 
     return (
         <>
@@ -173,6 +193,9 @@ const AdminDashboard = () => {
                             <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Clear Local Storage
                             </Button>
+                            <Button type="primary" onClick={() => addEmail()} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                                Add User Email
+                            </Button>
                         </div>
                         <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row items-center  '>
                             <Bar className=' hidden md:block' options={options} data={data} />
@@ -180,12 +203,12 @@ const AdminDashboard = () => {
                         </div>
                     </div>
                     {/* Add Campagin Modal */}
-                    <Modal title="Add Campaign" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
+                    <Modal title="Add Campaign" form={form} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
                         <Form
                             ref={formRef}
                             name="basic"
                             labelCol={{
-                                span: 8,
+                                span: 10,
                             }}
                             wrapperCol={{
                                 span: 16,
@@ -237,6 +260,12 @@ const AdminDashboard = () => {
                                 <Input />
                             </Form.Item>
 
+                            <Form.Item label="Campaign Start Date & Time" name="startDate">
+                                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" onChange={(date, dateString) => setCampaignDuration([dateString, ...campaignDuration[1]])} />
+                            </Form.Item>
+                            <Form.Item label="Campaign End Date & Time" name="endDate">
+                                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" onChange={(date, dateString) => setCampaignDuration([...campaignDuration[0], dateString])} />
+                            </Form.Item>
                             <Form.Item
                                 wrapperCol={{
                                     offset: 8,
@@ -245,6 +274,49 @@ const AdminDashboard = () => {
                             >
                                 <Button type="primary" htmlType="submit" className='bg-slate-600 w-full ' >
                                     Add Campaign
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </Modal>
+                    {/* Add Allowed Users for registeration */}
+                    <Modal title="Add Allowed User" form={form} open={isOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
+                        <Form
+                            ref={formRef}
+                            name="basic"
+                            labelCol={{
+                                span: 10,
+                            }}
+                            wrapperCol={{
+                                span: 16,
+                            }}
+                            className=' '
+                            initialValues={{
+                                remember: true,
+                            }}
+                            onFinish={onFinishAddUser}
+                            onFinishFailed={onFinishFailed}
+                            autoComplete="off"
+                        >
+                            <Form.Item
+                                label="Email"
+                                name="email"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input user email!',
+                                    },
+                                ]}
+                            >
+                                <Input />
+                            </Form.Item>
+                            <Form.Item
+                                wrapperCol={{
+                                    offset: 8,
+                                    span: 16,
+                                }}
+                            >
+                                <Button type="primary" htmlType="submit" className='bg-slate-600 w-full ' >
+                                    Allow User
                                 </Button>
                             </Form.Item>
                         </Form>
