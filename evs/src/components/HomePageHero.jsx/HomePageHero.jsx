@@ -61,8 +61,24 @@ export const HomePageHero = () => {
         datasets: [
             {
                 label: 'Votes',
-                data: dynamicCandidates.map(candidate => candidate.votes),
-                backgroundColor: '#F09A3E',
+                data: candidates.map(candidate => candidate.votes),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
             },
         ],
     };
@@ -119,10 +135,10 @@ export const HomePageHero = () => {
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded-md shadow-2xl p-7 sm:p-10">
                                 <h3 className="font-bold text-lg">Voting Result of All Campaigns!</h3>
-                               
-                                    {/* <Bar options={options} data={data} /> */}
-                                    <Doughnut data={data} options={options}/>
-                               
+
+                                {/* <Bar options={options} data={data} /> */}
+                                <Doughnut data={data} options={options} />
+
 
                                 <Modal open={view} onCancel={() => setView(false)} onOk={() => setView(false)} >
                                     {candidates ?

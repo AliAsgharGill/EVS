@@ -91,6 +91,8 @@ const AdminDashboard = () => {
 
     const clearLocalStorage = () => {
         localStorage.clear();
+        navigate('login/user')
+        message.success("Clear Successfully")
     }
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
@@ -127,9 +129,26 @@ const AdminDashboard = () => {
             {
                 label: 'Votes',
                 data: candidates.map(candidate => candidate.votes),
-                backgroundColor: '#F09A3E',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
             },
         ],
+
     };
 
     // graph end
@@ -144,8 +163,8 @@ const AdminDashboard = () => {
                     </div>
                     <div className='min-h-screen'>
                         {/* <div className='flex justify-start space-x-3'> */}
-                        <div className='grid grid-cols-3 gap-4 my-16'>
-                            <Button type="primary" onClick={showModal} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                        <div className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center gap-4 my-16'>
+                            <Button type="primary" onClick={showModal} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
                                 Add Campaign
                             </Button>
                             <Button type="primary" onClick={() => navigate('/campaignspage')} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
@@ -155,8 +174,8 @@ const AdminDashboard = () => {
                                 Clear Local Storage
                             </Button>
                         </div>
-                        <div className='w-1/2 flex items-center'>
-                            <Bar options={options} data={data} />
+                        <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row items-center  '>
+                            <Bar className=' hidden md:block' options={options} data={data} />
                             <Doughnut data={data} />
                         </div>
                     </div>

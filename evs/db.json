@@ -1,39 +1,25 @@
 {
   "dynamicCandidates": [
     {
-      "id": "b373",
-      "candidateName": "Ahmed Yar",
-      "candidateSymbol": "https://cdn.pixabay.com/photo/2019/04/28/09/16/bird-4162483_1280.jpg",
-      "campaignID": "a78d",
-      "votes": 0
-    },
-    {
-      "id": "2ebf",
-      "candidateName": "Ayoub",
-      "candidateSymbol": "https://cdn.pixabay.com/photo/2022/02/16/14/47/bird-7016926_1280.jpg",
-      "campaignID": "a78d",
-      "votes": 0
-    },
-    {
       "id": "8b77",
       "candidateName": "Ninja 1000SX",
       "candidateSymbol": "https://www.autosmodel.com/wp-content/uploads/2014/11/Kawasaki-Ninja-ZX-14R.jpg",
       "campaignID": "a93f",
-      "votes": 0
+      "votes": 3
     },
     {
       "id": "79e3",
       "candidateName": "Suzuki Hayabusa",
       "candidateSymbol": "https://www.globalsuzuki.com/motorcycle/smgs/digital-archive/images/2_bike/sports/img_078_4.jpg",
       "campaignID": "a93f",
-      "votes": 0
+      "votes": 2
     },
     {
       "id": "8984",
       "candidateName": "Imran khan",
       "candidateSymbol": "https://cdn.siasat.com/wp-content/uploads/2023/02/Imran_Khan.jpg",
       "campaignID": "35bc",
-      "votes": 0
+      "votes": 3
     },
     {
       "id": "c720",
@@ -47,35 +33,35 @@
       "candidateName": "Nawaz Sharif",
       "candidateSymbol": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ9rTMONBcLOJbxNPc6aQQUpgppVflYYO-I8dbvfH1-LTAHJIc_JeSvb5_pySYLbtOp5tvLf1OFrrNlYZA",
       "campaignID": "35bc",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "ac8c",
       "candidateName": "Coach Garmin",
       "candidateSymbol": "https://m.media-amazon.com/images/I/41rYBhgCzoL._SL500_.jpg",
       "campaignID": "b846",
-      "votes": 0
+      "votes": 3
     },
     {
       "id": "1d72",
       "candidateName": "Sanda",
       "candidateSymbol": "https://static-01.daraz.pk/p/b68585c0c95b12300c3c301a64cdc021.jpg",
       "campaignID": "b846",
-      "votes": 0
+      "votes": 2
     },
     {
       "id": "10a7",
       "candidateName": "Laptop 1",
       "candidateSymbol": "https://www.mega.pk/items_images/Microsoft+Surface+Laptop+5+Core+i7+12th+Generation+16GB+RAM+512GB+SSD+13+5+inch+Windows+11+Price+in+Pakistan%2C+Specifications%2C+Features_-_23885.webp",
       "campaignID": "b03c",
-      "votes": 0
+      "votes": 3
     },
     {
       "id": "ec4f",
       "candidateName": "Laptop 2",
       "candidateSymbol": "https://cdn.ttgtmedia.com/rms/onlineimages/hp_elitebook_mobile.jpg",
       "campaignID": "b03c",
-      "votes": 0
+      "votes": 2
     }
   ],
   "campaigns": [
@@ -148,6 +134,12 @@
       "name": "Ali Asghar",
       "email": "ali@gmail.com",
       "password": "aliasghar"
+    },
+    {
+      "id": "44f2",
+      "name": "Moeez Ali",
+      "email": "MoeezAli@gmail.com",
+      "password": "MoeezAli@gmail.com"
     }
   ],
   "candidates": [
