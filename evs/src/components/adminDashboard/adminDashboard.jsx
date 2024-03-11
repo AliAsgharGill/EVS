@@ -82,6 +82,26 @@ const AdminDashboard = () => {
         console.log('Failed:', errorInfo);
     };
 
+
+
+
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleOkUser = () => {
+        setIsOpen(false)
+    };
+    const handleCancelUser = () => {
+        setIsOpen(false)
+    };
     const onFinishAddUser = (values) => {
         dispatch(allowUserActions.addAllowedUser(values))
         formRef.current.resetFields()
@@ -89,26 +109,18 @@ const AdminDashboard = () => {
         message.success('Email Added Successfully')
     }
 
-
-
-    const showModal = () => {
-        setIsModalOpen(true);
-        setIsOpen(true)
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
-        setIsOpen(false)
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-        setIsOpen(false)
-    };
-
-
     const clearLocalStorage = () => {
-        localStorage.clear();
-        navigate('login/user')
-        message.success("Clear Successfully")
+        Modal.confirm({
+            title: 'Confirm Clear',
+            content: 'You Will Logout!',
+            okButtonProps: { style: { backgroundColor: "#F09A60" } },
+            onOk() {
+                localStorage.clear();
+                navigate('login/user')
+                message.success("Clear Successfully")
+            },
+            onCancel() { },
+        });
     }
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
@@ -183,19 +195,20 @@ const AdminDashboard = () => {
                     </div>
                     <div className='min-h-screen'>
                         {/* <div className='flex justify-start space-x-3'> */}
-                        <div className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center gap-4 my-16'>
-                            <Button type="primary" onClick={showModal} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
+                        <div className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center gap-5 my-16'>
+                            <Button type="primary" onClick={showModal} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
                                 Add Campaign
                             </Button>
-                            <Button type="primary" onClick={() => navigate('/campaignspage')} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                            <Button type="primary" onClick={() => navigate('/campaignspage')} className=" w-64 inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Manage Campaigns
                             </Button>
-                            <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
-                                Clear Local Storage
-                            </Button>
-                            <Button type="primary" onClick={() => addEmail()} className="inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                            <Button type="primary" onClick={() => addEmail()} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Add User Email
                             </Button>
+                            <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                                Clear Local Storage
+                            </Button>
+
                         </div>
                         <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row items-center  '>
                             <Bar className=' hidden md:block' options={options} data={data} />
@@ -279,7 +292,7 @@ const AdminDashboard = () => {
                         </Form>
                     </Modal>
                     {/* Add Allowed Users for registeration */}
-                    <Modal title="Add Allowed User" form={form} open={isOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
+                    <Modal title="Add Allowed User" form={form} open={isOpen} onOk={handleOkUser} onCancel={handleCancelUser} footer={null} >
                         <Form
                             ref={formRef}
                             name="basic"

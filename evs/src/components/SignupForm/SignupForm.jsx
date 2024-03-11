@@ -28,7 +28,7 @@ const SignupForm = ({ prop, type }) => {
 
             const userAllowed = await axios.get(`http://localhost:3000/allowedUsers?email=${values.email}`);
             if (!userAllowed.data.length) {
-                message.warning("You can't register");
+                message.warning("Email not allowed to register");
                 return;
             }
 

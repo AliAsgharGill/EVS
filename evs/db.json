@@ -76,48 +76,30 @@
       "candidateSymbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
       "campaignID": "f8fc",
       "votes": 0
+    },
+    {
+      "id": "2355",
+      "candidateName": "S22 Ultra",
+      "candidateSymbol": "data:image/jpeg;base64,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",
+      "campaignID": "3bec",
+      "votes": 0
+    },
+    {
+      "id": "83a6",
+      "candidateName": "Iphone 14 Pro Max",
+      "candidateSymbol": "https://images.priceoye.pk/apple-iphone-14-pro-max-pakistan-priceoye-4hr9p.jpg",
+      "campaignID": "3bec",
+      "votes": 0
     }
   ],
   "campaigns": [
     {
-      "id": "a93f",
-      "name": "Super Bikes",
-      "description": "Super bikes are the epitome of speed and precision in the world of motorcycles. With sleek designs and powerful engines, these machines are built for performance. Whether tearing up the track or cruising the streets, super bikes offer riders an exhilarating experience like no other.",
-      "image": "https://static.pakwheels.com/2017/11/yzf_r1_14.jpg"
-    },
-    {
-      "id": "35bc",
-      "name": "Pakistan Politics",
-      "description": " Pakistan Tehreek-e-Insaf (PTI), Pakistan Muslim League-Nawaz (PML-N), and Pakistan Peoples Party (PPP) being among the prominent ones. Issues such as corruption, terrorism, and economic development are key topics of debate and contention within Pakistan's political discourse.",
-      "image": "https://www.samaa.tv/images/pakistan-elections-2024-1.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Sports Watches",
-      "description": "Sports watches are designed to cater to the needs of athletes and fitness enthusiasts, offering features that help track and improve performance. These watches often include functions such as heart rate monitoring, GPS tracking, and activity tracking.",
-      "image": "https://www.outdoorlife.com/wp-content/uploads/2021/09/09/WatchCollage.jpg"
-    },
-    {
-      "id": "b03c",
-      "name": "Laptops",
-      "description": "Choose the best laptop",
-      "image": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/4:3/w_1787,h_1340,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
-    },
-    {
-      "id": "f8fc",
-      "name": "Python Vs JavaScript",
-      "description": "Python is a great choice for CPU-intensive tasks, whereas JavaScript is more suitable for dynamic and real-time interactions.",
-      "image": "https://www.simplilearn.com/ice9/free_resources_article_thumb/python_vs_javascript.jpg",
-      "startDate": "2024-03-11T09:59:11.200Z",
-      "endDate": "2024-03-12T09:57:12.700Z"
-    },
-    {
-      "id": "5a7a",
-      "name": "Checking",
-      "description": "Testing",
-      "image": "https://i.ytimg.com/vi/tOYkV6Yhrhs/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAUYpobRh_QdtXi4LY46C2dNwSyzA",
-      "startDate": "2024-03-11T10:47:01.000Z",
-      "endDate": "2024-03-11T11:49:07.000Z"
+      "id": "3bec",
+      "name": "Best Mobile",
+      "description": "Choose the best mobile phone.",
+      "image": "https://www.zdnet.com/a/img/resize/c416faabbc47081aed7152bbf2e843ca669e0344/2021/02/26/18cd8428-e1ce-4483-96be-f2aefb861ef1/20210226-j2-apple.jpg?auto=webp&fit=crop&frame=1&height=814.5&width=1449",
+      "startDate": "2024-03-11T13:58:20.500Z",
+      "endDate": "2024-03-31T13:58:34.500Z"
     }
   ],
   "admins": [
@@ -202,6 +184,10 @@
     {
       "id": "f1ba",
       "email": "MoeezAli@gmail.com"
+    },
+    {
+      "id": "a403",
+      "email": "Realme@gamil.com"
     }
   ],
   "candidates": [

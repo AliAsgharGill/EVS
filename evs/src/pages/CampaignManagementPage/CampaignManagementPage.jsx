@@ -1,21 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input, Button, message, Card, Modal } from 'antd';
 import { FaRegUserCircle } from "react-icons/fa";
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useEffect, useRef, useState } from 'react';
-import { fetchCampaigns } from '../../slices/campaignSlice';
+import { deleteCampaign, fetchCampaigns } from '../../slices/campaignSlice';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { FaLink } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { addCandidate, deleteCandidate, fetchDynamicCandidates, updateCandidate } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
+import { DeleteOutlined, EditOutlined, IdcardOutlined } from '@ant-design/icons';
 
 const CampaignManagementPage = () => {
     const { Meta } = Card;
     const formRef = useRef(null)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    
+
     const [isAdmin, setIsAdmin] = useState(false)
 
     const user = JSON.parse(localStorage.getItem('user'));
@@ -70,6 +70,18 @@ const CampaignManagementPage = () => {
         }
     }
 
+    const handleDeleteCampaign = (id) => {
+        Modal.confirm({
+            title: 'Confirm Delete',
+            content: 'Are you sure you want delete?',
+            okButtonProps: { style: { backgroundColor: "#F09A60" } },
+            onOk() {
+                dispatch(deleteCampaign(id));
+            },
+            onCancel() { },
+        });
+    }
+
     useEffect(() => {
         dispatch(fetchCampaigns())
         dispatch(fetchDynamicCandidates())
@@ -102,6 +114,7 @@ const CampaignManagementPage = () => {
         console.log("Campaign Is:", campaign);
         setIsModalOpen(true)
     }
+
 
     const [edit, setEdit] = useState(null)
     const [viewModal, setViewModal] = useState(false)
@@ -157,9 +170,17 @@ const CampaignManagementPage = () => {
                                     actions={[
                                         <>
                                             <div className='flex justify-around space-x-3'>
-                                                <Button onClick={() => { manageCandidates(campagin) }} type="primary" key="buttonTwo" className='bg-[#F09A3E] ' icon={<ArrowRightOutlined />} >
-                                                    Manage Candidates
-                                                </Button>
+                                                <IdcardOutlined onClick={() => { manageCandidates(campagin) }} key='view' style={{ color: 'skyblue' }} />,
+
+
+                                                <DeleteOutlined onClick={() => handleDeleteCampaign(campagin.id)} key='delete' style={{ color: '#c13584' }} />
+
+
+
+                                                {/* <EditOutlined key='edit' style={{ color: 'blue' }} />, */}
+
+
+
                                             </div>
                                         </>
                                     ]}
@@ -178,7 +199,7 @@ const CampaignManagementPage = () => {
                     </div >
                     {/* Modal for dispaying candidates */}
                     <Modal Modal open={view} title="Canditates" onCancel={() => setView(false)} onOk={() => setView(false)} onFinish={onFinish} width={1000} onFinishFailed={onFinishFailed} className='w-screen' >
-                        <div className='p-4'>
+                        <div className='p-4 space-x-5'>
                             <Button onClick={() => handleAddCandidate(selectedCampaign)} type="primary" key="button" className='bg-[#F09A3E]  ' icon={<FaRegUserCircle />} >
                                 Add Candidate
                             </Button >
@@ -188,7 +209,7 @@ const CampaignManagementPage = () => {
                                 // console.log("Camp Cand", selectedCampaign),
                                 participants.map((participant => (
                                     <Card key={participant.id} className='' actions={[
-                                        <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(participant.id)} />,
+                                        // <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(participant.id)} />,
 
                                         <DeleteOutlined key='delete' style={{ color: '#c13584' }} onClick={() => handleDelete(participant.id)} />
                                     ]}
