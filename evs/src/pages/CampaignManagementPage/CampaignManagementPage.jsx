@@ -2,8 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input, Button, message, Card, Modal } from 'antd';
 import { FaRegUserCircle } from "react-icons/fa";
 import { useEffect, useRef, useState } from 'react';
-import { deleteCampaign, fetchCampaigns } from '../../slices/campaignSlice';
-import { ArrowRightOutlined } from '@ant-design/icons';
+import { deleteCampaign, fetchCampaigns, updateCampaign } from '../../slices/campaignSlice';
 import { FaLink } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -77,6 +76,12 @@ const CampaignManagementPage = () => {
             okButtonProps: { style: { backgroundColor: "#F09A60" } },
             onOk() {
                 dispatch(deleteCampaign(id));
+
+                // Delete candidates with the same campaignID
+                const candidatesToDelete = dynamicCandidates.filter(candidate => candidate.campaignID === id);
+                candidatesToDelete.forEach(candidate => {
+                    dispatch(deleteCandidate(candidate.id));
+                });
             },
             onCancel() { },
         });
@@ -105,6 +110,11 @@ const CampaignManagementPage = () => {
         message.success("Candidate Added Successfully!")
     };
 
+    const onFinishEdit = async (values) => {
+        console.log('Values', values);
+        dispatch(updateCandidate(values))
+    }
+
     const onFinishFailedFrom = (errorInfo) => {
         console.log('Failed:', errorInfo);
         formRef.current.resetFields()
@@ -127,7 +137,17 @@ const CampaignManagementPage = () => {
         }
     }
 
+    // const [edit, setEdit] = useState(false)
+
+    const handleEditCampaign = (campaign) => {
+        const findCampaign = campaigns.find(campaign => campaign.id === campaign.id)
+        if (findCampaign) {
+            dispatch(updateCampaign(campaign))
+        }
+    }
+
     const handleUpdateCandidate = () => {
+        console.log("Befor Send",);
         dispatch(updateCandidate(edit));
         setViewModal(false);
         setEdit(null)
@@ -172,14 +192,9 @@ const CampaignManagementPage = () => {
                                             <div className='flex justify-around space-x-3'>
                                                 <IdcardOutlined onClick={() => { manageCandidates(campagin) }} key='view' style={{ color: 'skyblue' }} />,
 
+                                                <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEditCampaign(campagin)} />,
 
                                                 <DeleteOutlined onClick={() => handleDeleteCampaign(campagin.id)} key='delete' style={{ color: '#c13584' }} />
-
-
-
-                                                {/* <EditOutlined key='edit' style={{ color: 'blue' }} />, */}
-
-
 
                                             </div>
                                         </>
@@ -209,7 +224,7 @@ const CampaignManagementPage = () => {
                                 // console.log("Camp Cand", selectedCampaign),
                                 participants.map((participant => (
                                     <Card key={participant.id} className='' actions={[
-                                        // <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(participant.id)} />,
+                                        <EditOutlined key='edit' style={{ color: 'blue' }} onClick={() => handleEdit(participant.id)} />,
 
                                         <DeleteOutlined key='delete' style={{ color: '#c13584' }} onClick={() => handleDelete(participant.id)} />
                                     ]}
@@ -266,44 +281,53 @@ const CampaignManagementPage = () => {
                         </Form >
                     </Modal >
 
-                    {/* Edit Modal Code */}
+                    {/* Candidate Edit Modal Code */}
                     <Modal
                         open={viewModal}
                         title="Edit Candidate"
                         onCancel={() => setViewModal(false)}
-                        onOk={handleUpdateCandidate}
+                        onOk={() => onFinishEdit(edit)}
                         okButtonProps={{ style: { backgroundColor: 'blue' } }}
                     >
                         {edit ? (
-                            <Form Form onSubmit={handleUpdateCandidate} className='flex p-2 justify-center space-y-2  items-center flex-col bg-slate-300 '>
-                                <input
-                                    className='mt-3 p-1 rounded-lg w-1/2 outline-none'
-                                    type="text"
-                                    name='name'
-                                    defaultValue={edit.name}
-                                    onChange={(e) => setEdit({ ...edit, name: e.target.value })}
-                                />
-                                <input
-                                    className='mt-3 p-1 rounded-lg w-1/2 outline-none'
-                                    type="text"
-                                    name='email'
-                                    defaultValue={edit.email}
-                                    onChange={(e) => setEdit({ ...edit, email: e.target.value })}
-                                />
-                                <input
-                                    className='mt-3 p-1 rounded-lg w-1/2 outline-none'
-                                    type="text"
-                                    name='phone'
-                                    defaultValue={edit.phone}
-                                    onChange={(e) => setEdit({ ...edit, phone: e.target.value })}
-                                />
+                            <Form
+                                ref={formRef}
+                                name="Edit Candidate"
+                                onFinish={() => onFinishEdit(edit)}
+                                onFinishFailed={onFinishFailed}
+                                layout="vertical"
+                                className={`bg-gray-300 p-10 rounded`}
+                            // initialValues={
+                            //         candidateName: 'edit.name',
+                            // candidateSymbol: 'edit.candidateSymbol'
+                            // }
+                            >
+                                <Form.Item
+                                    label="Name"
+                                    name="candidateName"
+                                    rules={[{ required: true, message: 'Please enter your Name!' }]}
+                                >
+                                    <Input placeholder='Name' onChange={(e) => setEdit(e.target.value)} prefix={<FaRegUserCircle />} />
+                                </Form.Item>
+                                <Form.Item
+                                    label="Symbol Image Link"
+                                    name="candidateSymbol"
+                                    rules={[{ required: true, message: 'Please Input Link of Symbol!' }]}
+                                >
+                                    <Input placeholder='Symbol Link' prefix={<FaLink />} onChange={(e) => setEdit(e.target.value)} />
+                                </Form.Item>
 
-                            </Form>
+                                <Form.Item>
+                                    <Button type="primary" htmlType="submit" className='bg-gray-900 w-full'>
+                                        Add
+                                    </Button>
+                                </Form.Item>
+                            </Form >
                         ) : (
                             'No Data'
                         )}
                     </Modal >
-                </div>
+                </div >
             )}
         </>
     )

@@ -80,7 +80,7 @@ const CampaignPage = () => {
     const handleVoteClick = (participant) => {
         dispatch(updateCandidateVotes(participant));
         message.success('Your Vote Counted Successfully');
-        navigate('/');
+        // navigate('/');
     };
 
     useEffect(() => {
