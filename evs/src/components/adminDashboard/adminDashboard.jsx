@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react';
-import { message, Form, Input, Button, Modal, DatePicker } from 'antd'
+import { message, Form, Input, Button, Modal, DatePicker, Tooltip } from 'antd'
 import axios from 'axios'
 import { addCampaign, fetchCampaigns } from '../../slices/campaignSlice';
 import { fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
@@ -13,12 +13,13 @@ import {
     LinearScale,
     BarElement,
     Title,
-    Tooltip,
+    // Tooltip,
     Legend,
 } from 'chart.js';
 import { allowUserActions } from '../../slices/allowedUser/allowedUser';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
+import { MdCopyAll } from 'react-icons/md';
 
 
 ChartJS.register(
@@ -26,7 +27,7 @@ ChartJS.register(
     LinearScale,
     BarElement,
     Title,
-    Tooltip,
+    // Tooltip,
     Legend
 );
 
@@ -125,6 +126,7 @@ const AdminDashboard = () => {
     const [expiresAt, setExpiresAt] = useState(null);
 
     const generateToken = async () => {
+        setView('block')
         const newToken = uuidv4();
         console.log("New Token", newToken);
         const expirationTime = moment().add(1, 'hour').toLocaleString();
@@ -138,11 +140,16 @@ const AdminDashboard = () => {
         // localStorage.setItem('expiresAt', expirationTime);
     };
 
-    // useEffect(() => {
-    // console.log("Effect Token", token );
-    // }, [token]);
-
-    // generateToken();
+    const clearTokens = async () => {
+        try {
+            await axios.delete('http://localhost:3000/tokens/');
+            // await axios.put('http://localhost:3000/tokens/', []);
+            message.info("Tokens Cleared");
+        } catch (error) {
+            console.error('Error clearing tokens:', error);
+            message.error("Failed to clear tokens");
+        }
+    }
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
     // console.log(' Campaigns', campaigns);
@@ -206,8 +213,10 @@ const AdminDashboard = () => {
         setIsOpen(true)
     }
     // copy text to clipboard
+    const [view, setView] = useState('hidden')
     const handleCopy = () => {
         message.success('Copied!');
+        setView('hidden')
     };
 
     return (
@@ -220,27 +229,31 @@ const AdminDashboard = () => {
                     <div className='min-h-screen'>
                         {/* <div className='flex justify-start space-x-3'> */}
                         <div className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center gap-5 my-16'>
-                            <Button type="primary" onClick={showModal} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
+                            <Button type="" onClick={showModal} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
                                 Add Campaign
                             </Button>
-                            <Button type="primary" onClick={() => navigate('/campaignspage')} className=" w-64 inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                            <Button type="" onClick={() => navigate('/campaignspage')} className=" hover-button w-64 inline-flex items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Manage Campaigns
                             </Button>
-                            <Button type="primary" onClick={() => addEmail()} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                            <Button type="" onClick={() => addEmail()} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Add User Email
                             </Button>
-                            <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                            <Button type="" onClick={() => clearLocalStorage()} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Clear Local Storage
                             </Button>
-                            <Button type="primary" onClick={generateToken} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
-                                Generate Token
+                            <Button type="" onClick={generateToken} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                                Generate Link
+                            </Button>
+                            <Button type="" onClick={clearTokens} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                                Clear All Links
                             </Button>
                         </div>
                         {token && (
-                            <div className='flex justify-center sm:justify-start space-x-5'>
-                                <Input className='w-1/2' value={`http://localhost:5173/signup/user?token=${token}`} readOnly />
+                            <div className={`flex ${view} justify-center sm:justify-start space-x-5`}>
                                 <CopyToClipboard text={`http://localhost:5173/signup/user?token=${token}`}>
-                                    <Button onClick={handleCopy} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Copy</Button>
+                                    <Tooltip title="Link For Signup, Click To Copy!" className='cursor-pointer custom-tooltip' color='#F09A3E' onClick={handleCopy}>
+                                        <Input suffix={<MdCopyAll style={{ cursor: 'pointer' }} onClick={handleCopy} />} className='w-1/2 p-3 hover:border-[#F09A3E] mx-auto cursor-pointer' value={`http://localhost:5173/signup/user?token=${token}`} readOnly />
+                                    </Tooltip>
                                 </CopyToClipboard>
                             </div>
                         )}
@@ -319,7 +332,7 @@ const AdminDashboard = () => {
                                     span: 16,
                                 }}
                             >
-                                <Button type="primary" htmlType="submit" className='bg-slate-600 w-full ' >
+                                <Button type="primary" htmlType="submit" className='bg-slate-600 w-full hover-button ' >
                                     Add Campaign
                                 </Button>
                             </Form.Item>
@@ -362,7 +375,7 @@ const AdminDashboard = () => {
                                     span: 16,
                                 }}
                             >
-                                <Button type="primary" htmlType="submit" className='bg-slate-600 w-full ' >
+                                <Button type="primary" htmlType="submit" className='bg-slate-600 w-full hover-button' >
                                     Allow User
                                 </Button>
                             </Form.Item>

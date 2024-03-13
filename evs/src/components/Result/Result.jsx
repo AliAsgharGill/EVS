@@ -200,7 +200,7 @@ const Result = () => {
                             </div>
                         ))}
                     </div>
-                    <div className='md:w-1/2 space-y-5 hidden sm:block  md:flex md:items-center'>
+                    <div className='md:w-1/2 space-y-16 hidden sm:block  md:flex md:items-center'>
                         <Bar className='sm:hidden  md:hidden' options={options} data={data} />
                         <Doughnut data={data} />
                     </div>

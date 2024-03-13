@@ -9,7 +9,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const [change, setChange] = useState(false)
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log("User", user);
+    // console.log("User", user);
     const handleLogout = () => {
         Modal.confirm({
             title: 'Confirm Logout',
@@ -169,7 +169,7 @@ const Navbar = () => {
                                                 {user ?
                                                     <div className="flex justify-around space-x-5 items-center ">
                                                         <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
-                                                        <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleLogout}>
+                                                        <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none hover:bg-[#F09A3E]" onClick={handleLogout}>
                                                             Logout
                                                         </Button>
                                                     </div>

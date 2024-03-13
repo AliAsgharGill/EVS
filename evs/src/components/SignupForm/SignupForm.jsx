@@ -1,6 +1,6 @@
 import { Form, Input, Button, message } from 'antd';
 import { useDispatch } from 'react-redux'
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RiLockPasswordFill, RiUserFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 // import { useHistory } from 'react-router-dom'
@@ -41,7 +41,7 @@ const SignupForm = ({ prop, type }) => {
 
             }
             const result = await validateToken(token)
-            console.log("Result", result);
+            // console.log("Result", result);
 
             if (result) {
 
