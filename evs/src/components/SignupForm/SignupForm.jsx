@@ -1,7 +1,6 @@
 import { Form, Input, Button, message } from 'antd';
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { RiLockPasswordFill, RiUserFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 // import { useHistory } from 'react-router-dom'
@@ -11,73 +10,95 @@ import { setAdmin } from '../../slices/adminSlice/adminSlice';
 import axios from 'axios'
 
 const SignupForm = ({ prop, type }) => {
-    const dispatch = useDispatch()
-    // const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    // const history = useHistory()
+    // const storeToken = JSON.parse(localStorage.getItem('token'))
 
-    // const [isView, setIsView] = useState(false)
-
-
-
-    const navigate = useNavigate()
-
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    // console.log("URL Token", token);
+    // console.log("Store", storeToken);
     const onFinish = async (values) => {
-
         try {
+            if (token) {
+                // Perform signup without checking allowedUsers
+                console.log("Token ha", token);
 
-            const userAllowed = await axios.get(`http://localhost:3000/allowedUsers?email=${values.email}`);
-            if (!userAllowed.data.length) {
-                message.warning("Email not allowed to register");
-                return;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(values.email)) {
+                    message.error('Invalid email format. Please enter a valid email.');
+                    return;
+                }
+
+                if (values.password.length < 6) {
+                    message.error('Password must be at least 6 characters long.');
+                    return;
+                }
+
+                const response = await axios.get(`http://localhost:3000/${type}s?email=${values.email}`);
+                if (response.data.length > 0) {
+                    message.warning(`Email ${values.email} Already Exists. Please Login Instead.`);
+                    return;
+                }
+
+                await axios.post(`http://localhost:3000/${type}s`, values);
+                message.success("Welcome! Registered successfully. Please login.");
+
+                if (type === 'user') {
+                    dispatch(setUser(response.data));
+                    navigate('/login/user');
+                } else if (type === 'admin') {
+                    dispatch(setAdmin(response.data));
+                    navigate('/login/admin');
+                }
+            } else {
+                // Check if user is allowed to signup
+                const userAllowed = await axios.get(`http://localhost:3000/allowedUsers?email=${values.email}`);
+                if (!userAllowed.data.length) {
+                    message.warning("Email not allowed to register");
+                    return;
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(values.email)) {
+                    message.error('Invalid email format. Please enter a valid email.');
+                    return;
+                }
+
+                if (values.password.length < 6) {
+                    message.error('Password must be at least 6 characters long.');
+                    return;
+                }
+
+                const response = await axios.get(`http://localhost:3000/${type}s?email=${values.email}`);
+                if (response.data.length > 0) {
+                    message.warning(`Email ${values.email} Already Exists. Please Login Instead.`);
+                    return;
+                }
+
+                await axios.post(`http://localhost:3000/${type}s`, values);
+                message.success("Welcome! Registered successfully. Please login.");
+
+                if (type === 'user') {
+                    dispatch(setUser(response.data));
+                    navigate('/login/user');
+                } else if (type === 'admin') {
+                    dispatch(setAdmin(response.data));
+                    navigate('/login/admin');
+                }
             }
-
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(values.email)) {
-                message.error('Invalid email format. Please enter a valid email.');
-
-                return;
-            }
-
-            if (values.password.length < 6) {
-                message.error('Password must be at least 6 characters long.');
-
-                return;
-            }
-
-
-            const response = await axios.get(`http://localhost:3000/${type}s?email=${values.email}`)
-
-            if (response.data.length > 0) {
-                message.warning(`Email ${values.email} Already Exist Please Login Instead`)
-                return;
-            }
-
-            await axios.post(`http://localhost:3000/${type}s`, values)
-            message.success("Welcome Registerd successfully. Please login.")
-
-            console.log('Signup Received values:', values);
-
-            if (type === 'user') {
-                dispatch(setUser(response.data))
-                navigate('/login/user')
-
-            } else if (type === 'admin') {
-                dispatch(setAdmin(response.data))
-                navigate('/login/admin')
-            }
-
         } catch (error) {
-            message.error('Error Singup:', error)
-
+            message.error('Error Signing Up:', error);
         }
     };
+
 
 
     return (
         <>
             <div className='min-h-screen flex justify-center items-center'>
+
                 <Form
                     className='bg-gray-300 p-10 rounded mt-20 sm:w-1/2 sm:mt-30 md:w-1/3  md:mt-0'
                     name="signup-form"

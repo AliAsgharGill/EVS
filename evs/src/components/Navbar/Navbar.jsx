@@ -9,7 +9,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const [change, setChange] = useState(false)
     const user = JSON.parse(localStorage.getItem('user'))
-    // console.log("User", user);
+    console.log("User", user);
     const handleLogout = () => {
         Modal.confirm({
             title: 'Confirm Logout',

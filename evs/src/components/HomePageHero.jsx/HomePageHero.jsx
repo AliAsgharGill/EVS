@@ -85,8 +85,6 @@ export const HomePageHero = () => {
 
     // graph end
 
-
-
     return (
         <div className="relative">
             <img

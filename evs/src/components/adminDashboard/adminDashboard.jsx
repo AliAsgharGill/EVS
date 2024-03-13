@@ -16,7 +16,8 @@ import {
     Legend,
 } from 'chart.js';
 import { allowUserActions } from '../../slices/allowedUser/allowedUser';
-
+import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment';
 // import faker from 'faker';
 
 ChartJS.register(
@@ -39,6 +40,7 @@ const AdminDashboard = () => {
     const formRef = useRef(null)
 
     const user = JSON.parse(localStorage.getItem('user'));
+    // console.log("User On Dashboard:", user);
 
 
     useEffect(() => {
@@ -116,12 +118,35 @@ const AdminDashboard = () => {
             okButtonProps: { style: { backgroundColor: "#F09A60" } },
             onOk() {
                 localStorage.clear();
-                navigate('login/user')
+                navigate('/login/user')
                 message.success("Clear Successfully")
             },
             onCancel() { },
         });
     }
+    const [token, setToken] = useState('')
+    const [expiresAt, setExpiresAt] = useState('')
+
+    const localStorageToken = localStorage.getItem('token');
+    let parsedToken;
+    try {
+        parsedToken = JSON.parse(localStorageToken);
+    } catch (e) {
+        console.error('Error parsing JSON:', e);
+        // Handle the error, such as setting a default value for parsedToken
+    }
+
+
+    const generateToken = () => {
+        const newToken = uuidv4()
+        const expirationTime = moment().add(1, 'hour').toLocaleString();
+
+        setToken(newToken);
+        setExpiresAt(expirationTime)
+
+        localStorage.setItem('token', newToken);
+        localStorage.setItem('expiresAt', expirationTime)
+    };
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
     // console.log(' Campaigns', campaigns);
@@ -208,9 +233,21 @@ const AdminDashboard = () => {
                             <Button type="primary" onClick={() => clearLocalStorage()} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
                                 Clear Local Storage
                             </Button>
-
+                            <Button type="primary" onClick={generateToken} className="inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
+                                Generate Token
+                            </Button>
                         </div>
-                        <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row items-center  '>
+                        {token && (
+                            <div className=''>
+
+                                <p>Generated Token: {token}</p>
+                                <p>Parsed Token: {parsedToken}</p>
+                                <p>Token Expires At: {expiresAt}</p>
+                                <p>Copy the following link for Signup</p>
+                                <Input value={`http://localhost:5173/signup/user?token=${token}`} readOnly />
+                            </div>
+                        )}
+                        <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row  items-center space-x-10  p-10 '>
                             <Bar className=' hidden md:block' options={options} data={data} />
                             <Doughnut data={data} />
                         </div>

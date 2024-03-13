@@ -80,6 +80,7 @@ const CampaignPage = () => {
     const handleVoteClick = (participant) => {
         dispatch(updateCandidateVotes(participant));
         message.success('Your Vote Counted Successfully');
+        setView(false)
         // navigate('/');
     };
 
@@ -91,7 +92,7 @@ const CampaignPage = () => {
     const onFinish = () => {
         setView(false);
     };
-    
+
     const calculateRemainingTime = (endDate) => {
         const endDateTime = new Date(endDate).getTime();
         const currentDateTime = new Date().getTime();
