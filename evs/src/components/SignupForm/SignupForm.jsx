@@ -13,17 +13,37 @@ const SignupForm = ({ prop, type }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // const storeToken = JSON.parse(localStorage.getItem('token'))
-
     const params = new URLSearchParams(window.location.search);
     const token = params.get('token');
     // console.log("URL Token", token);
-    // console.log("Store", storeToken);
+
     const onFinish = async (values) => {
         try {
-            if (token) {
-                // Perform signup without checking allowedUsers
-                console.log("Token ha", token);
+
+            const validateToken = async (token) => {
+                const { data: tokens } = await axios.get('http://localhost:3000/tokens')
+
+                // const now = Date.now()
+                // console.log("Now Time:", now);
+                // const newDate = now.toLocaleString()
+
+                const findIndex = tokens.findIndex((t) => t.newToken === token)
+                console.log("Token Index Data:", findIndex);
+                if (findIndex != -1) {
+                    const isTokexExist = tokens.find((t) => t.newToken === token)
+                    const tokenToDelete = isTokexExist.id
+                    await axios.delete(`http://localhost:3000/tokens/${tokenToDelete}`);
+                    message.success("Validation Complete")
+                    return true;
+                }
+                // message.warning('Invalide Crdentials!')
+                return false
+
+            }
+            const result = await validateToken(token)
+            console.log("Result", result);
+
+            if (result) {
 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(values.email)) {

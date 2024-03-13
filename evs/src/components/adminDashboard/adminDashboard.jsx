@@ -6,6 +6,7 @@ import axios from 'axios'
 import { addCampaign, fetchCampaigns } from '../../slices/campaignSlice';
 import { fetchDynamicCandidates } from '../../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 import { Bar, Doughnut } from 'react-chartjs-2';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -18,7 +19,7 @@ import {
 import { allowUserActions } from '../../slices/allowedUser/allowedUser';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
-// import faker from 'faker';
+
 
 ChartJS.register(
     CategoryScale,
@@ -28,10 +29,6 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
-
-
-
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
@@ -124,29 +121,28 @@ const AdminDashboard = () => {
             onCancel() { },
         });
     }
-    const [token, setToken] = useState('')
-    const [expiresAt, setExpiresAt] = useState('')
+    const [token, setToken] = useState(null);
+    const [expiresAt, setExpiresAt] = useState(null);
 
-    const localStorageToken = localStorage.getItem('token');
-    let parsedToken;
-    try {
-        parsedToken = JSON.parse(localStorageToken);
-    } catch (e) {
-        console.error('Error parsing JSON:', e);
-        // Handle the error, such as setting a default value for parsedToken
-    }
-
-
-    const generateToken = () => {
-        const newToken = uuidv4()
+    const generateToken = async () => {
+        const newToken = uuidv4();
+        console.log("New Token", newToken);
         const expirationTime = moment().add(1, 'hour').toLocaleString();
 
         setToken(newToken);
-        setExpiresAt(expirationTime)
+        setExpiresAt(expirationTime);
 
-        localStorage.setItem('token', newToken);
-        localStorage.setItem('expiresAt', expirationTime)
+        await axios.post('http://localhost:3000/tokens', { newToken, expirationTime });
+
+        // localStorage.setItem('token', newToken);
+        // localStorage.setItem('expiresAt', expirationTime);
     };
+
+    // useEffect(() => {
+    // console.log("Effect Token", token );
+    // }, [token]);
+
+    // generateToken();
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
     // console.log(' Campaigns', campaigns);
@@ -209,7 +205,10 @@ const AdminDashboard = () => {
     const addEmail = () => {
         setIsOpen(true)
     }
-
+    // copy text to clipboard
+    const handleCopy = () => {
+        message.success('Copied!');
+    };
 
     return (
         <>
@@ -238,13 +237,11 @@ const AdminDashboard = () => {
                             </Button>
                         </div>
                         {token && (
-                            <div className=''>
-
-                                <p>Generated Token: {token}</p>
-                                <p>Parsed Token: {parsedToken}</p>
-                                <p>Token Expires At: {expiresAt}</p>
-                                <p>Copy the following link for Signup</p>
-                                <Input value={`http://localhost:5173/signup/user?token=${token}`} readOnly />
+                            <div className='flex justify-center sm:justify-start space-x-5'>
+                                <Input className='w-1/2' value={`http://localhost:5173/signup/user?token=${token}`} readOnly />
+                                <CopyToClipboard text={`http://localhost:5173/signup/user?token=${token}`}>
+                                    <Button onClick={handleCopy} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Copy</Button>
+                                </CopyToClipboard>
                             </div>
                         )}
                         <div className='md:w-1/2  space-y-10  flex flex-col md:flex-row  items-center space-x-10  p-10 '>
@@ -256,7 +253,7 @@ const AdminDashboard = () => {
                     <Modal title="Add Campaign" form={form} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
                         <Form
                             ref={formRef}
-                            name="basic"
+                            name="add campaign"
                             labelCol={{
                                 span: 10,
                             }}
