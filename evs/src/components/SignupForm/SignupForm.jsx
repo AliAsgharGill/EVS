@@ -17,23 +17,57 @@ const SignupForm = ({ prop, type }) => {
     const token = params.get('token');
     // console.log("URL Token", token);
 
+    const checkTokenStatus = async () => {
+        // const { data: tokens } = await axios.get('http://localhost:3000/tokens')
+
+        const tokenKey = `token_${token}`;
+        const tokenUsed = localStorage.getItem(tokenKey);
+
+        if (tokenUsed) {
+            message.warning("Link Expired. Redirecting to home page...");
+
+            navigate('/')
+            return;
+        } else {
+            localStorage.setItem(tokenKey, 'true')
+        }
+
+    }
+
+
+    window.onload = checkTokenStatus;
+
     const onFinish = async (values) => {
         try {
 
             const validateToken = async (token) => {
                 const { data: tokens } = await axios.get('http://localhost:3000/tokens')
 
-                // const now = Date.now()
-                // console.log("Now Time:", now);
-                // const newDate = now.toLocaleString()
+                const now = Date.now()
+                const findIndex = tokens.findIndex((t) => t.newToken === token && new Date(t.expirationTime) > now)
+                // console.log("Token Index Data:", findIndex);
 
-                const findIndex = tokens.findIndex((t) => t.newToken === token)
-                console.log("Token Index Data:", findIndex);
+                // Checking if this link is already used then redirect user to home
                 if (findIndex != -1) {
-                    const isTokexExist = tokens.find((t) => t.newToken === token)
-                    const tokenToDelete = isTokexExist.id
-                    await axios.delete(`http://localhost:3000/tokens/${tokenToDelete}`);
-                    message.success("Validation Complete")
+                    const tokenKey = `token_${token}`
+                    // console.log("Token Key:", tokenKey);
+                    const tokenUsed = localStorage.getItem(tokenKey)
+
+                    if (tokenUsed) {
+                        message.info("Link Expired");
+                        navigate('/')
+                        return;
+                    } else {
+                        message.info("Link is Valid");
+                        localStorage.setItem(tokenKey, 'true')
+                    }
+
+                    // deleting user here so that he can not signup again using the same token
+                    // const isTokexExist = tokens.find((t) => t.newToken === token)
+                    // const tokenToDelete = isTokexExist.id
+                    // await axios.delete(`http://localhost:3000/tokens/${tokenToDelete}`);
+                    // message.success("Validation Complete")
+
                     return true;
                 }
                 // message.warning('Invalide Crdentials!')
@@ -76,7 +110,7 @@ const SignupForm = ({ prop, type }) => {
                 // Check if user is allowed to signup
                 const userAllowed = await axios.get(`http://localhost:3000/allowedUsers?email=${values.email}`);
                 if (!userAllowed.data.length) {
-                    message.warning("Email not allowed to register");
+                    message.warning("Not allowed to register");
                     return;
                 }
 
@@ -149,18 +183,6 @@ const SignupForm = ({ prop, type }) => {
                     >
                         <Input.Password placeholder='Password' prefix={<RiLockPasswordFill />} />
                     </Form.Item>
-                    {/* <Button onClick={() => setIsView(true)} >Choose Symbol</Button>
-            <Modal open={isView} onCancel={() => setIsView(false)} onOk={() => setIsView(false)} onFinish={() => onFinish} onFinishFailed={() => onFinishFailed} >
-                <Form.Item
-                    label="Choose Symbol"
-                    name="emoji"
-                    rules={[{ required: true, message: 'Please Choose Your Symbol!' }]}
-                >
-                    <EmojiPicker />
-                </Form.Item>
-            </Modal> */}
-
-
 
                     <Form.Item>
                         <Button className='bg-gray-900' type="primary" htmlType="submit">

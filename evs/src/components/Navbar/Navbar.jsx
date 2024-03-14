@@ -1,15 +1,47 @@
 import { NavLink } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { logoutUser } from "../../slices/userSlice/userSlice"
-import { Button, Modal } from 'antd'
+import { Button, Modal, Dropdown, Space } from 'antd'
 import { FaRegCircleUser } from "react-icons/fa6";
+import { DownOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
+import axios from 'axios'
 
 const Navbar = () => {
     const dispatch = useDispatch()
     const [change, setChange] = useState(false)
     const user = JSON.parse(localStorage.getItem('user'))
     // console.log("User", user);
+
+    const [isAdmin, setAdmin] = useState(false)
+
+    // check is user admin?
+    const checkAdmin = async () => {
+        const response = await axios.get('http://localhost:3000/admins')
+        const admins = response.data
+        // console.log('Admins:', admins);
+        const isUserAdmin = admins.find(admin => admin.email === user.email)
+        if (isUserAdmin) {
+            setAdmin(isUserAdmin)
+        }
+    }
+
+    if (user) {
+        checkAdmin()
+    }
+
+
+    const items = [
+        {
+            label: <NavLink to='/dashboard'>Dashboard</NavLink>,
+            key: '1',
+        },
+        {
+            label: <NavLink to='/campaignspage'>Manage Campaigns</NavLink>,
+            key: '2',
+        },
+    ];
+
     const handleLogout = () => {
         Modal.confirm({
             title: 'Confirm Logout',
@@ -60,12 +92,43 @@ const Navbar = () => {
                         <li>
                             <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Result</NavLink>
                         </li>
+
                     </ul>
                     <div className="space-x-5 hidden sm:block ">
                         {user ?
                             <div className="flex justify-around space-x-5 items-center ">
                                 <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
-                                <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleLogout}>
+                                {isAdmin &&
+
+                                    <div>
+                                        <Dropdown
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                            menu={{
+                                                items,
+                                            }}
+                                        >
+                                            <a onClick={(e) => e.preventDefault()}>
+                                                <Space>
+                                                    Admin
+                                                    <DownOutlined />
+                                                </Space>
+                                            </a>
+                                        </Dropdown>
+                                        <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                                <li>
+                                                    <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Dashboard</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Manage Campaings</NavLink>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                }
+
+                                <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" onClick={handleLogout}>
                                     Logout
                                 </Button>
                             </div>
@@ -167,11 +230,43 @@ const Navbar = () => {
                                             {/* UserName and Logout on small screen */}
                                             <div className="space-x-5  sm:hidden ">
                                                 {user ?
-                                                    <div className="flex justify-around space-x-5 items-center ">
-                                                        <div className="flex items-center space-x-1 hover:text-[#F09A3E] "  > <FaRegCircleUser /><b>{user.name}</b> </div>
-                                                        <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#F09A3E] bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none hover:bg-[#F09A3E]" onClick={handleLogout}>
-                                                            Logout
-                                                        </Button>
+                                                    <div>
+                                                        <div className=" flex-col justify-center space-y-5 items-center ">
+                                                            <div className="flex items-center justify-center space-x-1 hover:text-[#F09A3E] "  >
+                                                                <FaRegCircleUser /><b>{user.name}</b>
+                                                            </div>
+                                                            {isAdmin &&
+                                                                <div>
+                                                                    <Dropdown
+                                                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                        menu={{
+                                                                            items,
+                                                                        }}
+                                                                    >
+                                                                        <a onClick={(e) => e.preventDefault()}>
+                                                                            <Space>
+                                                                                Admin
+                                                                                <DownOutlined />
+                                                                            </Space>
+                                                                        </a>
+                                                                    </Dropdown>
+                                                                    <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                                                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                                                            <li>
+                                                                                <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Dashboard</NavLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <NavLink to="/result" className="hover:underline font-bold me-4 md:me-6 ">Manage Campaings</NavLink>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+
+                                                                </div>
+                                                            }
+                                                            <Button type="button" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none hover:bg-[#F09A3E]" onClick={handleLogout}>
+                                                                Logout
+                                                            </Button>
+                                                        </div>
                                                     </div>
                                                     :
                                                     <div className="flex justify-around items-center ">

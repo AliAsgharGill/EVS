@@ -129,7 +129,7 @@ const AdminDashboard = () => {
     const generateToken = async () => {
         setView('block')
         const newToken = uuidv4();
-        console.log("New Token", newToken);
+        // console.log("New Token", newToken);
         const expirationTime = moment().add(1, 'hour').toLocaleString();
 
         setToken(newToken);
@@ -141,11 +141,6 @@ const AdminDashboard = () => {
         // localStorage.setItem('expiresAt', expirationTime);
     };
 
-    const { loading, cleared, error } = useSelector((state) => state.tokens)
-
-    // console.log("Loading", loading);
-    // console.log("Cleared", cleared);
-    // console.log("Error", error);
 
     const clearTokens = async () => {
         try {
@@ -231,7 +226,6 @@ const AdminDashboard = () => {
                         <h2>Admin Dashboard</h2>
                     </div>
                     <div className='min-h-screen'>
-                        {/* <div className='flex justify-start space-x-3'> */}
                         <div className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center gap-5 my-16'>
                             <Button type="" onClick={showModal} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-lg md:text-2xl">
                                 Add Campaign
@@ -266,6 +260,7 @@ const AdminDashboard = () => {
                             <Doughnut data={data} />
                         </div>
                     </div>
+
                     {/* Add Campagin Modal */}
                     <Modal title="Add Campaign" form={form} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
                         <Form
@@ -341,7 +336,9 @@ const AdminDashboard = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
+
                     </Modal>
+
                     {/* Add Allowed Users for registeration */}
                     <Modal title="Add Allowed User" form={form} open={isOpen} onOk={handleOkUser} onCancel={handleCancelUser} footer={null} >
                         <Form
