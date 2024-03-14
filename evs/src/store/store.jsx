@@ -6,7 +6,7 @@ import adminSlice from '../slices/adminSlice/adminSlice';
 import userSlice from '../slices/userSlice/userSlice';
 import dyanmicCandidateSlice from '../slices/dyanmicCandidateSlice/dyanmicCandidateSlice';
 import allowedUser from '../slices/allowedUser/allowedUser';
-
+import tokensSlice from '../slices/clearArray/clearArray'
 const store = configureStore({
   reducer: {
     candidates: candidateReducer,
@@ -15,7 +15,8 @@ const store = configureStore({
     campaign: campaignSlice,
     admin: adminSlice,
     users: userSlice,
-    allowedUser: allowedUser
+    allowedUser: allowedUser,
+    tokens: tokensSlice
   },
 });
 

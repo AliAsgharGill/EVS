@@ -20,6 +20,7 @@ import { allowUserActions } from '../../slices/allowedUser/allowedUser';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import { MdCopyAll } from 'react-icons/md';
+import { deleteAllTokens } from '../../slices/clearArray/clearArray';
 
 
 ChartJS.register(
@@ -140,20 +141,23 @@ const AdminDashboard = () => {
         // localStorage.setItem('expiresAt', expirationTime);
     };
 
+    const { loading, cleared, error } = useSelector((state) => state.tokens)
+
+    // console.log("Loading", loading);
+    // console.log("Cleared", cleared);
+    // console.log("Error", error);
+
     const clearTokens = async () => {
         try {
-            await axios.delete('http://localhost:3000/tokens/');
-            // await axios.put('http://localhost:3000/tokens/', []);
-            message.info("Tokens Cleared");
+            dispatch(deleteAllTokens())
+            message.info("All Links Deleted");
         } catch (error) {
-            console.error('Error clearing tokens:', error);
-            message.error("Failed to clear tokens");
+            console.error('Error clearing Links:', error);
+            message.error("Failed to clear Links");
         }
     }
 
     const candidates = useSelector(state => state.dynamicCandidates.candidates)
-    // console.log(' Campaigns', campaigns);
-    // console.log(' Candidates', candidates);
 
     useEffect(() => {
         dispatch(fetchCampaigns())
@@ -245,7 +249,7 @@ const AdminDashboard = () => {
                                 Generate Link
                             </Button>
                             <Button type="" onClick={clearTokens} className=" hover-button inline-flex w-64 items-center justify-center h-12 px-6 font-bold p-10 tracking-wide text-white bg-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-2xl"   >
-                                Clear All Links
+                                Delete All Links
                             </Button>
                         </div>
                         {token && (

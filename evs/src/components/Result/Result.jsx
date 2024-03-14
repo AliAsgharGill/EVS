@@ -106,7 +106,6 @@ const Result = () => {
 
 
     const data = {
-        // labels: users.map(user => user.name),
         labels: candidates.map(candidate => candidate.candidateName),
 
         datasets: [
