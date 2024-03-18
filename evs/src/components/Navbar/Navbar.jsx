@@ -74,7 +74,7 @@ const Navbar = () => {
                         title="Voting System"
                         className="inline-flex items-center"
                     >
-                        <img src={'public/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
+                        <img src={'/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-bg-[#F09A3E] uppercase">
                             Voting System
                         </span>
@@ -181,7 +181,7 @@ const Navbar = () => {
                                                 title="Voting System"
                                                 className="inline-flex items-center"
                                             >
-                                                <img src={'public/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
+                                                <img src={'/Images/Logo/EvsLogo.jpg'} alt="Logo" className="w-16" />
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-bg-[#F09A3E] uppercase">
                                                     Voting System
                                                 </span>
