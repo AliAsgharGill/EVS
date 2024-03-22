@@ -11,8 +11,6 @@ const LoginForm = ({ prop, type }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-
   const onFinish = async (values) => {
 
     // checking is member exist
@@ -42,9 +40,6 @@ const LoginForm = ({ prop, type }) => {
       console.error('Error logging in:', error);
       message.error('An error occurred. Please try again.');
     }
-    // history('/')
-    console.log('Received values:', values);
-    // dispatch(signInUser(values))    
   };
 
   return (
