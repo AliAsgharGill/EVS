@@ -6,7 +6,7 @@
       "candidateName": "S22 Ultra",
       "candidateSymbol": "https://www.dpreview.com/files/p/articles/4617565053/samsung-galaxy-s22-ultra.jpeg",
       "campaignID": "3bec",
-      "votes": 3,
+      "votes": 4,
       "name": "S22"
     },
     {
@@ -28,7 +28,7 @@
       "candidateName": "JavaScript",
       "candidateSymbol": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7uwLyomLuj-z2wdukzRfaViu2o_urpD0h8eOGOdtcLQ&s",
       "campaignID": "c438",
-      "votes": 4,
+      "votes": 5,
       "name": "Ali Asghar",
       "email": "stylinalivlogs@gmail.com",
       "phone": "03026822324"
@@ -309,6 +309,12 @@
       "name": "Shoiab",
       "email": "shoaibmanzoorchutiya@pitb.gov",
       "password": "afklds"
+    },
+    {
+      "id": "5665",
+      "name": "Hamza Khan",
+      "email": "HamzaKhan@gmail.com",
+      "password": "HamzaKhan@gmail.com"
     }
   ],
   "allowedUsers": [
@@ -339,6 +345,10 @@
     {
       "id": "5c5e",
       "email": "shoaibmanzoorchutiya@pitb.gov"
+    },
+    {
+      "id": "1611",
+      "email": "HamzaKhan@gmail.com"
     }
   ],
   "candidates": [
@@ -396,7 +406,7 @@
       "id": "3",
       "name": "Leanne Graham ok",
       "symbol": "public/Images/symbols/na3.jpg",
-      "votes": 1,
+      "votes": 3,
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "address": {

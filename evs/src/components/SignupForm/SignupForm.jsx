@@ -3,10 +3,8 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import { RiLockPasswordFill, RiUserFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-// import { useHistory } from 'react-router-dom'
 import { setUser } from '../../slices/userSlice/userSlice';
 import { setAdmin } from '../../slices/adminSlice/adminSlice';
-// import { useState } from 'react';
 import axios from 'axios'
 
 const SignupForm = ({ prop, type }) => {
@@ -25,7 +23,6 @@ const SignupForm = ({ prop, type }) => {
 
         if (tokenUsed) {
             message.warning("Link Expired. Redirecting to home page...");
-
             navigate('/')
             return;
         } else {
@@ -62,12 +59,7 @@ const SignupForm = ({ prop, type }) => {
                         localStorage.setItem(tokenKey, 'true')
                     }
 
-                    // deleting user here so that he can not signup again using the same token
-                    // const isTokexExist = tokens.find((t) => t.newToken === token)
-                    // const tokenToDelete = isTokexExist.id
-                    // await axios.delete(`http://localhost:3000/tokens/${tokenToDelete}`);
-                    // message.success("Validation Complete")
-
+                    
                     return true;
                 }
                 // message.warning('Invalide Crdentials!')
@@ -199,6 +191,7 @@ const SignupForm = ({ prop, type }) => {
                     </Form.Item>
                 </Form >
             </div>
+
         </>
     );
 };

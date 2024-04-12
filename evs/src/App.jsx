@@ -42,7 +42,7 @@ const router = createBrowserRouter(
       <Route path="/signup/user" element={<SignupForm prop='w-1/3' type='users' path="/signup/user" />} />
       <Route path="/login/user" element={<LoginForm prop='w-1/3' type='users' path="/login/users" />} />
 
-      <Route path="/signup/admin" element={<SignupForm prop='w-1/3 bg-[#F09A3E]' path='path="/signup/admin"' type='admin' />} />
+        <Route path="/signup/admin" element={<SignupForm prop='w-1/3 bg-[#F09A3E]' path='path="/signup/admin"' type='admin' />} />
       <Route path="/login/admin" element={<LoginForm prop='w-1/3 bg-[#d7cabe]' path="/login/admin" type='admin' />} />
     </Route>
   )
